@@ -48,143 +48,143 @@ async function seed() {
         const dates = await prisma.dates.createMany({
             data: [
                 {
-                    date: "September 7, 2021",
+                    date: "2021-09-07",
                     about: "No lessons"
                 },
                 {
-                    date: "November 11, 2021",
+                    date: "2021-11-11",
                     about: "No lessons"
                 },
                 {
-                    date: "November 24, 2021",
+                    date: "2021-11-24",
                     about: "No lessons"
                 },
                 {
-                    date: "November 25, 2021",
+                    date: "2021-11-25",
                     about: "No lessons"
                 },
                 {
-                    date: "November 26, 2021",
+                    date: "2021-11-26",
                     about: "No lessons"
                 },
                 {
-                    date: "November 27, 2021",
+                    date: "2021-11-27",
                     about: "No lessons"
                 },
                 {
-                    date: "October 30, 2021",
+                    date: "2021-10-30",
                     about: "No lessons"
                 },
                 {
-                    date: "December 18, 2021",
+                    date: "2021-12-18",
                     about: "No lessons"
                 },
                 {
-                    date: "December 19, 2021",
+                    date: "2021-12-19",
                     about: "No lessons"
                 },
                 {
-                    date: "December 20, 2021",
+                    date: "2021-12-20",
                     about: "No lessons"
                 },
                 {
-                    date: "December 21, 2021",
+                    date: "2021-12-21",
                     about: "No lessons"
                 },
                 {
-                    date: "December 22, 2021",
+                    date: "2021-12-22",
                     about: "No lessons"
                 },
                 {
-                    date: "December 23, 2021",
+                    date: "2021-12-23",
                     about: "No lessons"
                 },
                 {
-                    date: "December 24, 2021",
+                    date: "2021-12-24",
                     about: "No lessons"
                 },
                 {
-                    date: "December 25, 2021",
+                    date: "2021-12-25",
                     about: "No lessons"
                 },
                 {
-                    date: "December 26, 2021",
+                    date: "2021-12-26",
                     about: "No lessons"
                 },
                 {
-                    date: "December 27, 2021",
+                    date: "2021-12-27",
                     about: "No lessons"
                 },
                 {
-                    date: "December 28, 2021",
+                    date: "2021-12-28",
                     about: "No lessons"
                 },
                 {
-                    date: "December 29, 2021",
+                    date: "2021-12-29",
                     about: "No lessons"
                 },
                 {
-                    date: "December 30, 2021",
+                    date: "2021-12-30",
                     about: "No lessons"
                 },
                 {
-                    date: "December 31, 2021",
+                    date: "2021-12-31",
                     about: "No lessons"
                 },
                 {
-                    date: "January 1, 2022",
+                    date: "2022-01-01",
                     about: "No lessons"
                 },
                 {
-                    date: "January 18, 2022",
+                    date: "2022-01-18",
                     about: "No lessons"
                 },
                 {
-                    date: "March 29, 2022",
+                    date: "2022-03-29",
                     about: "No lessons"
                 },
                 {
-                    date: "March 30, 2022",
+                    date: "2022-03-30",
                     about: "No lessons"
                 },
                 {
-                    date: "March 31, 2022",
+                    date: "2022-03-31",
                     about: "No lessons"
                 },
                 {
-                    date: "April 1, 2022",
+                    date: "2022-04-01",
                     about: "No lessons"
                 },
                 {
-                    date: "April 2, 2022",
+                    date: "2022-04-02",
                     about: "No lessons"
                 },
                 {
-                    date: "May 25, 2022",
+                    date: "2022-05-25",
                     about: "No lessons"
                 },
                 {
-                    date: "May 26, 2022",
+                    date: "2022-05-26",
                     about: "No lessons"
                 },
                 {
-                    date: "May 27, 2022",
+                    date: "2022-05-27",
                     about: "No lessons"
                 },
                 {
-                    date: "May 28, 2022",
+                    date: "2022-05-28",
                     about: "No lessons"
                 },
                 {
-                    date: "May 29, 2022",
+                    date: "2022-05-29",
                     about: "No lessons"
                 },
                 {
-                    date: "May 30, 2022",
+                    date: "2022-05-30",
                     about: "No lessons"
                 },
                 {
-                    date: "May 31, 2022",
+                    date: "2022-05-31",
                     about: "No lessons"
                 },
             ]
@@ -220,3 +220,11 @@ async function seed() {
         console.error(error);
     }
 }
+
+seed().then(async () => {
+    await prisma.$disconnect();
+}).catch(async (e) => {
+    console.error(e);
+    await prisma.$disconnect();
+    process.exit(1);
+})
