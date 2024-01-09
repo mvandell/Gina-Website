@@ -24,7 +24,6 @@ model Policy {
   instrument String
   rate30 Int
   rate45 Int
-  recitals String
   school String
   summer String
   cm String
@@ -36,9 +35,9 @@ model Dates {
   about String
 }
 
-model CM {
+model Merit {
   id Int @id @default(autoincrement())
-  goals String
-  evals String
-  awards String
+  goals String?
+  evals String?
+  awards String?
 }
