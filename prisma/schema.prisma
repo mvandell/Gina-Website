@@ -31,7 +31,9 @@ model Policy {
 
 model Dates {
   id Int @id @default(autoincrement())
-  date DateTime @db.Date
+  year Int
+  month Int
+  day Int
   about String
 }
 

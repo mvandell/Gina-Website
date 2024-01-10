@@ -48,143 +48,213 @@ async function seed() {
         const dates = await prisma.dates.createMany({
             data: [
                 {
-                    date: "2021-09-07",
+                    year: 2021,
+                    month: 9,
+                    day: 7,
                     about: "No lessons"
                 },
                 {
-                    date: "2021-11-11",
+                    year: 2021,
+                    month: 10,
+                    day: 30,
                     about: "No lessons"
                 },
                 {
-                    date: "2021-11-24",
+                    year: 2021,
+                    month: 11,
+                    day: 11,
                     about: "No lessons"
                 },
                 {
-                    date: "2021-11-25",
+                    year: 2021,
+                    month: 11,
+                    day: 24,
                     about: "No lessons"
                 },
                 {
-                    date: "2021-11-26",
+                    year: 2021,
+                    month: 11,
+                    day: 25,
                     about: "No lessons"
                 },
                 {
-                    date: "2021-11-27",
+                    year: 2021,
+                    month: 11,
+                    day: 26,
                     about: "No lessons"
                 },
                 {
-                    date: "2021-10-30",
+                    year: 2021,
+                    month: 11,
+                    day: 27,
                     about: "No lessons"
                 },
                 {
-                    date: "2021-12-18",
+                    year: 2021,
+                    month: 12,
+                    day: 18,
                     about: "No lessons"
                 },
                 {
-                    date: "2021-12-19",
+                    year: 2021,
+                    month: 12,
+                    day: 19,
                     about: "No lessons"
                 },
                 {
-                    date: "2021-12-20",
+                    year: 2021,
+                    month: 12,
+                    day: 20,
                     about: "No lessons"
                 },
                 {
-                    date: "2021-12-21",
+                    year: 2021,
+                    month: 12,
+                    day: 21,
                     about: "No lessons"
                 },
                 {
-                    date: "2021-12-22",
+                    year: 2021,
+                    month: 12,
+                    day: 22,
                     about: "No lessons"
                 },
                 {
-                    date: "2021-12-23",
+                    year: 2021,
+                    month: 12,
+                    day: 23,
                     about: "No lessons"
                 },
                 {
-                    date: "2021-12-24",
+                    year: 2021,
+                    month: 12,
+                    day: 24,
                     about: "No lessons"
                 },
                 {
-                    date: "2021-12-25",
+                    year: 2021,
+                    month: 12,
+                    day: 25,
                     about: "No lessons"
                 },
                 {
-                    date: "2021-12-26",
+                    year: 2021,
+                    month: 12,
+                    day: 26,
                     about: "No lessons"
                 },
                 {
-                    date: "2021-12-27",
+                    year: 2021,
+                    month: 12,
+                    day: 27,
                     about: "No lessons"
                 },
                 {
-                    date: "2021-12-28",
+                    year: 2021,
+                    month: 12,
+                    day: 28,
                     about: "No lessons"
                 },
                 {
-                    date: "2021-12-29",
+                    year: 2021,
+                    month: 12,
+                    day: 29,
                     about: "No lessons"
                 },
                 {
-                    date: "2021-12-30",
+                    year: 2021,
+                    month: 12,
+                    day: 30,
                     about: "No lessons"
                 },
                 {
-                    date: "2021-12-31",
+                    year: 2021,
+                    month: 12,
+                    day: 31,
                     about: "No lessons"
                 },
                 {
-                    date: "2022-01-01",
+                    year: 2022,
+                    month: 1,
+                    day: 1,
                     about: "No lessons"
                 },
                 {
-                    date: "2022-01-18",
+                    year: 2022,
+                    month: 1,
+                    day: 18,
                     about: "No lessons"
                 },
                 {
-                    date: "2022-03-29",
+                    year: 2022,
+                    month: 3,
+                    day: 29,
                     about: "No lessons"
                 },
                 {
-                    date: "2022-03-30",
+                    year: 2022,
+                    month: 3,
+                    day: 30,
                     about: "No lessons"
                 },
                 {
-                    date: "2022-03-31",
+                    year: 2022,
+                    month: 3,
+                    day: 31,
                     about: "No lessons"
                 },
                 {
-                    date: "2022-04-01",
+                    year: 2022,
+                    month: 4,
+                    day: 1,
                     about: "No lessons"
                 },
                 {
-                    date: "2022-04-02",
+                    year: 2022,
+                    month: 4,
+                    day: 2,
                     about: "No lessons"
                 },
                 {
-                    date: "2022-05-25",
+                    year: 2022,
+                    month: 5,
+                    day: 25,
                     about: "No lessons"
                 },
                 {
-                    date: "2022-05-26",
+                    year: 2022,
+                    month: 5,
+                    day: 26,
                     about: "No lessons"
                 },
                 {
-                    date: "2022-05-27",
+                    year: 2022,
+                    month: 5,
+                    day: 27,
                     about: "No lessons"
                 },
                 {
-                    date: "2022-05-28",
+                    year: 2022,
+                    month: 5,
+                    day: 28,
                     about: "No lessons"
                 },
                 {
-                    date: "2022-05-29",
+                    year: 2022,
+                    month: 5,
+                    day: 29,
                     about: "No lessons"
                 },
                 {
-                    date: "2022-05-30",
+                    year: 2022,
+                    month: 5,
+                    day: 30,
                     about: "No lessons"
                 },
                 {
-                    date: "2022-05-31",
+                    year: 2022,
+                    month: 5,
+                    day: 31,
                     about: "No lessons"
                 },
             ]
