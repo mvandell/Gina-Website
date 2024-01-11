@@ -21,7 +21,7 @@ model Admin {
 
 model Policy {
   id Int @id @default(autoincrement())
-  instrument String
+  instrument String @unique
   rate30 Int
   rate45 Int
   school String
