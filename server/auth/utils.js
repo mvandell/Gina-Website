@@ -1,4 +1,4 @@
-import prisma from "../db/client";
+const {prisma} = require("../db/client");
 const jwt = require("jsonwebtoken");
 const {JWT_SECRET} = process.env;
 

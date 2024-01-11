@@ -1,5 +1,5 @@
 // TODO: add auth here
-import prisma from '../db/client';
+const {prisma} = require("../db/client");
 const express = require('express');
 const authRouter = express.Router();
 const {requireAdmin} = require('./utils');
@@ -10,7 +10,7 @@ const {JWT_SECRET} = process.env;
 const bcrypt = require("bcrypt");
 const SALT_COUNT = 10;
 
-//POST login
+//POST /auth/login
 authRouter.post("/login", async (req, res, next) => {
     try {
         const {username, password} = req.body;
@@ -41,7 +41,7 @@ authRouter.post("/login", async (req, res, next) => {
     }
 });
 
-//POST dates
+//POST /auth/dates
 authRouter.post("/dates", requireAdmin, async (req, res, next) => {
     try {
         const {year, month, day, about} = req.body;
@@ -59,7 +59,7 @@ authRouter.post("/dates", requireAdmin, async (req, res, next) => {
     }
 });
 
-//PATCH admin
+//PATCH /auth/account/:id/edit
 authRouter.patch("/account/:id/edit", requireAdmin, async (req, res, next) => {
     try {
         const {username, password, email, phone} = req.body;
@@ -84,7 +84,7 @@ authRouter.patch("/account/:id/edit", requireAdmin, async (req, res, next) => {
     }
 });
 
-//PATCH bio
+//PATCH /auth/bio/edit
 authRouter.patch("/bio/edit", requireAdmin, async (req, res, next) => {
     try {
         const {about} = req.body;
@@ -98,7 +98,7 @@ authRouter.patch("/bio/edit", requireAdmin, async (req, res, next) => {
     }
 });
 
-//PATCH piano policy
+//PATCH /auth/policy/piano/edit
 authRouter.patch("/policy/piano/edit", requireAdmin, async (req, res, next) => {
     try {
         const {rate30, rate45, school, summer, cm} = req.body;
@@ -118,7 +118,7 @@ authRouter.patch("/policy/piano/edit", requireAdmin, async (req, res, next) => {
     }
 });
 
-//PATCH voice policy
+//PATCH /auth/policy/voice/edit
 authRouter.patch("/policy/voice/edit", requireAdmin, async (req, res, next) => {
     try {
         const {rate30, rate45, school, summer, cm} = req.body;
@@ -138,7 +138,7 @@ authRouter.patch("/policy/voice/edit", requireAdmin, async (req, res, next) => {
     }
 });
 
-//PATCH dates
+//PATCH /auth/dates/edit/:id
 authRouter.patch("/dates/edit/:id", requireAdmin, async (req, res, next) => {
     try {
         const {year, month, day, about} = req.body;
@@ -158,7 +158,7 @@ authRouter.patch("/dates/edit/:id", requireAdmin, async (req, res, next) => {
 });
 
 
-//DELETE dates
+//DELETE /auth/dates/:id
 authRouter.delete("/dates/:id", requireAdmin, async (req, res, next) => {
     try {
        const deletedDate = await prisma.dates.delete({
@@ -172,3 +172,5 @@ authRouter.delete("/dates/:id", requireAdmin, async (req, res, next) => {
         next(error)
     }
 });
+
+module.exports = authRouter;

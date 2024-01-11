@@ -12,11 +12,12 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static(path.join(__dirname, '../dist')))
+//app.use(express.static(path.join(__dirname, '../dist')))
 
 //Authorization middleware (in ./auth/utils)
 app.use(authMiddleware);
 
+//Test route
 app.get("/test", (req, res, next) => {
   res.send("Test route");
 });
@@ -44,12 +45,12 @@ app.use((error, req, res, next) => {
 });
 
 // 404 handler
-app.get('*', (req, res) => {
-    res.status(404).send({
-        error: '404 - Not Found',
-        message: 'No route found for the requested URL',
-    });
-});
+// app.get('*', (req, res) => {
+//     res.status(404).send({
+//         error: '404 - Not Found',
+//         message: 'No route found for the requested URL',
+//     });
+// });
   
 
 module.exports = app;

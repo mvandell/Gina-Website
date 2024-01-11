@@ -1,9 +1,9 @@
 // TODO: add API router here and all API sub-routers
-import prisma from '../db/client';
+const {prisma} = require("../db/client");
 const express = require('express');
 const apiRouter = express.Router();
 
-//GET bio
+//GET /api/bio
 apiRouter.get("/bio", async (req, res, next) => {
     try {
         const bio = await prisma.admin.findMany();
@@ -13,7 +13,7 @@ apiRouter.get("/bio", async (req, res, next) => {
     }
 });
 
-//GET piano policy
+//GET /api/policy/piano
 apiRouter.get("/policy/piano", async (req, res, next) => {
     try {
         const piano = await prisma.policy.findUnique({
@@ -27,7 +27,7 @@ apiRouter.get("/policy/piano", async (req, res, next) => {
     }
 });
 
-//GET voice policy
+//GET /api/policy/voice
 apiRouter.get("/policy/voice", async (req, res, next) => {
     try {
         const voice = await prisma.policy.findUnique({
@@ -41,7 +41,7 @@ apiRouter.get("/policy/voice", async (req, res, next) => {
     }
 });
 
-//GET dates
+//GET /api/dates
 apiRouter.get("/dates", async (req, res, next) => {
     try {
         const dates = await prisma.dates.findMany();
@@ -51,4 +51,4 @@ apiRouter.get("/dates", async (req, res, next) => {
     }
 })
 
-modeule.exports = apiRouter;
+module.exports = apiRouter;
