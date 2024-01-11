@@ -1,6 +1,8 @@
 const path = require("path");
 const express = require("express");
 const morgan = require("morgan");
+const {authMiddleware} = require("./auth/utils");
+
 const app = express();
 
 // Logging middleware
@@ -11,6 +13,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, '../dist')))
+
+//Authorization middleware (in ./auth/utils)
+app.use(authMiddleware);
 
 app.get("/test", (req, res, next) => {
   res.send("Test route");
