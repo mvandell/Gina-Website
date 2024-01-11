@@ -1,5 +1,4 @@
 // TODO: add auth here
-const {prisma} = require("../db/client");
 const express = require('express');
 const authRouter = express.Router();
 const {requireAdmin} = require('./utils');
@@ -9,6 +8,9 @@ const {JWT_SECRET} = process.env;
 
 const bcrypt = require("bcrypt");
 const SALT_COUNT = 10;
+
+const { PrismaClient } = require("@prisma/client");
+const prisma = new PrismaClient();
 
 //POST /auth/login
 authRouter.post("/login", async (req, res, next) => {

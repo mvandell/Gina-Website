@@ -1,7 +1,9 @@
 // TODO: add API router here and all API sub-routers
-const {prisma} = require("../db/client");
 const express = require('express');
 const apiRouter = express.Router();
+
+const { PrismaClient } = require("@prisma/client");
+const prisma = new PrismaClient();
 
 //GET /api/bio
 apiRouter.get("/bio", async (req, res, next) => {
