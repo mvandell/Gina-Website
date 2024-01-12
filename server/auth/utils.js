@@ -15,7 +15,7 @@ const authMiddleware = async (req, res, next) => {
             const {id} = jwt.verify(token, JWT_SECRET);
 
             if (id) {
-                req.user = await prisma.admin.findUnique({
+                req.user = await prisma.user.findUnique({
                     where: {id}
                 });
                 next();
@@ -36,8 +36,8 @@ const authMiddleware = async (req, res, next) => {
     }
 };
 
-//No Admin Error
-const requireAdmin = (req, res, next) => {
+//No User Error
+const requireUser = (req, res, next) => {
     if (!req.user) {
         res.status(401).send("Sorry, you don't have permission to do that.")
     }
@@ -45,6 +45,6 @@ const requireAdmin = (req, res, next) => {
 };
 
 module.exports = {
-    requireAdmin,
+    requireUser,
     authMiddleware
 }

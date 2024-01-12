@@ -1,7 +1,7 @@
 // TODO: add auth here
 const express = require('express');
 const authRouter = express.Router();
-const {requireAdmin} = require('./utils');
+const {requireUser} = require('./utils');
 
 const jwt = require("jsonwebtoken");
 const {JWT_SECRET} = process.env;
@@ -16,7 +16,7 @@ const prisma = new PrismaClient();
 authRouter.post("/login", async (req, res, next) => {
     try {
         const {username, password} = req.body;
-        const admin = await prisma.admin.findUnique({
+        const user = await prisma.user.findUnique({
             where: {
                 username: username
             },
@@ -27,15 +27,15 @@ authRouter.post("/login", async (req, res, next) => {
             user?.password ?? ""
         );
 
-        //Check admin and password
-        if (!admin) {
-            return res.status(401).send("There is no admin with that username.");
+        //Check user and password
+        if (!user) {
+            return res.status(401).send("There is no user with that username.");
         } else if (!validPassword) {
             return res.status(401).send("Incorrect password.");
         }
 
         //Create token
-        const token = jwt.sign({id: admin.id}, process.env.JWT_SECRET);
+        const token = jwt.sign({id: user.id}, process.env.JWT_SECRET);
         res.send({token});
         console.log("Login successful!");
     } catch (error) {
@@ -44,7 +44,7 @@ authRouter.post("/login", async (req, res, next) => {
 });
 
 //POST /auth/dates
-authRouter.post("/dates", requireAdmin, async (req, res, next) => {
+authRouter.post("/dates", requireUser, async (req, res, next) => {
     try {
         const {year, month, day, about} = req.body;
         const newDate = await prisma.dates.create({
@@ -62,7 +62,7 @@ authRouter.post("/dates", requireAdmin, async (req, res, next) => {
 });
 
 //PATCH /auth/account/:id/edit
-authRouter.patch("/account/:id/edit", requireAdmin, async (req, res, next) => {
+authRouter.patch("/account/:id/edit", requireUser, async (req, res, next) => {
     try {
         const {username, password, email, phone} = req.body;
         let hashedPassword = "";
@@ -70,7 +70,7 @@ authRouter.patch("/account/:id/edit", requireAdmin, async (req, res, next) => {
             hashedPassword = await bcrypt.hash(password, SALT_COUNT);
         }
 
-        const updatedAdmin = await prisma.admin.update({
+        const updatedUser = await prisma.user.update({
             where: {id: req.user.id},
             data: {
                 username: username || undefined,
@@ -79,18 +79,18 @@ authRouter.patch("/account/:id/edit", requireAdmin, async (req, res, next) => {
                 phone: phone || undefined
             }
         });
-        delete updatedAdmin.password;
-        res.send("Admin successfully updated");
+        delete updatedUser.password;
+        res.send("user successfully updated");
     } catch (error) {
         next(error)
     }
 });
 
 //PATCH /auth/bio/edit
-authRouter.patch("/bio/edit", requireAdmin, async (req, res, next) => {
+authRouter.patch("/bio/edit", requireUser, async (req, res, next) => {
     try {
         const {about} = req.body;
-        const updatedBio = await prisma.admin.update({
+        const updatedBio = await prisma.user.update({
             where: {id: req.user.id},
             data: {about: about}
         });
@@ -101,7 +101,7 @@ authRouter.patch("/bio/edit", requireAdmin, async (req, res, next) => {
 });
 
 //PATCH /auth/policy/piano/edit
-authRouter.patch("/policy/piano/edit", requireAdmin, async (req, res, next) => {
+authRouter.patch("/policy/piano/edit", requireUser, async (req, res, next) => {
     try {
         const {rate30, rate45, school, summer, cm} = req.body;
         const updatedPiano = await prisma.policy.update({
@@ -121,7 +121,7 @@ authRouter.patch("/policy/piano/edit", requireAdmin, async (req, res, next) => {
 });
 
 //PATCH /auth/policy/voice/edit
-authRouter.patch("/policy/voice/edit", requireAdmin, async (req, res, next) => {
+authRouter.patch("/policy/voice/edit", requireUser, async (req, res, next) => {
     try {
         const {rate30, rate45, school, summer, cm} = req.body;
         const updatedVoice = await prisma.policy.update({
@@ -141,7 +141,7 @@ authRouter.patch("/policy/voice/edit", requireAdmin, async (req, res, next) => {
 });
 
 //PATCH /auth/dates/edit/:id
-authRouter.patch("/dates/edit/:id", requireAdmin, async (req, res, next) => {
+authRouter.patch("/dates/edit/:id", requireUser, async (req, res, next) => {
     try {
         const {year, month, day, about} = req.body;
         const updatedDate = await prisma.dates.update({
@@ -161,7 +161,7 @@ authRouter.patch("/dates/edit/:id", requireAdmin, async (req, res, next) => {
 
 
 //DELETE /auth/dates/:id
-authRouter.delete("/dates/:id", requireAdmin, async (req, res, next) => {
+authRouter.delete("/dates/:id", requireUser, async (req, res, next) => {
     try {
        const deletedDate = await prisma.dates.delete({
         where: {id: Number(req.params.id)},

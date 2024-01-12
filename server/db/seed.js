@@ -5,14 +5,14 @@ const SALT_COUNT = 10;
 
 async function seed() {
     console.log("Seeding the database.");
-    await prisma.admin.deleteMany();
+    await prisma.user.deleteMany();
     await prisma.policy.deleteMany();
     await prisma.dates.deleteMany();
     await prisma.merit.deleteMany();
 
     try {
-        //Admin
-        const gina = await prisma.admin.create({
+        //User
+        const gina = await prisma.user.create({
             data: {
                 username: "gvandellos",
                 password: bcrypt.hashSync("B@thSo@kT1me", SALT_COUNT),

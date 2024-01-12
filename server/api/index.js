@@ -8,7 +8,7 @@ const prisma = new PrismaClient();
 //GET /api/bio
 apiRouter.get("/bio", async (req, res, next) => {
     try {
-        const bio = await prisma.admin.findMany();
+        const bio = await prisma.user.findMany();
         res.send(bio);
     } catch (error) {
         next(error);
@@ -46,7 +46,7 @@ apiRouter.get("/policy/voice", async (req, res, next) => {
 //GET /api/dates
 apiRouter.get("/dates", async (req, res, next) => {
     try {
-        const dates = await prisma.dates.findMany();
+        const dates = await prisma.dates.findMany(); //might need to change this later
         res.send(dates);
     } catch (error) {
         next(error)
