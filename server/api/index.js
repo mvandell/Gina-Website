@@ -6,6 +6,7 @@ const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
 //GET /api/bio
+//get user
 apiRouter.get("/bio", async (req, res, next) => {
     try {
         const bio = await prisma.user.findMany();

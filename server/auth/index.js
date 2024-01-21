@@ -65,9 +65,10 @@ authRouter.post("/dates", requireUser, async (req, res, next) => {
 authRouter.patch("/account/:id/edit", requireUser, async (req, res, next) => {
     try {
         const {username, password, email, phone} = req.body;
-        let hashedPassword = "";
-        if (password !== null) {
+        let hashedPassword;
+        if (password) {
             hashedPassword = await bcrypt.hash(password, SALT_COUNT);
+            return hashedPassword;
         }
 
         const updatedUser = await prisma.user.update({
