@@ -170,6 +170,7 @@ authRouter.delete("/dates/:id", requireUser, async (req, res, next) => {
        if (!deletedDate) {
         return res.status(404).send("Date not found!");
        }
+       console.log("deleted date");
        res.send(deletedDate);
     } catch (error) {
         next(error)
