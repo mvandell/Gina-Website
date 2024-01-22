@@ -87,8 +87,8 @@ authRouter.patch("/account/:id/edit", requireUser, async (req, res, next) => {
     }
 });
 
-//PATCH /auth/bio/edit
-authRouter.patch("/bio/edit", requireUser, async (req, res, next) => {
+//PATCH /auth/bio/:id/edit
+authRouter.patch("/bio/:id/edit", requireUser, async (req, res, next) => {
     try {
         const {about} = req.body;
         const updatedBio = await prisma.user.update({
