@@ -108,7 +108,52 @@ const api = createApi({
             }),
             invalidatesTags: ["Me"]
         }),
-        
-
-    })
+        //PATCH PIANO POLICY
+        patchPiano: builder.mutation({
+            query: ({rate30, rate45, school, summer, cm}) => ({
+                url: "/auth/policy/piano/edit",
+                method: "PATCH",
+                body: {rate30, rate45, school, summer, cm}
+            }),
+            invalidatesTags: ["Policy"]
+        }),
+        //PATCH VOICE POLICY
+        patchVoice: builder.mutation({
+            query: ({rate30, rate45, school, summer, cm}) => ({
+                url: "/auth/policy/voice/edit",
+                method: "PATCH",
+                body: {rate30, rate45, school, summer, cm}
+            }),
+            invalidatesTags: ["Policy"]
+        }),
+        //PATCH DATE
+        patchDate: builder.mutation({
+            query: ({id, year, month, day, about}) => ({
+                url: `/auth/dates/edit/${id}`,
+                method: "PATCH",
+                body: {year, month, day, about}
+            }),
+        }),
+    }),
 })
+
+export default api;
+
+export const {
+    //QUERIES
+    useGetUserQuery,
+    useGetPianoPolicyQuery,
+    useGetVoicePolicyQuery,
+    useGetDatesQuery,
+    //MUTATIONS
+    useLoginMutation,
+    useLogoutMutation,
+    usePostDateMutation,
+    useDeleteDateMutation,
+    //PATCH
+    usePatchUserMutation,
+    usePatchBioMutation,
+    usePatchPianoMutation,
+    usePatchVoiceMutation,
+    usePatchDateMutation
+} = api
