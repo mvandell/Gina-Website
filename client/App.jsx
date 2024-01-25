@@ -1,12 +1,12 @@
 import { Route, Routes } from "react-router-dom";
+import NavBar from "./components/NavBar/NavBar";
 
 const App = () => {
 
   return (
     <div className='gradient_background'>
       <div className="App">
-        Hello world!
-        {/* <NavBar /> */}
+        <NavBar />
         <Routes>
           {/* <Route path="/" element={} />
           <Route path="/about" element={} />
