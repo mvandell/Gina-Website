@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar/NavBar";
+import Contact from "./components/Contact/Contact";
 
 const App = () => {
 
@@ -7,9 +8,10 @@ const App = () => {
     <div className='gradient_background'>
       <div className="App">
         <NavBar />
+        
         <Routes>
-          {/* <Route path="/" element={} />
-          <Route path="/about" element={} />
+           <Route path="/" element={<Contact />} />
+          {/*<Route path="/about" element={} />
           <Route path="/calendar" element={} />
           <Route path="/cm" element={} />
           <Route path="/contact" element={} />
