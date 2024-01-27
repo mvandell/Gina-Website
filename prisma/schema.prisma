@@ -16,17 +16,18 @@ model User {
   password String
   email String
   phone String
-  about String
+}
+
+model About {
+  id Int @id @default(autoincrement())
+  paragraph String @unique
 }
 
 model Policy {
   id Int @id @default(autoincrement())
-  instrument String @unique
-  rate30 Int
-  rate45 Int
-  school String
-  summer String
-  cm String
+  instrument String
+  heading String? @default("")
+  content String @default("")
 }
 
 model Dates {
