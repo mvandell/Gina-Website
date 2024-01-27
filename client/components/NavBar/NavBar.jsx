@@ -19,7 +19,7 @@ const NavBar = () => {
                     About Me
                 </Button>
                 <Button variant="text" sx={{color: "#303036"}}>
-                    Policy
+                    Policy {/* Dropdown for piano or voice */}
                 </Button>
                 <Button variant="text" sx={{color: "#303036"}}>
                     Certificate of Merit
