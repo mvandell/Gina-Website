@@ -5,40 +5,31 @@ const apiRouter = express.Router();
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
-//GET /api/bio
-//get user
-apiRouter.get("/bio", async (req, res, next) => {
+//GET /api/user
+apiRouter.get("/user", async (req, res, next) => {
     try {
-        const bio = await prisma.user.findMany();
-        res.send(bio);
-    } catch (error) {
-        next(error);
-    }
-});
-
-//GET /api/policy/piano
-apiRouter.get("/policy/piano", async (req, res, next) => {
-    try {
-        const piano = await prisma.policy.findUnique({
-            where: {
-                instrument: "piano"
-            }
-        });
-        res.send(piano);
+        const user = await prisma.user.findMany();
+        res.send(user);
     } catch (error) {
         next(error)
     }
 });
 
-//GET /api/policy/voice
-apiRouter.get("/policy/voice", async (req, res, next) => {
+//GET /api/about
+apiRouter.get("/about", async (req, res, next) => {
     try {
-        const voice = await prisma.policy.findUnique({
-            where: {
-                instrument: "voice"
-            }
-        });
-        res.send(voice);
+        const about = await prisma.about.findMany();
+        res.send(about);
+    } catch (error) {
+        next(error);
+    }
+});
+
+//GET /api/policy
+apiRouter.get("/policy", async (req, res, next) => {
+    try {
+        const policy = await prisma.policy.findMany();
+        res.send(policy);
     } catch (error) {
         next(error)
     }

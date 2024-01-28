@@ -1,4 +1,4 @@
-import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const backendURL = "/";
 
@@ -7,7 +7,7 @@ const api = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: backendURL,
 
-        prepareHeaders: (headers, {getState}) => {
+        prepareHeaders: (headers, { getState }) => {
             const token = getState().auth.token
             if (token) {
                 headers.set("Authorization", `Bearer ${token}`)
@@ -16,32 +16,32 @@ const api = createApi({
         },
     }),
 
-    tagTypes: ["Me", "Dates", "Policy", "Merit"],
+    tagTypes: ["Me", "Dates", "Policy", "Merit", "About"],
     //unique
 
     endpoints: (builder) => ({
 
         //<------------------------QUERIES---------------------------->
-        //GET USER/BIO
+        //GET USER
         getUser: builder.query({
             query: () => ({
-                url: "/api/bio",
+                url: "/api/user",
                 method: "GET",
             }),
             providesTags: ["Me"]
         }),
-        //GET PIANO POLICY
-        getPianoPolicy: builder.query({
+        //GET BIO
+        getBio: builder.query({
             query: () => ({
-                url: "/api/policy/piano",
+                url: "/api/about",
                 method: "GET",
             }),
-            providesTags: ["Policy"]
+            providesTags: ["About"]
         }),
-        //GET VOICE POLICY
-        getVoicePolicy: builder.query({
+        //GET POLICY
+        getPolicy: builder.query({
             query: () => ({
-                url: "/api/policy/voice",
+                url: "/api/policy",
                 method: "GET",
             }),
             providesTags: ["Policy"]
@@ -54,7 +54,7 @@ const api = createApi({
             }),
             providesTags: ["Dates"]
         }),
-        
+
         //<-----------------------MUTATIONS------------------------------>
         //LOGIN
         login: builder.mutation({
@@ -81,6 +81,15 @@ const api = createApi({
             }),
             invalidatesTags: ["Dates"]
         }),
+        //ADD ABOUT PARAGRAPH
+        postBio: builder.mutation({
+            query: (paragraph) => ({
+                url: "/auth/about/add",
+                method: "POST",
+                body: paragraph,
+            }),
+            invalidatesTags: ["About"]
+        }),
         //DELETE DATE
         deleteDate: builder.mutation({
             query: (id) => ({
@@ -92,46 +101,37 @@ const api = createApi({
         //<--------------PATCH-------------->
         //PATCH USER
         patchUser: builder.mutation({
-            query: ({id, username, password, email, phone}) => ({
+            query: ({ id, username, password, email, phone }) => ({
                 url: `/auth/account/${id}/edit`,
                 method: "PATCH",
-                body: {username, password, email, phone},
+                body: { username, password, email, phone },
             }),
             invalidatesTags: ["Me"]
         }),
         //PATCH BIO
         patchBio: builder.mutation({
-            query: ({id, about}) => ({
-                url: `/auth/bio/${id}/edit`,
+            query: ({ id, paragraph }) => ({
+                url: `/auth/about/${id}/edit`,
                 method: "PATCH",
-                body: {about},
+                body: { paragraph },
             }),
             invalidatesTags: ["Me"]
         }),
-        //PATCH PIANO POLICY
-        patchPiano: builder.mutation({
-            query: ({rate30, rate45, school, summer, cm}) => ({
-                url: "/auth/policy/piano/edit",
+        //PATCH POLICY
+        patchPolicy: builder.mutation({
+            query: ({ id, instrument, heading, content }) => ({
+                url: `/auth/policy/${id}/edit`,
                 method: "PATCH",
-                body: {rate30, rate45, school, summer, cm}
-            }),
-            invalidatesTags: ["Policy"]
-        }),
-        //PATCH VOICE POLICY
-        patchVoice: builder.mutation({
-            query: ({rate30, rate45, school, summer, cm}) => ({
-                url: "/auth/policy/voice/edit",
-                method: "PATCH",
-                body: {rate30, rate45, school, summer, cm}
+                body: { instrument, heading, content }
             }),
             invalidatesTags: ["Policy"]
         }),
         //PATCH DATE
         patchDate: builder.mutation({
-            query: ({id, year, month, day, about}) => ({
+            query: ({ id, year, month, day, about }) => ({
                 url: `/auth/dates/edit/${id}`,
                 method: "PATCH",
-                body: {year, month, day, about}
+                body: { year, month, day, about }
             }),
         }),
     }),
@@ -142,18 +142,18 @@ export default api;
 export const {
     //QUERIES
     useGetUserQuery,
-    useGetPianoPolicyQuery,
-    useGetVoicePolicyQuery,
+    useGetBioQuery,
+    useGetPolicyQuery,
     useGetDatesQuery,
     //MUTATIONS
     useLoginMutation,
     useLogoutMutation,
     usePostDateMutation,
+    usePostBioMutation,
     useDeleteDateMutation,
     //PATCH
     usePatchUserMutation,
     usePatchBioMutation,
-    usePatchPianoMutation,
-    usePatchVoiceMutation,
+    usePatchPolicyMutation,
     usePatchDateMutation
 } = api

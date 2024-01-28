@@ -61,6 +61,21 @@ authRouter.post("/dates", requireUser, async (req, res, next) => {
     }
 });
 
+//POST /auth/about/add
+authRouter.post("/about/add", requireUser, async (req, res, next) => {
+    try {
+        const {paragraph} = req.body;
+        const newParagraph = await prisma.about.create({
+            data: {
+                paragraph
+            },
+        });
+        res.status(201).send(newParagraph);
+    } catch (error) {
+        next(error);
+    }
+});
+
 //PATCH /auth/account/:id/edit
 authRouter.patch("/account/:id/edit", requireUser, async (req, res, next) => {
     try {
@@ -88,12 +103,12 @@ authRouter.patch("/account/:id/edit", requireUser, async (req, res, next) => {
 });
 
 //PATCH /auth/bio/:id/edit
-authRouter.patch("/bio/:id/edit", requireUser, async (req, res, next) => {
+authRouter.patch("/about/:id/edit", requireUser, async (req, res, next) => {
     try {
-        const {about} = req.body;
-        const updatedBio = await prisma.user.update({
-            where: {id: req.user.id},
-            data: {about: about}
+        const {paragraph} = req.body;
+        const updatedBio = await prisma.about.update({
+            where: {id: Number(req.params.id)},
+            data: {paragraph: paragraph}
         });
         res.send(updatedBio);
     } catch (error) {
@@ -101,41 +116,19 @@ authRouter.patch("/bio/:id/edit", requireUser, async (req, res, next) => {
     }
 });
 
-//PATCH /auth/policy/piano/edit
-authRouter.patch("/policy/piano/edit", requireUser, async (req, res, next) => {
+//PATCH /auth/policy/edit
+authRouter.patch("/policy/:id/edit", requireUser, async (req, res, next) => {
     try {
-        const {rate30, rate45, school, summer, cm} = req.body;
-        const updatedPiano = await prisma.policy.update({
-            where: {instrument: "piano"},
+        const {instrument, heading, content} = req.body;
+        const updatedPolicy = await prisma.policy.update({
+            where: {id: Number(req.params.id)},
             data: {
-                rate30: rate30 || undefined,
-                rate45: rate45 || undefined,
-                school: school || undefined,
-                summer: summer || undefined,
-                cm: cm || undefined
+                instrument: instrument || undefined,
+                heading: heading || undefined,
+                content: content || undefined
             }
         });
-        res.send(updatedPiano);
-    } catch (error) {
-        next(error)
-    }
-});
-
-//PATCH /auth/policy/voice/edit
-authRouter.patch("/policy/voice/edit", requireUser, async (req, res, next) => {
-    try {
-        const {rate30, rate45, school, summer, cm} = req.body;
-        const updatedVoice = await prisma.policy.update({
-            where: {instrument: "voice"},
-            data: {
-                rate30: rate30 || undefined,
-                rate45: rate45 || undefined,
-                school: school || undefined,
-                summer: summer || undefined,
-                cm: cm || undefined
-            }
-        });
-        res.send(updatedVoice);
+        res.send(updatedPolicy);
     } catch (error) {
         next(error)
     }
