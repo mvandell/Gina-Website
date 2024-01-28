@@ -1,10 +1,10 @@
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 
-import { useGetUserQuery } from "../../redux/api";
+import { useGetBioQuery } from "../../redux/api";
 
 const About = () => {
-    const { data, error, isLoading } = useGetUserQuery();
+    const { data, error, isLoading } = useGetBioQuery();
 
     if (isLoading) {
         return <div></div>
@@ -20,9 +20,11 @@ const About = () => {
                 About Me
             </Typography>
             <Card sx={{m:2, p:1}}>
-                <Typography>
-                    {data[0].about} {/* Needs work - new table? */}
-                </Typography>
+                {data && data.map((paragraph) => (
+                    <Typography key={paragraph.id} sx={{p: 1, m: 2}}>
+                        {paragraph.paragraph}
+                    </Typography>
+                ))}
             </Card>
         </>
     )

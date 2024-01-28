@@ -1,10 +1,10 @@
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 
-import { useGetPianoPolicyQuery } from "../../redux/api";
+import { useGetPolicyQuery } from "../../redux/api";
 
 const PianoPolicy = () => {
-    const { data, error, isLoading } = useGetPianoPolicyQuery();
+    const { data, error, isLoading } = useGetPolicyQuery();
 
     if (isLoading) {
         return <div></div>

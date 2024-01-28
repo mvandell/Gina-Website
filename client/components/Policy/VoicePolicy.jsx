@@ -1,7 +1,7 @@
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 
-import { useGetVoicePolicyQuery } from "../../redux/api";
+import { useGetPolicyQuery } from "../../redux/api";
 
 const VoicePolicy = () => {
 
