@@ -3,6 +3,6 @@ body {
     margin: 0;
 }
 .gradient_background {
-    background: linear-gradient(#A9C6EF, #7CDF7C, white, white); /* 6 colors */
+    background: linear-gradient(#A9C6EF, #7CDF7C, #DDE7DA, #DDE7DA, white); /* 6 colors */
     background-size: cover;
 }
