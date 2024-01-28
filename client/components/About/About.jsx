@@ -16,7 +16,7 @@ const About = () => {
     console.log(data);
     return (
         <>
-            <Typography variant="h3">
+            <Typography variant="h3" sx={{mx: 4, my: 1}}>
                 About Me
             </Typography>
             <Card sx={{m:2, p:1}}>

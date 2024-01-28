@@ -2,33 +2,38 @@ import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
 
     return (
         <Stack direction="row">
-            <Typography variant="h2" sx={{mx: 10}}>
+            <Typography variant="h2" sx={{ mx: 10 }}>
                 Gina Vandellos
             </Typography>
-        <Box sx={{maxHeight: '50px', backgroundColor: "#C8B8A7", borderRadius: "50px", mt: 1.5, ml: 20}}>
-            <Stack direction="row" sx={{py: 1, px: 2}}>
-                <Button variant="text" sx={{color: "#303036"}}>
-                    Home
-                </Button>
-                <Button variant="text" sx={{color: "#303036"}}>
-                    About Me
-                </Button>
-                <Button variant="text" sx={{color: "#303036"}}>
-                    Policy {/* Dropdown for piano or voice */}
-                </Button>
-                <Button variant="text" sx={{color: "#303036"}}>
-                    Certificate of Merit
-                </Button>
-                <Button variant="text" sx={{color: "#303036"}}>
-                    Contact Me
-                </Button>
-            </Stack>
-        </Box>
+            <Box sx={{ maxHeight: '50px', backgroundColor: "#C8B8A7", borderRadius: "50px", mt: 1.5, ml: 20 }}>
+                <Stack direction="row" sx={{ py: 1, px: 2 }}>
+                    <Link to="/" >
+                        <Button variant="text" sx={{ color: "#303036", textTransform:"none" }}>
+                            Home
+                        </Button>
+                    </Link>
+                    <Button variant="text" sx={{ color: "#303036", textTransform:"none" }}>
+                        About Me
+                    </Button>
+                    <Button variant="text" sx={{ color: "#303036", textTransform:"none" }}>
+                        Policy {/* Dropdown for piano or voice */}
+                    </Button>
+                    <Button variant="text" sx={{ color: "#303036", textTransform:"none" }}>
+                        Certificate of Merit
+                    </Button>
+                    <Link to="/contact">
+                        <Button variant="text" sx={{ color: "#303036", textTransform:"none" }}>
+                            Contact Me
+                        </Button>
+                    </Link>
+                </Stack>
+            </Box>
         </Stack>
     )
 }
