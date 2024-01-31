@@ -4,6 +4,7 @@ import Contact from "./components/Contact/Contact";
 import About from "./components/About/About";
 import PianoPolicy from "./components/Policy/PianoPolicy";
 import VoicePolicy from "./components/Policy/VoicePolicy";
+import Homepage from "./components/Homepage/Homepage";
 
 const App = () => {
 
@@ -11,15 +12,15 @@ const App = () => {
     <div className='gradient_background'>
       <div className="App">
         <NavBar />
-        
+
         <Routes>
-           <Route path="/" element={<VoicePolicy />} />
-           <Route path="/contact" element={<Contact />} />
+          <Route path="/" element={<Homepage />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
           {/*<Route path="/calendar" element={} />
           <Route path="/cm" element={} />*/}
           <Route path="/policy/voice" element={<VoicePolicy />} />
-          <Route path="/policy/piano" element={<PianoPolicy />} /> 
+          <Route path="/policy/piano" element={<PianoPolicy />} />
         </Routes>
       </div>
     </div>
