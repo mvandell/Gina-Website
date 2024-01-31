@@ -1,6 +1,8 @@
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 
+import MTACLogo from "./MTAC Logo.png"
+
 const Homepage = () => {
     return (
         <div>
@@ -9,7 +11,7 @@ const Homepage = () => {
                     Welcome to my Website!
                 </Typography>
             </Card>
-            <img src="./MTAC logo.png" alt="MTAC logo"/>
+            <img src={MTACLogo} alt="MTAC logo"/>
         </div>
     )
 }
