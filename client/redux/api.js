@@ -38,10 +38,18 @@ const api = createApi({
             }),
             providesTags: ["About"]
         }),
-        //GET POLICY
-        getPolicy: builder.query({
+        //GET PIANO POLICY
+        getPianoPolicy: builder.query({
             query: () => ({
-                url: "/api/policy",
+                url: "/api/policy/piano",
+                method: "GET",
+            }),
+            providesTags: ["Policy"]
+        }),
+        //GET VOICE POLICY
+        getVoicePolicy: builder.query({
+            query: () => ({
+                url: "/api/policy/voice",
                 method: "GET",
             }),
             providesTags: ["Policy"]
@@ -133,6 +141,7 @@ const api = createApi({
                 method: "PATCH",
                 body: { year, month, day, about }
             }),
+            invalidatesTags: ["Dates"]
         }),
     }),
 })
@@ -143,7 +152,8 @@ export const {
     //QUERIES
     useGetUserQuery,
     useGetBioQuery,
-    useGetPolicyQuery,
+    useGetPianoPolicyQuery,
+    useGetVoicePolicyQuery,
     useGetDatesQuery,
     //MUTATIONS
     useLoginMutation,

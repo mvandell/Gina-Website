@@ -2,10 +2,10 @@ import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import Box from "@mui/material/Box";
 
-import { useGetPolicyQuery } from "../../redux/api";
+import { useGetVoicePolicyQuery } from "../../redux/api";
 
 const VoicePolicy = () => {
-    const { data, error, isLoading } = useGetPolicyQuery();
+    const { data, error, isLoading } = useGetVoicePolicyQuery();
 
     if (isLoading) {
         return <div></div>
@@ -22,7 +22,7 @@ const VoicePolicy = () => {
                 Voice Policy
             </Typography>
             <Card sx={{ m: 2, p: 1 }}>
-                {data && data.filter(policy => policy.instrument === "voice").map((policy) => (
+                {data && data.map((policy) => (
                     <Box key={policy.id} sx={{ p: 0.5, m: 1 }}>
                         {policy.heading &&
                             <Typography variant="h6" sx={{ fontWeight: "bold", borderTop: 2 }}>

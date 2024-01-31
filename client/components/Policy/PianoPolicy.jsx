@@ -2,10 +2,10 @@ import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import Box from "@mui/material/Box";
 
-import { useGetPolicyQuery } from "../../redux/api";
+import { useGetPianoPolicyQuery } from "../../redux/api";
 
 const PianoPolicy = () => {
-    const { data, error, isLoading } = useGetPolicyQuery();
+    const { data, error, isLoading } = useGetPianoPolicyQuery();
 
     if (isLoading) {
         return <div></div>
@@ -16,12 +16,12 @@ const PianoPolicy = () => {
 
     console.log(data)
     return (
-        <>
+        <div>
             <Typography variant="h3" sx={{ ml: 5, mt: 3 }}>
                 Piano Policy
             </Typography>
             <Card sx={{ m: 2, p: 1 }}>
-                {data && data.filter(policy => policy.instrument === "piano").map((policy) => (
+                {data && data.map((policy) => (
                     <Box key={policy.id} sx={{p:0.5, m: 1 }}>
                         {policy.heading &&
                             <Typography variant="h6" sx={{fontWeight: "bold", borderTop: 2}}>
@@ -34,7 +34,7 @@ const PianoPolicy = () => {
                     </Box>
                 ))}
             </Card>
-        </>
+        </div>
     )
 }
 
