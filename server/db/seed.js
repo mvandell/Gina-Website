@@ -85,6 +85,11 @@ async function seed() {
                 },
                 {
                     instrument: "piano",
+                    heading: "No lessons on Mondays and the following dates:", //No lessons
+                    content: "September 18-22, November 10, November 13-24, December 25-29, January 1-5, February 19-23, April 8-12"
+                },
+                {
+                    instrument: "piano",
                     heading: "Performance Classes and Recitals", //Performance Classes and Recitals
                     content: "More information coming soon"
                 },

@@ -1,5 +1,5 @@
-import { Calendar, dateFnsLocalizer } from 'react-big-calendar'
-import format from 'date-fns/format'
+import { Calendar, dateFnsLocalizer } from 'react-big-calendar' //https://www.npmjs.com/package/react-big-calendar#date-fns-v2
+import format from 'date-fns/format' //https://date-fns.org/docs/Getting-Started
 import parse from 'date-fns/parse'
 import startOfWeek from 'date-fns/startOfWeek'
 import getDay from 'date-fns/getDay'
