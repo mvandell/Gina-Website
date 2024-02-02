@@ -34,7 +34,8 @@ model Dates {
   id Int @id @default(autoincrement())
   start DateTime?
   end DateTime?
-  about String
+  title String @default("")
+  allDay Boolean @default(false)
 }
 
 model Merit {

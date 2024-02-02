@@ -1,8 +1,8 @@
-import { Calendar, dateFnsLocalizer } from 'react-big-calendar' //https://www.npmjs.com/package/react-big-calendar#date-fns-v2
+import { Calendar, dateFnsLocalizer } from 'react-big-calendar' //https://github.com/jquense/react-big-calendar
 import format from 'date-fns/format' //https://date-fns.org/docs/Getting-Started
 import parse from 'date-fns/parse'
 import startOfWeek from 'date-fns/startOfWeek'
-import getDay from 'date-fns/getDay'
+import getDate from 'date-fns/getDay'
 import enUS from 'date-fns/locale/en-US'
 
 import { useGetDatesQuery } from '../../redux/api'
@@ -15,7 +15,7 @@ const localizer = dateFnsLocalizer({
     format,
     parse,
     startOfWeek,
-    getDay,
+    getDate,
     locales,
 })
 
@@ -35,10 +35,10 @@ const TeachingCalendar = () => {
         <div>
             <Calendar
                 localizer={localizer}
-                //events={myEventsList}
-                startAccessor="start"
-                endAccessor="end"
-                //style={{ height: 200 }}
+                events={data}
+                defaultView='month'
+                style={{ height: "100vh" }}
+                showMultiDayTimes
             />
         </div>
     )

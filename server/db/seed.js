@@ -157,52 +157,59 @@ async function seed() {
                 {
                     start: new Date("September 18, 2023"),
                     end: new Date("September 22, 2023"),
-                    about: "No lessons"
+                    title: "No lessons",
+                    allDay: true
                 },
                 {
                     start: new Date(2023, 10, 10),
                     end: new Date(2023, 10, 10),
-                    about: "No lessons"
+                    title: "No lessons",
+                    allDay: true
                 },
                 {
                     start: new Date(2023, 10, 13),
                     end: new Date(2023, 10, 24),
-                    about: "No lessons"
+                    title: "No lessons",
+                    allDay: true
                 },
                 {
                     start: new Date(2023, 11, 25),
                     end: new Date(2023, 11, 29),
-                    about: "No lessons"
+                    title: "No lessons",
+                    allDay: true
                 },
                 {
                     start: new Date(2024, 0, 1),
                     end: new Date(2024, 0, 5),
-                    about: "No lessons"
+                    title: "No lessons",
+                    allDay: true
                 },
                 {
                     start: new Date(2024, 1, 19),
                     end: new Date(2024, 1, 23),
-                    about: "No lessons"
+                    title: "No lessons",
+                    allDay: true
                 },
                 {
                     start: new Date(2024, 3, 8),
                     end: new Date(2024, 3, 12),
-                    about: "No lessons"
+                    title: "No lessons",
+                    allDay: true
                 },
                 {
                     start: new Date(2024, 3, 6, 15),
                     end: new Date(2024, 3, 6, 16),
-                    about: "Piano Class"
+                    title: "Piano Class"
                 },
                 {
                     start: new Date(2024, 1, 17, 15),
                     end: new Date(2024, 1, 17, 16),
-                    about: "Piano Class"
+                    title: "Piano Class"
                 },
                 {
                     start: new Date(2024, 4, 4, 16),
                     end: new Date(2024, 4, 4, 17),
-                    about: "Piano Recital"
+                    title: "Piano Recital"
                 },
             ]
         })
