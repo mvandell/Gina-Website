@@ -155,214 +155,54 @@ async function seed() {
         const dates = await prisma.dates.createMany({
             data: [
                 {
-                    year: 2021,
-                    month: 9,
-                    day: 7,
+                    start: new Date("September 18, 2023"),
+                    end: new Date("September 22, 2023"),
                     about: "No lessons"
                 },
                 {
-                    year: 2021,
-                    month: 10,
-                    day: 30,
+                    start: new Date(2023, 10, 10),
+                    end: new Date(2023, 10, 10),
                     about: "No lessons"
                 },
                 {
-                    year: 2021,
-                    month: 11,
-                    day: 11,
+                    start: new Date(2023, 10, 13),
+                    end: new Date(2023, 10, 24),
                     about: "No lessons"
                 },
                 {
-                    year: 2021,
-                    month: 11,
-                    day: 24,
+                    start: new Date(2023, 11, 25),
+                    end: new Date(2023, 11, 29),
                     about: "No lessons"
                 },
                 {
-                    year: 2021,
-                    month: 11,
-                    day: 25,
+                    start: new Date(2024, 0, 1),
+                    end: new Date(2024, 0, 5),
                     about: "No lessons"
                 },
                 {
-                    year: 2021,
-                    month: 11,
-                    day: 26,
+                    start: new Date(2024, 1, 19),
+                    end: new Date(2024, 1, 23),
                     about: "No lessons"
                 },
                 {
-                    year: 2021,
-                    month: 11,
-                    day: 27,
+                    start: new Date(2024, 3, 8),
+                    end: new Date(2024, 3, 12),
                     about: "No lessons"
                 },
                 {
-                    year: 2021,
-                    month: 12,
-                    day: 18,
-                    about: "No lessons"
+                    start: new Date(2024, 3, 6, 15),
+                    end: new Date(2024, 3, 6, 16),
+                    about: "Piano Class"
                 },
                 {
-                    year: 2021,
-                    month: 12,
-                    day: 19,
-                    about: "No lessons"
+                    start: new Date(2024, 1, 17, 15),
+                    end: new Date(2024, 1, 17, 16),
+                    about: "Piano Class"
                 },
                 {
-                    year: 2021,
-                    month: 12,
-                    day: 20,
-                    about: "No lessons"
-                },
-                {
-                    year: 2021,
-                    month: 12,
-                    day: 21,
-                    about: "No lessons"
-                },
-                {
-                    year: 2021,
-                    month: 12,
-                    day: 22,
-                    about: "No lessons"
-                },
-                {
-                    year: 2021,
-                    month: 12,
-                    day: 23,
-                    about: "No lessons"
-                },
-                {
-                    year: 2021,
-                    month: 12,
-                    day: 24,
-                    about: "No lessons"
-                },
-                {
-                    year: 2021,
-                    month: 12,
-                    day: 25,
-                    about: "No lessons"
-                },
-                {
-                    year: 2021,
-                    month: 12,
-                    day: 26,
-                    about: "No lessons"
-                },
-                {
-                    year: 2021,
-                    month: 12,
-                    day: 27,
-                    about: "No lessons"
-                },
-                {
-                    year: 2021,
-                    month: 12,
-                    day: 28,
-                    about: "No lessons"
-                },
-                {
-                    year: 2021,
-                    month: 12,
-                    day: 29,
-                    about: "No lessons"
-                },
-                {
-                    year: 2021,
-                    month: 12,
-                    day: 30,
-                    about: "No lessons"
-                },
-                {
-                    year: 2021,
-                    month: 12,
-                    day: 31,
-                    about: "No lessons"
-                },
-                {
-                    year: 2022,
-                    month: 1,
-                    day: 1,
-                    about: "No lessons"
-                },
-                {
-                    year: 2022,
-                    month: 1,
-                    day: 18,
-                    about: "No lessons"
-                },
-                {
-                    year: 2022,
-                    month: 3,
-                    day: 29,
-                    about: "No lessons"
-                },
-                {
-                    year: 2022,
-                    month: 3,
-                    day: 30,
-                    about: "No lessons"
-                },
-                {
-                    year: 2022,
-                    month: 3,
-                    day: 31,
-                    about: "No lessons"
-                },
-                {
-                    year: 2022,
-                    month: 4,
-                    day: 1,
-                    about: "No lessons"
-                },
-                {
-                    year: 2022,
-                    month: 4,
-                    day: 2,
-                    about: "No lessons"
-                },
-                {
-                    year: 2022,
-                    month: 5,
-                    day: 25,
-                    about: "No lessons"
-                },
-                {
-                    year: 2022,
-                    month: 5,
-                    day: 26,
-                    about: "No lessons"
-                },
-                {
-                    year: 2022,
-                    month: 5,
-                    day: 27,
-                    about: "No lessons"
-                },
-                {
-                    year: 2022,
-                    month: 5,
-                    day: 28,
-                    about: "No lessons"
-                },
-                {
-                    year: 2022,
-                    month: 5,
-                    day: 29,
-                    about: "No lessons"
-                },
-                {
-                    year: 2022,
-                    month: 5,
-                    day: 30,
-                    about: "No lessons"
-                },
-                {
-                    year: 2022,
-                    month: 5,
-                    day: 31,
-                    about: "No lessons"
+                    start: new Date(2024, 4, 4, 16),
+                    end: new Date(2024, 4, 4, 17),
+                    about: "Piano Recital"
                 },
             ]
         })

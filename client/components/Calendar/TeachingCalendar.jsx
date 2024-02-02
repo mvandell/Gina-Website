@@ -5,30 +5,42 @@ import startOfWeek from 'date-fns/startOfWeek'
 import getDay from 'date-fns/getDay'
 import enUS from 'date-fns/locale/en-US'
 
+import { useGetDatesQuery } from '../../redux/api'
+
 const locales = {
-  'en-US': enUS,
+    'en-US': enUS,
 }
 
 const localizer = dateFnsLocalizer({
-  format,
-  parse,
-  startOfWeek,
-  getDay,
-  locales,
+    format,
+    parse,
+    startOfWeek,
+    getDay,
+    locales,
 })
 
 const TeachingCalendar = () => {
+    const { data, error, isLoading } = useGetDatesQuery();
+
+    if (isLoading) {
+        return <div></div>
+    }
+    if (error) {
+        return <div>Sorry! There's a problem loading the info.</div>
+    }
+
+    
 
     return (
-      <div>
-        <Calendar
-          localizer={localizer}
-          events={myEventsList}
-          startAccessor="start"
-          endAccessor="end"
-          style={{ height: 500 }}
-        />
-      </div>
+        <div>
+            <Calendar
+                localizer={localizer}
+                //events={myEventsList}
+                startAccessor="start"
+                endAccessor="end"
+                //style={{ height: 200 }}
+            />
+        </div>
     )
 }
 
