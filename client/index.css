@@ -6,3 +6,7 @@ body {
     background: linear-gradient(#A9C6EF, #7CDF7C, #DDE7DA, #DDE7DA, white); /* 6 colors */
     background-size: cover;
 }
+.calendar {
+    display: grid;
+    row-gap: 10rem;
+}
