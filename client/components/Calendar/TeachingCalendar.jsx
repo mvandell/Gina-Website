@@ -1,4 +1,4 @@
-import { Calendar, dateFnsLocalizer } from 'react-big-calendar' //https://github.com/jquense/react-big-calendar
+import { Calendar, dateFnsLocalizer } from 'react-big-calendar' //https://jquense.github.io/react-big-calendar/examples/index.html?path=/docs/props-full-prop-list--page
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import format from 'date-fns/format' //https://date-fns.org/docs/Getting-Started
 import parse from 'date-fns/parse'
@@ -34,22 +34,30 @@ const TeachingCalendar = () => {
     }
 
     console.log(data);
-
+//List of events on the side
+//broken day/week with events
+//bigger month title
+//color-coded events - stretch
     return (
-        <div className='calendar'>
-            <Card sx={{m:10, p: 2}}>
+        <>
+            <Card sx={{ m: 10, p: 2 }}>
+                <Typography variant='h2' sx={{textAlign: "center"}}>
+                    Calendar
+                </Typography>
+                <div className='calendar'>
                 {data &&
-                    <Calendar
-                        localizer={localizer}
-                        events={data}
-                        defaultView='month'
-                        defaultDate={new Date()}
-                        style={{ height: "60vh", width: "60vw" }}
-                        showMultiDayTimes
-                    />
-                }
+                        <Calendar
+                            localizer={localizer}
+                            events={data}
+                            defaultView='month'
+                            defaultDate={new Date()}
+                            style={{ height: "60vh", width: "60vw" }}
+                            showMultiDayTimes
+                        />
+                    }
+                    </div>
             </Card>
-        </div>
+        </>
     )
 }
 
