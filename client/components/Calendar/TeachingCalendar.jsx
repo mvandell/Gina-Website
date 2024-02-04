@@ -50,9 +50,9 @@ const TeachingCalendar = () => {
                             localizer={localizer}
                             events={data}
                             defaultView='month'
+                            allDayAccessor={data}
                             defaultDate={new Date()}
                             style={{ height: "60vh", width: "60vw" }}
-                            showMultiDayTimes
                         />
                     }
                     </div>
