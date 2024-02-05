@@ -62,7 +62,14 @@ const api = createApi({
             }),
             providesTags: ["Dates"]
         }),
-
+        //GET SINGLE DATE
+        getSingleDate: builder.query({
+            query: (id) => ({
+                url: `/api/dates/${id}`,
+                method: "GET",
+            }),
+            providesTags: ["Dates"]
+        }),
         //<-----------------------MUTATIONS------------------------------>
         //LOGIN
         login: builder.mutation({

@@ -8,8 +8,10 @@ import enUS from 'date-fns/locale/en-US'
 
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
+import Stack from "@mui/material/Stack";
 
 import { useGetDatesQuery } from '../../redux/api'
+import { useState } from 'react';
 
 const locales = {
     'en-US': enUS,
@@ -24,6 +26,7 @@ const localizer = dateFnsLocalizer({
 })
 
 const TeachingCalendar = () => {
+    const [alert, setAlert] = useState(false);
     const { data, error, isLoading } = useGetDatesQuery();
 
     if (isLoading) {
@@ -34,29 +37,40 @@ const TeachingCalendar = () => {
     }
 
     console.log(data);
-//List of events on the side
-//broken day/week with events
-//bigger month title
-//color-coded events - stretch
+
+    //List of events on the side? - Agenda
+    //broken day/week with piano classes and recitals
+    //No day/week view, but popup on event click?
+    //bigger month title
+    //color-coded events - stretch
     return (
         <>
-            <Card sx={{ m: 10, p: 2 }}>
-                <Typography variant='h2' sx={{textAlign: "center"}}>
-                    Calendar
-                </Typography>
-                <div className='calendar'>
-                {data &&
+            <Stack direction="row">
+                <Card sx={{ m: 10, p: 2 }}>
+                    <Typography variant='h2' sx={{ textAlign: "center" }}>
+                        Calendar
+                    </Typography>
+                    <div className='calendar'>
                         <Calendar
                             localizer={localizer}
                             events={data}
                             defaultView='month'
-                            allDayAccessor={data}
+                            startAccessor="start"
+                            endAccessor="end"
+                            allDayAccessor="allDay" //not working
                             defaultDate={new Date()}
+                            views={['month', "agenda"]}
+                            onSelectEvent={() => setAlert(data.id)}
                             style={{ height: "60vh", width: "60vw" }}
                         />
-                    }
                     </div>
-            </Card>
+                </Card>
+                {alert === data.id &&
+                <Card>
+                 {/*GET single date query*/}   
+                </Card>
+                }
+            </Stack>
         </>
     )
 }

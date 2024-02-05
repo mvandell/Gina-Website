@@ -9,7 +9,7 @@ async function seed() {
     await prisma.policy.deleteMany();
     await prisma.dates.deleteMany();
     await prisma.merit.deleteMany();
-//update policy and dates with PDF from mom
+
     try {
         //User
         const gina = await prisma.user.create({
@@ -161,26 +161,26 @@ async function seed() {
                     allDay: true
                 },
                 {
-                    start: new Date(2023, 10, 10),
-                    end: new Date(2023, 10, 10),
+                    start: new Date("November 10, 2023"),
+                    end: new Date("November 10, 2023"),
                     title: "No lessons",
                     allDay: true
                 },
                 {
-                    start: new Date(2023, 10, 13),
-                    end: new Date(2023, 10, 24),
+                    start: new Date("November 13, 2023"),
+                    end: new Date("November 24, 2023"),
                     title: "No lessons",
                     allDay: true
                 },
                 {
-                    start: new Date(2023, 11, 25),
-                    end: new Date(2023, 11, 29),
+                    start: new Date("December 25, 2023"),
+                    end: new Date("December 29, 2023"),
                     title: "No lessons",
                     allDay: true
                 },
                 {
-                    start: new Date(2024, 0, 1),
-                    end: new Date(2024, 0, 5),
+                    start: new Date("January 1, 2024"),
+                    end: new Date("January 5, 2024"),
                     title: "No lessons",
                     allDay: true
                 },
@@ -197,8 +197,8 @@ async function seed() {
                     allDay: true
                 },
                 {
-                    start: new Date(2024, 3, 6, 15),
-                    end: new Date(2024, 3, 6, 16),
+                    start: new Date("April 06, 2024 15:00:00"),
+                    end: new Date("April 06, 2024 16:00:00"),
                     title: "Piano Class"
                 },
                 {
