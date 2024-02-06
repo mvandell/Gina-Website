@@ -197,8 +197,8 @@ async function seed() {
                     allDay: true
                 },
                 {
-                    start: new Date("April 06, 2024 15:00:00"),
-                    end: new Date("April 06, 2024 16:00:00"),
+                    start: new Date(2024, 3, 6, 15),
+                    end: new Date(2024, 3, 6, 15),
                     title: "Piano Class"
                 },
                 {

@@ -38,13 +38,10 @@ const TeachingCalendar = () => {
     if (error) {
         return <div>Sorry! There's a problem loading the info.</div>
     }
-    let e;
-    console.log(data);
-    console.log(alert)
 
-    //List of events on the side? - Agenda
-    //broken day/week with piano classes and recitals
-    //No day/week view, but popup on event click?
+    console.log(data);
+
+    //button to close popup
     //bigger month title
     //color-coded events - stretch
     return (
@@ -65,8 +62,6 @@ const TeachingCalendar = () => {
                             defaultDate={new Date()}
                             views={['month', "agenda"]}
                             onSelectEvent={(event) => {
-                                e = event;
-                                console.log(event)
                                 setAlert(event.id);
                                 navigate(`/calendar/${event.id}`);
                             }}
