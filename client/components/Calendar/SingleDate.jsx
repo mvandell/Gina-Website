@@ -1,11 +1,13 @@
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
+import Button from "@mui/material/Button";
 
 import { useGetSingleDateQuery } from "../../redux/api";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const SingleDate = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
     const { data, isLoading } = useGetSingleDateQuery(id);
 
     if (isLoading) {
@@ -24,28 +26,31 @@ const SingleDate = () => {
     }
 
     return (
-        <Card sx={{ my: 10, p: 3 }}>
+        <Card sx={{ my: 10, p: 3 }}>       
+                <Button onClick={() => navigate("/calendar")} sx={{textTransform: "none"}}>
+                    Close
+                </Button>
             <Typography variant="h5" sx={{ mb: 1, textAlign: "center" }}>
                 {data.title}
             </Typography>
             {data.allDay ?
                 <div>
-                    <Typography sx={{textAlign: "center"}}>
+                    <Typography sx={{ textAlign: "center" }}>
                         {start}
                     </Typography>
-                    <Typography sx={{textAlign: "center"}}>
+                    <Typography sx={{ textAlign: "center" }}>
                         to
                     </Typography>
-                    <Typography sx={{textAlign: "center"}}>
+                    <Typography sx={{ textAlign: "center" }}>
                         {end}
                     </Typography>
                 </div>
                 :
                 <div>
-                    <Typography sx={{textAlign: "center"}}>
+                    <Typography sx={{ textAlign: "center" }}>
                         {start}
                     </Typography>
-                    <Typography sx={{textAlign: "center"}}>
+                    <Typography sx={{ textAlign: "center" }}>
                         {time}
                     </Typography>
                 </div>

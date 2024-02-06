@@ -12,7 +12,7 @@ import Stack from "@mui/material/Stack";
 
 import { useGetDatesQuery } from '../../redux/api'
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import SingleDate from './SingleDate';
 
 const locales = {
@@ -29,7 +29,7 @@ const localizer = dateFnsLocalizer({
 
 const TeachingCalendar = () => {
     const navigate = useNavigate();
-    const [alert, setAlert] = useState(false);
+    const {id} = useParams();
     const { data, error, isLoading } = useGetDatesQuery();
 
     if (isLoading) {
@@ -41,7 +41,6 @@ const TeachingCalendar = () => {
 
     console.log(data);
 
-    //button to close popup
     //bigger month title
     //color-coded events - stretch
     return (
@@ -62,14 +61,13 @@ const TeachingCalendar = () => {
                             defaultDate={new Date()}
                             views={['month', "agenda"]}
                             onSelectEvent={(event) => {
-                                setAlert(event.id);
                                 navigate(`/calendar/${event.id}`);
                             }}
                             style={{ height: "60vh", width: "60vw" }}
                         />
                     </div>
                 </Card>
-                {alert &&
+                {id &&
                     <SingleDate />
                 }
             </Stack>
