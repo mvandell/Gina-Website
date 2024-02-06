@@ -19,6 +19,7 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
           <Route path="/calendar" element={<TeachingCalendar />} />
+          <Route path="/calendar/:id" element={<TeachingCalendar />} />
           {/*<Route path="/cm" element={} />*/}
           <Route path="/policy/voice" element={<VoicePolicy />} />
           <Route path="/policy/piano" element={<PianoPolicy />} />

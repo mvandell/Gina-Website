@@ -12,6 +12,8 @@ import Stack from "@mui/material/Stack";
 
 import { useGetDatesQuery } from '../../redux/api'
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import SingleDate from './SingleDate';
 
 const locales = {
     'en-US': enUS,
@@ -26,6 +28,7 @@ const localizer = dateFnsLocalizer({
 })
 
 const TeachingCalendar = () => {
+    const navigate = useNavigate();
     const [alert, setAlert] = useState(false);
     const { data, error, isLoading } = useGetDatesQuery();
 
@@ -35,8 +38,9 @@ const TeachingCalendar = () => {
     if (error) {
         return <div>Sorry! There's a problem loading the info.</div>
     }
-
+    let e;
     console.log(data);
+    console.log(alert)
 
     //List of events on the side? - Agenda
     //broken day/week with piano classes and recitals
@@ -60,15 +64,18 @@ const TeachingCalendar = () => {
                             allDayAccessor="allDay" //not working
                             defaultDate={new Date()}
                             views={['month', "agenda"]}
-                            onSelectEvent={() => setAlert(data.id)}
+                            onSelectEvent={(event) => {
+                                e = event;
+                                console.log(event)
+                                setAlert(event.id);
+                                navigate(`/calendar/${event.id}`);
+                            }}
                             style={{ height: "60vh", width: "60vw" }}
                         />
                     </div>
                 </Card>
-                {alert === data.id &&
-                <Card>
-                 {/*GET single date query*/}   
-                </Card>
+                {alert &&
+                    <SingleDate />
                 }
             </Stack>
         </>

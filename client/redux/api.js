@@ -162,6 +162,7 @@ export const {
     useGetPianoPolicyQuery,
     useGetVoicePolicyQuery,
     useGetDatesQuery,
+    useGetSingleDateQuery,
     //MUTATIONS
     useLoginMutation,
     useLogoutMutation,
