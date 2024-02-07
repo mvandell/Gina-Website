@@ -11,7 +11,6 @@ import Card from "@mui/material/Card";
 import Stack from "@mui/material/Stack";
 
 import { useGetDatesQuery } from '../../redux/api'
-import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import SingleDate from './SingleDate';
 
@@ -47,7 +46,7 @@ const TeachingCalendar = () => {
         <>
             <Stack direction="row">
                 <Card sx={{ m: 10, p: 2 }}>
-                    <Typography variant='h2' sx={{ textAlign: "center" }}>
+                    <Typography variant='h3' sx={{ textAlign: "center", m: 1 }}>
                         Calendar
                     </Typography>
                     <div className='calendar'>
@@ -60,9 +59,7 @@ const TeachingCalendar = () => {
                             allDayAccessor="allDay" //not working
                             defaultDate={new Date()}
                             views={['month', "agenda"]}
-                            onSelectEvent={(event) => {
-                                navigate(`/calendar/${event.id}`);
-                            }}
+                            onSelectEvent={(event) => {navigate(`/calendar/${event.id}`);}}
                             style={{ height: "60vh", width: "60vw" }}
                         />
                     </div>
