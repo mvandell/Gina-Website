@@ -32,8 +32,8 @@ model Policy {
 
 model Dates {
   id Int @id @default(autoincrement())
-  start DateTime?
-  end DateTime?
+  start DateTime
+  end DateTime
   title String @default("")
   allDay Boolean @default(false)
 }

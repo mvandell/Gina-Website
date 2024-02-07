@@ -46,13 +46,13 @@ authRouter.post("/login", async (req, res, next) => {
 //POST /auth/dates
 authRouter.post("/dates", requireUser, async (req, res, next) => {
     try {
-        const {year, month, day, about} = req.body;
+        const {start, end, title, allDay} = req.body;
         const newDate = await prisma.dates.create({
             data: {
-                year,
-                month,
-                day,
-                about
+                start: new Date(start),
+                end: new Date(end),
+                title,
+                allDay: allDay
             },
         });
         res.status(201).send(newDate);
@@ -137,14 +137,15 @@ authRouter.patch("/policy/:id/edit", requireUser, async (req, res, next) => {
 //PATCH /auth/dates/edit/:id
 authRouter.patch("/dates/edit/:id", requireUser, async (req, res, next) => {
     try {
-        const {year, month, day, about} = req.body;
+        const {start, end, title, allDay} = req.body;
+
         const updatedDate = await prisma.dates.update({
             where: {id: Number(req.params.id)},
             data: {
-                year: year || undefined,
-                month: month || undefined,
-                day: day || undefined,
-                about: about || undefined
+                start: new Date(start) || undefined, //required
+                end: new Date(end) || undefined, //required
+                title: title || undefined,
+                allDay: allDay || undefined //can't change true to false
             }
         });
         res.send(updatedDate);
