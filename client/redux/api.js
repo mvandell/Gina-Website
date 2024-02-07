@@ -143,10 +143,10 @@ const api = createApi({
         }),
         //PATCH DATE
         patchDate: builder.mutation({
-            query: ({ id, year, month, day, about }) => ({
+            query: ({ id, start, end, title, allDay }) => ({
                 url: `/auth/dates/edit/${id}`,
                 method: "PATCH",
-                body: { year, month, day, about }
+                body: { start, end, title, allDay }
             }),
             invalidatesTags: ["Dates"]
         }),
