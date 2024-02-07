@@ -40,7 +40,7 @@ const TeachingCalendar = () => {
 
     console.log(data);
 
-    //bigger month title
+    //bigger month title - stretch
     //color-coded events - stretch
     return (
         <>
@@ -56,7 +56,7 @@ const TeachingCalendar = () => {
                             defaultView='month'
                             startAccessor="start"
                             endAccessor="end"
-                            allDayAccessor="allDay" //not working
+                            allDayAccessor="allDay"
                             defaultDate={new Date()}
                             views={['month', "agenda"]}
                             onSelectEvent={(event) => {navigate(`/calendar/${event.id}`);}}
