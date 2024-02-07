@@ -27,6 +27,11 @@ const NavBar = () => {
                         </Button>
                     </Link>
                     <PolicyDropdown />
+                    <Link to="/calendar">
+                        <Button variant="text" sx={{ color: "#303036", textTransform: "none" }}>
+                            Calendar
+                        </Button>
+                    </Link>
                     <Button variant="text" sx={{ color: "#303036", textTransform: "none" }}>
                         Certificate of Merit
                     </Button>

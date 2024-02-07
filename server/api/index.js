@@ -56,8 +56,22 @@ apiRouter.get("/policy/voice", async (req, res, next) => {
 //GET /api/dates
 apiRouter.get("/dates", async (req, res, next) => {
     try {
-        const dates = await prisma.dates.findMany(); //might need to change this later
+        const dates = await prisma.dates.findMany(); 
         res.send(dates);
+    } catch (error) {
+        next(error)
+    }
+})
+
+//GET /api/dates/:id
+apiRouter.get("/dates/:id", async (req, res, next) => {
+    try {
+        const date = await prisma.dates.findUnique({
+            where: {
+                id: Number(req.params.id)
+            },
+        }); 
+        res.send(date);
     } catch (error) {
         next(error)
     }
