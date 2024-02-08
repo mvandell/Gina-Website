@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import PolicyDropdown from "./PolicyDropdown";
 
 const NavBar = () => {
-    
+
     return (
         <Stack direction="row">
             <Typography variant="h2" sx={{ mx: 10 }}>
@@ -32,9 +32,11 @@ const NavBar = () => {
                             Calendar
                         </Button>
                     </Link>
-                    <Button variant="text" sx={{ color: "#303036", textTransform: "none" }}>
-                        Certificate of Merit
-                    </Button>
+                    <Link to="/cm">
+                        <Button variant="text" sx={{ color: "#303036", textTransform: "none" }}>
+                            Certificate of Merit
+                        </Button>
+                    </Link>
                     <Link to="/contact">
                         <Button variant="text" sx={{ color: "#303036", textTransform: "none" }}>
                             Contact Me
