@@ -2,7 +2,7 @@ import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 
 import { useGetBioQuery } from "../../redux/api";
-
+//hobbies?
 const About = () => {
     const { data, error, isLoading } = useGetBioQuery();
 

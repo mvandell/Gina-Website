@@ -3,6 +3,10 @@ import Card from "@mui/material/Card";
 
 import MTACLogo from "./MTAC Logo.png"
 
+//need inspiration
+    //picture of mom?
+        //as a student?
+
 const Homepage = () => {
     return (
         <div>
