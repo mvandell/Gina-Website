@@ -60,11 +60,11 @@ async function seed() {
                 },
                 {
                     instrument: "piano",
-                    content: "$200 for 30-minute lessons"
+                    content: "$200 for 30-minute lessons" //bullet?
                 },
                 {
                     instrument: "piano",
-                    content: "$255 for 45-minute lessons"
+                    content: "$255 for 45-minute lessons" //bullet?
                 },
                 {
                     instrument: "piano",

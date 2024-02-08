@@ -30,7 +30,7 @@ const Contact = () => {
                 </Card>
                 <Card sx={{m:2, p:1}}>
                     <Typography variant="h4">
-                        Phone:
+                        Cell:
                     </Typography>
                     <Typography>
                         {data[0].phone}

@@ -27,7 +27,7 @@ const PianoPolicy = () => {
                             <Typography variant="h6" sx={{fontWeight: "bold", borderTop: 2}}>
                                 {policy.heading}
                             </Typography>
-                        }
+                        }            
                         <Typography>
                             {policy.content}
                         </Typography>

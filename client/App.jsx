@@ -6,6 +6,7 @@ import PianoPolicy from "./components/Policy/PianoPolicy";
 import VoicePolicy from "./components/Policy/VoicePolicy";
 import Homepage from "./components/Homepage/Homepage";
 import TeachingCalendar from "./components/Calendar/TeachingCalendar";
+import CertificateOfMerit from "./components/CM/CertificateOfMerit";
 
 const App = () => {
 
@@ -20,7 +21,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/calendar" element={<TeachingCalendar />} />
           <Route path="/calendar/:id" element={<TeachingCalendar />} />
-          {/*<Route path="/cm" element={} />*/}
+          <Route path="/cm" element={<CertificateOfMerit />} />
           <Route path="/policy/voice" element={<VoicePolicy />} />
           <Route path="/policy/piano" element={<PianoPolicy />} />
         </Routes>
