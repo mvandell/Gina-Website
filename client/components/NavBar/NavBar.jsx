@@ -32,16 +32,16 @@ const NavBar = () => {
                             Calendar
                         </Button>
                     </Link>
-                    <Link to="/cm">
-                        <Button variant="text" sx={{ color: "#303036", textTransform: "none" }}>
-                            Certificate of Merit
-                        </Button>
-                    </Link>
                     <Link to="/contact">
                         <Button variant="text" sx={{ color: "#303036", textTransform: "none" }}>
                             Contact Me
                         </Button>
                     </Link>
+                    <a href="https://www.mtac.org/programs/cm/" target="_blank" >
+                        <Button variant="text" sx={{ color: "#303036", textTransform: "none" }}>
+                            Certificate of Merit
+                        </Button>
+                    </a>
                 </Stack>
             </Box>
         </Stack>

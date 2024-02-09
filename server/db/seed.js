@@ -6,6 +6,7 @@ const SALT_COUNT = 10;
 async function seed() {
     console.log("Seeding the database.");
     await prisma.user.deleteMany();
+    await prisma.about.deleteMany();
     await prisma.policy.deleteMany();
     await prisma.dates.deleteMany();
     await prisma.merit.deleteMany();
