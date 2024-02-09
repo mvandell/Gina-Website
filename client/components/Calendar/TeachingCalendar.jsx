@@ -40,8 +40,10 @@ const TeachingCalendar = () => {
 
     console.log(data);
 
-    //bigger month title - stretch
-    //color-coded events - stretch
+//Toggle for piano/voice
+    //Sorts dates by instrument
+        //Feeds into Calendar events
+
     return (
         <>
             <Stack direction="row">
