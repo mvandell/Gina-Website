@@ -1,11 +1,14 @@
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
+import Button from "@mui/material/Button";
+
+import { Link } from "react-router-dom";
 
 import MTACLogo from "./MTAC Logo.png"
 
 //need inspiration
-    //picture of mom?
-        //as a student?
+//picture of mom?
+//as a student?
 
 const Homepage = () => {
     return (
@@ -15,7 +18,12 @@ const Homepage = () => {
                     Welcome to my Website!
                 </Typography>
             </Card>
-            <img src={MTACLogo} alt="MTAC logo"/>
+            <img src={MTACLogo} alt="MTAC logo" />
+            <Link to="/login">
+                <Button variant="text" sx={{ color: "#303036", textTransform: "none" }}>
+                    Admin Login
+                </Button>
+            </Link>
         </div>
     )
 }
