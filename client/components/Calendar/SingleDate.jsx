@@ -1,17 +1,25 @@
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import Button from "@mui/material/Button";
+import Alert from "@mui/material/Alert";
 
-import { useGetSingleDateQuery } from "../../redux/api";
+import { useGetSingleDateQuery, useDeleteDateMutation } from "../../redux/api";
 import { useParams, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const SingleDate = () => {
     const { id } = useParams();
     const navigate = useNavigate();
-    const { data, isLoading } = useGetSingleDateQuery(id);
+    const token = useSelector((state) => state.auth.token);
+
+    const { data, error, isLoading } = useGetSingleDateQuery(id);
+    const [deleteDate] = useDeleteDateMutation();
 
     if (isLoading) {
         return <div> </div>
+    }
+    if (error) {
+        return <div>Error: {error.message}</div>
     }
     console.log("single date", data)
     let time;
@@ -26,10 +34,10 @@ const SingleDate = () => {
     }
 
     return (
-        <Card sx={{ my: 10, p: 3 }}>       
-                <Button onClick={() => navigate("/calendar")} sx={{textTransform: "none"}}>
-                    Close
-                </Button>
+        <Card sx={{ my: 10, p: 3 }}>
+            <Button onClick={() => navigate("/calendar")} sx={{ textTransform: "none" }}>
+                Close
+            </Button>
             <Typography variant="h5" sx={{ mb: 1, textAlign: "center" }}>
                 {data.title}
             </Typography>
@@ -55,7 +63,20 @@ const SingleDate = () => {
                     </Typography>
                 </div>
             }
-
+            {token &&
+                <Button
+                    onClick={() => {
+                        if (confirm("Are you sure you want to delete this event?") === true) {
+                            deleteDate(data.id)
+                            navigate("/calendar")
+                        }
+                    }}
+                    variant="outlined"
+                    color="error"
+                    sx={{ textTransform: "none", m: 1 }}>
+                    Delete Date
+                </Button>
+            }
         </Card>
     )
 }
