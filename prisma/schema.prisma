@@ -37,10 +37,3 @@ model Dates {
   title String @default("")
   allDay Boolean @default(false)
 }
-
-model Merit {
-  id Int @id @default(autoincrement())
-  goals String?
-  evals String?
-  awards String?
-}

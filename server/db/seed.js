@@ -9,7 +9,6 @@ async function seed() {
     await prisma.about.deleteMany();
     await prisma.policy.deleteMany();
     await prisma.dates.deleteMany();
-    await prisma.merit.deleteMany();
 
     try {
         //User
@@ -212,31 +211,6 @@ async function seed() {
                     end: new Date(2024, 4, 4, 17),
                     title: "Piano Recital"
                 },
-            ]
-        })
-
-        //Merit
-        const merits = await prisma.merit.createMany({
-            data: [
-                {
-                    goals: "To provide a systematic and comprehensive plan to develop performance skill, technique, ear training, sight reading and understanding of music theory",
-                    evals: "Certificate of Merit students must participate in an annual evaluation of their skills. Evaluations are held from mid-February to early April. Registration is in October.",
-                    awards: "Students who show exceptional skill may be selected to perform at the annual MTAC State Convention"
-                },
-                {
-                    goals: "To develop practical goals to help students maintain a steady and focused approach to their musical studies",
-                    evals: "There are two parts to the evaluation: performance and theory",
-                    awards: "Senior medallions are awarded to eligible high school seniors"
-                },
-                {
-                    goals: "To encourage students to strive for musical excellence",
-                    evals: "For the performance section, the student must perform selected literature, technique elements, and sight reading",
-                    awards: "Certificate of Merit is an excellent achievement to add to college applications"
-                },
-                {
-                    goals: "To create opportunities in which students may share their music with others",
-                    evals: "The theory section consists of a written exam and ear training"
-                }
             ]
         })
 
