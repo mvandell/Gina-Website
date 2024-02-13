@@ -7,6 +7,7 @@ import VoicePolicy from "./components/Policy/VoicePolicy";
 import Homepage from "./components/Homepage/Homepage";
 import TeachingCalendar from "./components/Calendar/TeachingCalendar";
 import Login from "./components/Login/Login";
+import NewDate from "./components/Calendar/NewDate";
 
 const App = () => {
 
@@ -24,6 +25,8 @@ const App = () => {
           <Route path="/policy/voice" element={<VoicePolicy />} />
           <Route path="/policy/piano" element={<PianoPolicy />} />
           <Route path="/login" element={<Login />} />
+          
+          <Route path="/new_date" element={<NewDate />} />
         </Routes>
       </div>
     </div>
