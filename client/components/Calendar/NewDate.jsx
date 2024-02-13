@@ -12,6 +12,7 @@ import Stack from "@mui/material/Stack";
 import Grid from "@mui/material/Grid";
 
 import { usePostDateMutation } from "../../redux/api";
+import Times from "./Times";
 
 //toggle for allDay sets allDay and reveals/hides start/endTime
 //day, month, and year concat into a date string, with or w/o time
@@ -63,32 +64,41 @@ const NewDate = () => {
                 <Grid item xs={3}>
                 </Grid>
                 <Grid item xs={6}>
-                    <Typography variant="h4">
-                        New Event
-                    </Typography>
-                    <form onSubmit={handleSubmit}>
-                            <Typography variant="h6">
+                    <Card sx={{ p: 3, backgroundColor: "white", maxWidth: 600, mt: 5 }}>
+                        <Typography variant="h3" sx={{mb: 2}}>
+                            New Event
+                        </Typography>
+                        <form onSubmit={handleSubmit}>
+                            <Typography variant="h5">
                                 All Day:
                             </Typography>
                             <Stack direction="row">
-                            <Typography>
-                                false
-                            </Typography>
-                            <Switch 
-                                defaultChecked={false}
-                                onChange={() => {
-                                    setAllDay(!allDay);
-                                    console.log(`allDay: ${allDay}`);
-                                }} 
-                            />
-                            <Typography>
-                                true
-                            </Typography>
+                                <Typography>
+                                    false
+                                </Typography>
+                                <Switch
+                                    defaultChecked={false}
+                                    onChange={() => {
+                                        setAllDay(!allDay);
+                                        console.log(`allDay: ${!allDay}`);
+                                    }}
+                                />
+                                <Typography>
+                                    true
+                                </Typography>
                             </Stack>
-                        <Stack direction="column">
+                            <Stack direction="column">
+                                    {allDay === false &&
+                                        <Select
+                                            label="Start Time"
 
-                        </Stack>
-                    </form>
+                                        >
+                                            <Times />
+                                        </Select>
+                                    }
+                            </Stack>
+                        </form>
+                    </Card>
                 </Grid>
                 <Grid item xs={1}>
                 </Grid>
