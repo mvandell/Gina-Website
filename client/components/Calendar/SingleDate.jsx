@@ -41,8 +41,8 @@ const SingleDate = () => {
             <Typography variant="h5" sx={{ mb: 1, textAlign: "center" }}>
                 {data.title}
             </Typography>
-            {data.allDay ?
-                <div>
+            {data.allDay ? //all day
+                <div> 
                     <Typography sx={{ textAlign: "center" }}>
                         {start}
                     </Typography>
@@ -53,7 +53,7 @@ const SingleDate = () => {
                         {end}
                     </Typography>
                 </div>
-                :
+                : //not all day
                 <div>
                     <Typography sx={{ textAlign: "center" }}>
                         {start}

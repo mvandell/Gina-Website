@@ -6,13 +6,9 @@ import Card from "@mui/material/Card";
 import TextField from "@mui/material/TextField";
 import RadioGroup from "@mui/material/RadioGroup";
 import Switch from "@mui/material/Switch";
-import Select from "@mui/material/Select";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import Grid from "@mui/material/Grid";
-import MenuItem from '@mui/material/MenuItem';
-import InputLabel from '@mui/material/InputLabel';
-import FormControl from '@mui/material/FormControl';
 
 import { usePostDateMutation } from "../../redux/api";
 
@@ -26,15 +22,8 @@ import { usePostDateMutation } from "../../redux/api";
 const NewDate = () => {
     const [allDay, setAllDay] = useState(false);
     const [title, setTitle] = useState("");
-    const [instrument, setInstrument] = useState(null);
-    const [startYear, setStartYear] = useState(null);
-    const [startMonth, setStartMonth] = useState(null);
-    const [startDay, setStartDay] = useState(null);
-    const [startTime, setStartTime] = useState("");
-    const [endYear, setEndYear] = useState(null);
-    const [endMonth, setEndMonth] = useState(null);
-    const [endDay, setEndDay] = useState(null);
-    const [endTime, setEndTime] = useState(null);
+    const [start, setStart] = useState("");
+    const [end, setEnd] = useState("");
 
     const navigate = useNavigate();
 
@@ -53,48 +42,19 @@ const NewDate = () => {
     const handleSubmit = async (event) => {
         try {
             event.preventDefault();
-            const result = await postDate({ start, end, title, allDay, instrument })
+            const result = await postDate({ start: start, end: end, title: title, allDay: allDay })
+            console.log(result);
+            navigate("/calendar");
         } catch (error) {
             console.error(error)
         }
     }
 
-    const handleChange = (event) => {
-        setStartTime(event.target.value)
+    const handleStart = (event) => {
+        setStart(event.target.value)
     }
-
-    const time = [];
-    for (let i = 9; i < 18; i++) {
-        for (let j = 0; j < 46; j += 15) {
-            let minute = j;
-            if (j === 0) {
-                minute = "00";
-                if (i > 12) {
-                    time.push({
-                        value: `${i}:${minute}`,
-                        display: `${i - 12}:${minute} PM`
-                    })
-                } else {
-                    time.push({
-                        value: `${i}:${minute}`,
-                        display: `${i}:${minute} AM`
-                    })
-                }
-            }
-            else {
-                if (i > 12) {
-                    time.push({
-                        value: `${i}:${minute}`,
-                        display: `${i - 12}:${minute} PM`
-                    })
-                } else {
-                    time.push({
-                        value: `${i}:${minute}`,
-                        display: `${i}:${minute} AM`
-                    })
-                }
-            }
-        }
+    const handleEnd = (event) => {
+        setEnd(event.target.value)
     }
 
     return (
@@ -121,6 +81,7 @@ const NewDate = () => {
                                     label="allDay"
                                     // labelId="allDayLabel"
                                     defaultChecked={false}
+                                    required={true}
                                     onChange={() => {
                                         setAllDay(!allDay);
                                         console.log(`allDay: ${!allDay}`);
@@ -131,27 +92,58 @@ const NewDate = () => {
                                 </Typography>
                             </Stack>
                             <Stack direction="column">
-                                {allDay === false &&
+                                {allDay ? //all day
                                     <>
-                                    {/* vanilla html dropdown */}
-                                        {/* <FormControl>
-                                            <InputLabel id="startTime">Start Time</InputLabel>
-                                            <Select
-                                                id="startTime"
-                                                //labelId="startTimeLabel"
-                                                label="StartTime"
-                                                variant="filled"
-                                                value={startTime}
-                                                onChange={handleChange}>
-                                                {time && time.map((hour) => {
-                                                    <MenuItem value={hour.value}>
-                                                        {hour.display}
-                                                    </MenuItem>
-                                                })}
-                                            </Select>
-                                        </FormControl> */}
+                                        {/* select */}
+                                        <label> Start Date:
+                                            <input
+                                                type="date"
+                                                name="startTime"
+                                                value={start}
+                                                onChange={handleStart}
+                                                required />
+                                        </label>
+                                        <label> End Date:
+                                            <input
+                                                type="date"
+                                                name="endTime"
+                                                value={end}
+                                                onChange={handleEnd}
+                                                required />
+                                        </label>
+                                    </>
+                                    : //not all day
+                                    <>
+                                        <label> Start Date and Time:
+                                            <input
+                                                type="datetime-local"
+                                                name="startTime"
+                                                value={start}
+                                                onChange={handleStart}
+                                                required />
+                                        </label>
+                                        <label> End Date and Time:
+                                            <input
+                                                type="datetime-local"
+                                                name="endTime"
+                                                value={end}
+                                                onChange={handleEnd}
+                                                required />
+                                        </label>
                                     </>
                                 }
+                                <TextField
+                                    label="Event"
+                                    value={title}
+                                    onChange={(event) => setTitle(event.target.value)}
+                                    size="small"
+                                    required={true} />
+                                <Button
+                                    type="submit"
+                                    variant="contained"
+                                    sx={{ textTransform: "none", backgroundColor: "#088395", color: "white", p: 1, mx: 20, my: 3 }}>
+                                    Submit Date
+                                </Button>
                             </Stack>
                         </form>
                     </Card>
