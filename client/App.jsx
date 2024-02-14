@@ -7,7 +7,7 @@ import VoicePolicy from "./components/Policy/VoicePolicy";
 import Homepage from "./components/Homepage/Homepage";
 import TeachingCalendar from "./components/Calendar/TeachingCalendar";
 import Login from "./components/Login/Login";
-import NewDate from "./components/Calendar/NewDate";
+import NewDate from "./components/NewDate/NewDate";
 
 const App = () => {
 

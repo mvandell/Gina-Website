@@ -10,9 +10,11 @@ import Select from "@mui/material/Select";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import Grid from "@mui/material/Grid";
+import MenuItem from '@mui/material/MenuItem';
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
 
 import { usePostDateMutation } from "../../redux/api";
-import Times from "./Times";
 
 //toggle for allDay sets allDay and reveals/hides start/endTime
 //day, month, and year concat into a date string, with or w/o time
@@ -28,7 +30,7 @@ const NewDate = () => {
     const [startYear, setStartYear] = useState(null);
     const [startMonth, setStartMonth] = useState(null);
     const [startDay, setStartDay] = useState(null);
-    const [startTime, setStartTime] = useState(null);
+    const [startTime, setStartTime] = useState("");
     const [endYear, setEndYear] = useState(null);
     const [endMonth, setEndMonth] = useState(null);
     const [endDay, setEndDay] = useState(null);
@@ -57,6 +59,44 @@ const NewDate = () => {
         }
     }
 
+    const handleChange = (event) => {
+        setStartTime(event.target.value)
+    }
+
+    const time = [];
+    for (let i = 9; i < 18; i++) {
+        for (let j = 0; j < 46; j += 15) {
+            let minute = j;
+            if (j === 0) {
+                minute = "00";
+                if (i > 12) {
+                    time.push({
+                        value: `${i}:${minute}`,
+                        display: `${i - 12}:${minute} PM`
+                    })
+                } else {
+                    time.push({
+                        value: `${i}:${minute}`,
+                        display: `${i}:${minute} AM`
+                    })
+                }
+            }
+            else {
+                if (i > 12) {
+                    time.push({
+                        value: `${i}:${minute}`,
+                        display: `${i - 12}:${minute} PM`
+                    })
+                } else {
+                    time.push({
+                        value: `${i}:${minute}`,
+                        display: `${i}:${minute} AM`
+                    })
+                }
+            }
+        }
+    }
+
     return (
         <>
 
@@ -65,7 +105,7 @@ const NewDate = () => {
                 </Grid>
                 <Grid item xs={6}>
                     <Card sx={{ p: 3, backgroundColor: "white", maxWidth: 600, mt: 5 }}>
-                        <Typography variant="h3" sx={{mb: 2}}>
+                        <Typography variant="h3" sx={{ mb: 2 }}>
                             New Event
                         </Typography>
                         <form onSubmit={handleSubmit}>
@@ -77,6 +117,9 @@ const NewDate = () => {
                                     false
                                 </Typography>
                                 <Switch
+                                    id="allDay"
+                                    label="allDay"
+                                    // labelId="allDayLabel"
                                     defaultChecked={false}
                                     onChange={() => {
                                         setAllDay(!allDay);
@@ -88,14 +131,27 @@ const NewDate = () => {
                                 </Typography>
                             </Stack>
                             <Stack direction="column">
-                                    {allDay === false &&
-                                        <Select
-                                            label="Start Time"
-
-                                        >
-                                            <Times />
-                                        </Select>
-                                    }
+                                {allDay === false &&
+                                    <>
+                                    {/* vanilla html dropdown */}
+                                        {/* <FormControl>
+                                            <InputLabel id="startTime">Start Time</InputLabel>
+                                            <Select
+                                                id="startTime"
+                                                //labelId="startTimeLabel"
+                                                label="StartTime"
+                                                variant="filled"
+                                                value={startTime}
+                                                onChange={handleChange}>
+                                                {time && time.map((hour) => {
+                                                    <MenuItem value={hour.value}>
+                                                        {hour.display}
+                                                    </MenuItem>
+                                                })}
+                                            </Select>
+                                        </FormControl> */}
+                                    </>
+                                }
                             </Stack>
                         </form>
                     </Card>
