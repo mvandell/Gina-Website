@@ -42,17 +42,22 @@ const SingleDate = () => {
                 {data.title}
             </Typography>
             {data.allDay ? //all day
-                <div> 
+                data.start === data.end ? //single day
                     <Typography sx={{ textAlign: "center" }}>
                         {start}
                     </Typography>
-                    <Typography sx={{ textAlign: "center" }}>
-                        to
-                    </Typography>
-                    <Typography sx={{ textAlign: "center" }}>
-                        {end}
-                    </Typography>
-                </div>
+                    : //multiple days
+                    <div>
+                        <Typography sx={{ textAlign: "center" }}>
+                            {start}
+                        </Typography>
+                        <Typography sx={{ textAlign: "center" }}>
+                            to
+                        </Typography>
+                        <Typography sx={{ textAlign: "center" }}>
+                            {end}
+                        </Typography>
+                    </div>
                 : //not all day
                 <div>
                     <Typography sx={{ textAlign: "center" }}>

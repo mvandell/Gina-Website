@@ -13,6 +13,7 @@ import Stack from "@mui/material/Stack";
 import { useGetDatesQuery } from '../../redux/api'
 import { useNavigate, useParams } from 'react-router-dom';
 import SingleDate from './SingleDate';
+import NewDateButton from './NewDateButton';
 
 const locales = {
     'en-US': enUS,
@@ -28,7 +29,7 @@ const localizer = dateFnsLocalizer({
 
 const TeachingCalendar = () => {
     const navigate = useNavigate();
-    const {id} = useParams();
+    const { id } = useParams();
     const { data, error, isLoading } = useGetDatesQuery();
 
     if (isLoading) {
@@ -40,9 +41,11 @@ const TeachingCalendar = () => {
 
     console.log(data);
 
-//Toggle for piano/voice
+    //Link to new date form for admins
+
+    //Toggle for piano/voice
     //Sorts dates by instrument
-        //Feeds into Calendar events
+    //Feeds into Calendar events
 
     return (
         <>
@@ -61,7 +64,7 @@ const TeachingCalendar = () => {
                             allDayAccessor="allDay"
                             defaultDate={new Date()}
                             views={['month', "agenda"]}
-                            onSelectEvent={(event) => {navigate(`/calendar/${event.id}`);}}
+                            onSelectEvent={(event) => { navigate(`/calendar/${event.id}`); }}
                             style={{ height: "60vh", width: "60vw" }}
                         />
                     </div>
@@ -70,6 +73,7 @@ const TeachingCalendar = () => {
                     <SingleDate />
                 }
             </Stack>
+                <NewDateButton />
         </>
     )
 }

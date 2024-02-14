@@ -13,10 +13,10 @@ import Grid from "@mui/material/Grid";
 import { usePostDateMutation } from "../../redux/api";
 
 //toggle for allDay sets allDay and reveals/hides start/endTime
-//day, month, and year concat into a date string, with or w/o time
 
-//dropdown for title, month, day, and time
-//text input for year, only allow 4 numbers
+//needs styling in CSS
+
+//dropdown for title?
 //radio for instrument
 
 const NewDate = () => {
