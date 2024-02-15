@@ -19,11 +19,7 @@ const Homepage = () => {
                 </Typography>
             </Card>
             <img src={MTACLogo} alt="MTAC logo" />
-            <Link to="/login">
-                <Button variant="text" sx={{ color: "#303036", textTransform: "none" }}>
-                    Admin Login
-                </Button>
-            </Link>
+            
         </div>
     )
 }

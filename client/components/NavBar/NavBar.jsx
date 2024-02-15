@@ -4,12 +4,14 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import PolicyDropdown from "./PolicyDropdown";
+import LogoutButton from "./LogoutButton";
 
 const NavBar = () => {
-//different color navbar
-// TODO: add Login
+    const token = useSelector((state) => state.auth.token);
+    //different color navbar?
     return (
         <Stack direction="row">
             <Typography variant="h2" sx={{ mx: 10 }}>
@@ -43,6 +45,15 @@ const NavBar = () => {
                             Certificate of Merit
                         </Button>
                     </a>
+                    {token ? //logged in
+                        <LogoutButton />
+                        : //not logged in
+                        <Link to="/login">
+                            <Button variant="text" sx={{ color: "#303036", textTransform: "none", fontWeight: "bold", fontSize: "16px" }}>
+                                Admin Login
+                            </Button>
+                        </Link>
+                    }
                 </Stack>
             </Box>
         </Stack>
