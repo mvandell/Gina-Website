@@ -26,12 +26,12 @@ const AccountPage = () => {
                         <Typography variant="h3">
                             Welcome, {data[0].username}!
                         </Typography>
-                        <Card>
+                        <Card sx={{p: 3, m: 1}}>
                             <Stack direction="column">
-                                <Typography>
+                                <Typography sx={{pb: 2}}>
                                     Email: {data[0].email}
                                 </Typography>
-                                <Typography>
+                                <Typography sx={{pb: 2}}>
                                     Phone: {data[0].phone}
                                 </Typography>
                                 <Button variant="contained">
