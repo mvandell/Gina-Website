@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import PolicyDropdown from "./PolicyDropdown";
-import LogoutButton from "./LogoutButton";
+import AdminDropdown from "./AdminDropdown";
 
 const NavBar = () => {
     const token = useSelector((state) => state.auth.token);
@@ -45,15 +45,7 @@ const NavBar = () => {
                             Certificate of Merit
                         </Button>
                     </a>
-                    {token ? //logged in
-                        <LogoutButton />
-                        : //not logged in
-                        <Link to="/login">
-                            <Button variant="text" sx={{ color: "#303036", textTransform: "none", fontWeight: "bold", fontSize: "16px" }}>
-                                Admin Login
-                            </Button>
-                        </Link>
-                    }
+                    <AdminDropdown />
                 </Stack>
             </Box>
         </Stack>
