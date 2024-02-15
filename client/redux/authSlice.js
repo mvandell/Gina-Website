@@ -4,15 +4,14 @@ import store from "./store";
 
 function storeToken(state, {payload}) {
     state.token = payload.token;
-    window.localStorage.setItem("token", payload.token);
+    window.sessionStorage.setItem("token", payload.token);
 }
-
 
 //Redux slice for authentication
 const authSlice = createSlice({
     name: "auth",
     initialState: {
-        token: window.localStorage.getItem("token") ?? null
+        token: window.sessionStorage.getItem("token") ?? null
     },
     reducers: {},
 
@@ -23,7 +22,7 @@ const authSlice = createSlice({
         builder.addMatcher(
             api.endpoints.logout.matchFulfilled, (state) => {
                 state.token = null;
-                window.localStorage.removeItem("token");
+                window.sessionStorage.removeItem("token");
             }
         );
     }

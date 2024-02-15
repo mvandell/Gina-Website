@@ -12,9 +12,9 @@ import Grid from "@mui/material/Grid";
 
 import { usePostDateMutation } from "../../redux/api";
 
-//toggle for allDay sets allDay and reveals/hides start/endTime
+// TODO: radio or display current allDay status
 
-//needs styling in CSS
+// TODO: needs styling in CSS 
 
 //dropdown for title?
 //radio for instrument
