@@ -8,6 +8,7 @@ import Homepage from "./components/Homepage/Homepage";
 import TeachingCalendar from "./components/Calendar/TeachingCalendar";
 import Login from "./components/Login/Login";
 import NewDate from "./components/NewDate/NewDate";
+import AccountPage from "./components/AccountPage/AccountPage";
 
 const App = () => {
 
@@ -27,6 +28,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           
           <Route path="/new_date" element={<NewDate />} />
+          <Route path="/account" element={<AccountPage />} />
         </Routes>
       </div>
     </div>
