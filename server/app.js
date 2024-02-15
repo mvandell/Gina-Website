@@ -26,7 +26,7 @@ app.get("/test", (req, res, next) => {
 //   res.sendFile(path.join(__dirname, '../dist/index.html'));
 // })
 
-// TODO: Add your routers here
+//Add your routers here
 app.use("/auth", require("./auth"));
 app.use("/api", require("./api"));
 

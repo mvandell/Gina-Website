@@ -1,4 +1,3 @@
-// TODO: add API router here and all API sub-routers
 const express = require('express');
 const apiRouter = express.Router();
 

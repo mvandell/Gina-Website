@@ -12,8 +12,6 @@ import Grid from "@mui/material/Grid";
 
 import { usePostDateMutation } from "../../redux/api";
 
-// TODO: radio or display current allDay status
-
 // TODO: needs styling in CSS 
 
 //dropdown for title?

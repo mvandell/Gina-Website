@@ -9,6 +9,7 @@ import PolicyDropdown from "./PolicyDropdown";
 
 const NavBar = () => {
 //different color navbar
+// TODO: add Login
     return (
         <Stack direction="row">
             <Typography variant="h2" sx={{ mx: 10 }}>
