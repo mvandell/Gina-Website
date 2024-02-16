@@ -9,6 +9,7 @@ import TeachingCalendar from "./components/Calendar/TeachingCalendar";
 import Login from "./components/Login/Login";
 import NewDate from "./components/NewDate/NewDate";
 import AccountPage from "./components/AccountPage/AccountPage";
+import EditUser from "./components/AccountPage/EditUser";
 
 const App = () => {
 
@@ -29,6 +30,7 @@ const App = () => {
           
           <Route path="/new_date" element={<NewDate />} />
           <Route path="/account" element={<AccountPage />} />
+          <Route path="/account/edit" element={<EditUser />} />
         </Routes>
       </div>
     </div>

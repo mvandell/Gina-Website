@@ -31,7 +31,7 @@ const Login = () => {
                 event.preventDefault();
                 const result = await login({ username, password });
                 console.log(result);
-                navigate("/")
+                navigate("/account")
             }
         } catch (error) {
             console.error(error)

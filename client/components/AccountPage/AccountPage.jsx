@@ -4,10 +4,11 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 
-import { useGetUserQuery } from "../../redux/api";
+import { useGetAccountQuery } from "../../redux/api";
+import { Link } from "react-router-dom";
 
 const AccountPage = () => {
-    const {data, error, isLoading} = useGetUserQuery();
+    const { data, error, isLoading } = useGetAccountQuery();
 
     if (isLoading) {
         return <div> </div>;
@@ -24,19 +25,21 @@ const AccountPage = () => {
                 <Grid item xs={6}>
                     <Card sx={{ backgroundColor: "#AFC7A8", px: 2, py: 1, m: 4, mt: 2, borderRadius: 5 }}>
                         <Typography variant="h3">
-                            Welcome, {data[0].username}!
+                            Welcome, {data.username}!
                         </Typography>
-                        <Card sx={{p: 3, m: 1}}>
+                        <Card sx={{ p: 3, m: 1 }}>
                             <Stack direction="column">
-                                <Typography sx={{pb: 2}}>
-                                    Email: {data[0].email}
+                                <Typography sx={{ pb: 2 }}>
+                                    Email: {data.email}
                                 </Typography>
-                                <Typography sx={{pb: 2}}>
-                                    Phone: {data[0].phone}
+                                <Typography sx={{ pb: 2 }}>
+                                    Phone: {data.phone}
                                 </Typography>
-                                <Button variant="contained">
-                                    Edit Account Info
-                                </Button>
+                                <Link to={"/account/edit"}>
+                                    <Button variant="contained">
+                                        Edit Account Info
+                                    </Button>
+                                </Link>
                             </Stack>
                         </Card>
                     </Card>

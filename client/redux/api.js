@@ -28,7 +28,13 @@ const api = createApi({
                 url: "/api/user",
                 method: "GET",
             }),
-            providesTags: ["Me"]
+        }),
+        //GET USER ACCOUNT
+        getAccount: builder.query({
+            query: () => ({
+                url: "/auth/account",
+                method: "GET",
+            }),
         }),
         //GET BIO
         getBio: builder.query({
@@ -158,6 +164,7 @@ export default api;
 export const {
     //QUERIES
     useGetUserQuery,
+    useGetAccountQuery,
     useGetBioQuery,
     useGetPianoPolicyQuery,
     useGetVoicePolicyQuery,

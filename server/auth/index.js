@@ -11,6 +11,21 @@ const SALT_COUNT = 10;
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
+//GET /auth/account
+authRouter.get("/account", requireUser, async (req, res, next) => {
+    try {
+        const user = await prisma.user.findUnique({
+            where: {
+                id: req.user.id
+            }
+        });
+        delete user.password;
+        res.send(user);
+    } catch (error) {
+        next(error);
+    }
+})
+
 //POST /auth/login
 authRouter.post("/login", async (req, res, next) => {
     try {

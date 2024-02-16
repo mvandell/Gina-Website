@@ -8,6 +8,7 @@ const prisma = new PrismaClient();
 apiRouter.get("/user", async (req, res, next) => {
     try {
         const user = await prisma.user.findMany();
+        delete user.password;
         res.send(user);
     } catch (error) {
         next(error)
