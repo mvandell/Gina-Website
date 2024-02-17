@@ -4,13 +4,12 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
 
 import PolicyDropdown from "./PolicyDropdown";
 import AdminDropdown from "./AdminDropdown";
 
 const NavBar = () => {
-    const token = useSelector((state) => state.auth.token);
+    
     //different color navbar?
     return (
         <Stack direction="row">

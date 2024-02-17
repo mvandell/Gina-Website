@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import { useSelector } from "react-redux";
 import NavBar from "./components/NavBar/NavBar";
 import Contact from "./components/Contact/Contact";
 import About from "./components/About/About";
@@ -12,29 +13,30 @@ import AccountPage from "./components/AccountPage/AccountPage";
 import EditUser from "./components/AccountPage/EditUser";
 
 const App = () => {
+    const token = useSelector((state) => state.auth.token);
+    console.log(token)
+    return (
+        <div className='gradient_background'>
+            <div className="App">
+                <NavBar />
 
-  return (
-    <div className='gradient_background'>
-      <div className="App">
-        <NavBar />
+                <Routes>
+                    <Route path="/" element={<Homepage />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/calendar" element={<TeachingCalendar />} />
+                    <Route path="/calendar/:id" element={<TeachingCalendar />} />
+                    <Route path="/policy/voice" element={<VoicePolicy />} />
+                    <Route path="/policy/piano" element={<PianoPolicy />} />
+                    <Route path="/login" element={<Login />} />
 
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/calendar" element={<TeachingCalendar />} />
-          <Route path="/calendar/:id" element={<TeachingCalendar />} />
-          <Route path="/policy/voice" element={<VoicePolicy />} />
-          <Route path="/policy/piano" element={<PianoPolicy />} />
-          <Route path="/login" element={<Login />} />
-          
-          <Route path="/new_date" element={<NewDate />} />
-          <Route path="/account" element={<AccountPage />} />
-          <Route path="/account/edit" element={<EditUser />} />
-        </Routes>
-      </div>
-    </div>
-  );
+                    <Route path="/new_date" element={<NewDate />} />
+                    <Route path="/account" element={<AccountPage />} />
+                    <Route path="/account/edit" element={<EditUser />} />
+                </Routes>
+            </div>
+        </div>
+    );
 }
 
 export default App;

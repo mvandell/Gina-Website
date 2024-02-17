@@ -35,6 +35,7 @@ const api = createApi({
                 url: "/auth/account",
                 method: "GET",
             }),
+            providesTags: ["Me"]
         }),
         //GET BIO
         getBio: builder.query({

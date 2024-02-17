@@ -60,7 +60,7 @@ const Login = () => {
                                     value={username}
                                     onChange={(event) => setUsername(event.target.value)}
                                     size="small"
-                                    required="true"
+                                    required
                                     variant="filled"
                                     sx={{ m: 1 }}
                                     helperText={username && validateUsername(username)}
@@ -71,7 +71,7 @@ const Login = () => {
                                     type="password"
                                     onChange={(event) => setPassword(event.target.value)}
                                     size="small"
-                                    required="true"
+                                    required
                                     variant="filled"
                                     sx={{ m: 1 }}
                                 />
