@@ -195,8 +195,8 @@ async function seed() {
                     title: "No lessons",
                     allDay: true
                 },
-                {
-                    start: new Date(2024, 3, 6, 15),
+                { 
+                    start: new Date(2024, 3, 6, 15), //location: Redwood Shores Library
                     end: new Date(2024, 3, 6, 15),
                     title: "Piano Class"
                 },

@@ -47,15 +47,17 @@ const EditUser = () => {
         setEmail(data.email);
         setPhone(data.phone);
     }
-// TODO: update styling on bottom buttons
+
     return data && (
         <div>
-            <Button onClick={populateForm}>
-                Populate Form
-            </Button>
-            <Card sx={{ p: 3 }}>
+            <Card sx={{ p: 3, m: 5, backgroundColor: "white" }}>
                 <Typography variant="h4" sx={{ textAlign: "center", p: 1 }}>
                     Update Your Account:
+                </Typography>
+                <Typography textAlign="center">
+                    <Button onClick={populateForm} sx={{backgroundColor: "#8DAF83", color: "black", textTransform: "none", px: 2, py: 1, fontWeight: "bold" }}>
+                        Populate Form
+                    </Button>
                 </Typography>
                 <form onSubmit={handleSubmit}>
                     <Stack direction="column">
@@ -64,8 +66,8 @@ const EditUser = () => {
                             value={username}
                             onChange={(event) => setUsername(event.target.value)}
                             size="small"
-                            variant="outlined"
-                            sx={{ m: 1, }}
+                            variant="filled"
+                            sx={{ m: 1, backgroundColor: "white"}}
                         />
                         <TextField
                             label="Update Email"
@@ -73,8 +75,8 @@ const EditUser = () => {
                             onChange={(event) => setUsername(event.target.value)}
                             type="email"
                             size="small"
-                            variant="outlined"
-                            sx={{ m: 1, }}
+                            variant="filled"
+                            sx={{ m: 1, backgroundColor: "white"}}
                         />
                         <TextField
                             label="Update Phone"
@@ -82,26 +84,26 @@ const EditUser = () => {
                             onChange={(event) => setUsername(event.target.value)}
                             type="tel"
                             size="small"
-                            variant="outlined"
-                            sx={{ m: 1, }}
+                            variant="filled"
+                            sx={{ m: 1, backgroundColor: "white"}}
                         />
                         <TextField
                             label="Update Password"
                             value={password}
-                            onChange={(event) => setUsername(event.target.value)}
+                            onChange={(event) => setPassword(event.target.value)}
                             type="password"
                             size="small"
-                            variant="outlined"
-                            sx={{ m: 1, }}
+                            variant="filled"
+                            sx={{ m: 1, backgroundColor: "white"}}
                         />
                         <TextField
                             label="Re-enter Updated Password"
                             value={secondPassword}
-                            onChange={(event) => setUsername(event.target.value)}
+                            onChange={(event) => setSecondPassword(event.target.value)}
                             type="password"
                             size="small"
-                            variant="outlined"
-                            sx={{ m: 1, }}
+                            variant="filled"
+                            sx={{ m: 1, backgroundColor: "white"}}
                             error={
                                 !!(password && secondPassword !== secondPassword)
                             }
@@ -110,16 +112,18 @@ const EditUser = () => {
                                     <Alert severity="error"> Passwords do not match </Alert> : null
                             }
                         />
-                        <Button type="submit" sx={{ textTransform: "none", backgroundColor: "#088395", color: "white", m: 2, p: 1 }}>
-                            Save Changes
-                        </Button>
-                        <Button
-                            onClick={() => navigate("/account")}
-                            sx={{ textTransform: "none", backgroundColor: "#D7E462", color: "black", mx: 3, p: 1 }}>
-                            <Typography>
+                        <Typography textAlign="center">
+                            <Button type="submit" sx={{ textTransform: "none", backgroundColor: "#8DAF83", color: "black", my: 2, p: 1, fontWeight: "bold" }}>
+                                Save Changes
+                            </Button>
+                        </Typography>
+                        <Typography textAlign="center">
+                            <Button
+                                onClick={() => navigate("/account")}
+                                sx={{ textTransform: "none", backgroundColor: "#A9C6EF", color: "black", p: 1, fontWeight: "bold" }}>
                                 Cancel
-                            </Typography>
-                        </Button>
+                            </Button>
+                        </Typography>
                     </Stack>
                 </form>
             </Card>

@@ -10,7 +10,7 @@ const NewDateButton = () => {
         <>
             {token &&
                 <Link to="/new_date">
-                    <Button sx={{ textTransform: "none", m: 1 }}>
+                    <Button variant="contained" sx={{ ml: 10, backgroundColor: "#19488A", color: "white", py: 2, px: 3, fontWeight: "bold" }}>
                         New Event
                     </Button>
                 </Link>

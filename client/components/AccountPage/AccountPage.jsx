@@ -23,7 +23,7 @@ const AccountPage = () => {
                 <Grid item xs={3}>
                 </Grid>
                 <Grid item xs={6}>
-                    <Card sx={{ backgroundColor: "#AFC7A8", px: 2, py: 1, m: 4, mt: 2, borderRadius: 5 }}>
+                    <Card sx={{ backgroundColor: "#AFC7A8", px: 2, py: 1, m: 5, mt: 2, borderRadius: 5 }}>
                         <Typography variant="h3">
                             Welcome, {data.username}!
                         </Typography>
