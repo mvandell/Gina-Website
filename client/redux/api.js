@@ -141,10 +141,10 @@ const api = createApi({
         }),
         //PATCH POLICY
         patchPolicy: builder.mutation({
-            query: ({ id, instrument, heading, content }) => ({
+            query: ({ id, instrument, content }) => ({
                 url: `/auth/policy/${id}/edit`,
                 method: "PATCH",
-                body: { instrument, heading, content }
+                body: { instrument, content }
             }),
             invalidatesTags: ["Policy"]
         }),

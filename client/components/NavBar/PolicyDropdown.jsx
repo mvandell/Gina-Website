@@ -33,16 +33,16 @@ const PolicyDropdown = () => {
                 open={open}
                 onClose={handleClose}>
                 <MenuItem onClick={handleClose}>
-                    <Link to="/policy/voice">
-                        <Button variant="text" sx={{ color: "#303036", textTransform: "none" }}>
-                            Voice Policy
-                        </Button>
-                    </Link>
-                </MenuItem>
-                <MenuItem onClick={handleClose}>
                     <Link to="/policy/piano">
                         <Button variant="text" sx={{ color: "#303036", textTransform: "none" }}>
                             Piano Policy
+                        </Button>
+                    </Link>
+                </MenuItem>    
+                <MenuItem onClick={handleClose}>
+                    <Link to="/policy/voice">
+                        <Button variant="text" sx={{ color: "#303036", textTransform: "none" }}>
+                            Voice Policy
                         </Button>
                     </Link>
                 </MenuItem>

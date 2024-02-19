@@ -1,9 +1,9 @@
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack"
+import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button"
+import IconButton from "@mui/material/IconButton";
 
 import EditIcon from '@mui/icons-material/Edit';
 import CheckIcon from '@mui/icons-material/Check';
@@ -36,7 +36,7 @@ const PianoPolicy = () => {
     const handleSubmit = async (event) => {
         try {
             event.preventDefault();
-            const response = await patchPolicy({ instrument: "piano", heading: heading, content: content });
+            const response = await patchPolicy({ instrument: "piano", content: content });
         }
         catch (error) {
             console.error(error)
@@ -58,23 +58,34 @@ const PianoPolicy = () => {
                             </Typography>
                         }
                         <Stack direction="row">
-
                             {token &&
-                                <Button onClick={() => setAlert(data.id)} sx={{ color: "black", m: 0, p: 0 }}>
+                                <IconButton onClick={() => setAlert(policy.id)} sx={{ color: "black", m: 0, p: 0, mr: 1 }}>
                                     <EditIcon fontSize="small" />
-                                </Button>
+                                </IconButton>
                             }
-                            <Typography>
-                                {policy.content}
-                            </Typography>
-                            {alert === data.id &&
-                                <form onSubmit={handleSubmit}>
-                                    {/* 
-                                        TextField for heading and content 
-                                        Check icon button to submit, close icon button to cancel
-                                    */}
-                                </form>
+                            <Stack direction="column">
+                                <Typography>
+                                    {policy.content}
+                                </Typography>
+                                {alert === policy.id &&
+
+                                    <form onSubmit={handleSubmit}>
+                                        <TextField
+                                            label="Updated info"
+                                            value={content}
+                                            onChange={(event) => setContent(event.target.value)}
+                                            size="small"
+                                            sx={{ m: 1, backgroundColor: "white" }}
+                                            multiline />
+                                        <IconButton type="submit" color="success">
+                                            <CheckIcon />
+                                        </IconButton>
+                                        <IconButton onClick={() => setAlert(null)} color="error">
+                                            <CloseIcon />
+                                        </IconButton>
+                                    </form>
                             }
+                            </Stack>
                         </Stack>
                     </Box>
                 ))}

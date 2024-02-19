@@ -133,12 +133,11 @@ authRouter.patch("/about/:id/edit", requireUser, async (req, res, next) => {
 //PATCH /auth/policy/edit
 authRouter.patch("/policy/:id/edit", requireUser, async (req, res, next) => {
     try {
-        const {instrument, heading, content} = req.body;
+        const {instrument, content} = req.body;
         const updatedPolicy = await prisma.policy.update({
             where: {id: Number(req.params.id)},
             data: {
                 instrument: instrument || undefined,
-                heading: heading || undefined,
                 content: content || undefined
             }
         });
