@@ -11,6 +11,7 @@ import Login from "./components/Login/Login";
 import NewDate from "./components/NewDate/NewDate";
 import AccountPage from "./components/AccountPage/AccountPage";
 import EditUser from "./components/AccountPage/EditUser";
+import EditDate from "./components/EditDate/EditDate";
 
 const App = () => {
     const token = useSelector((state) => state.auth.token);
@@ -31,6 +32,7 @@ const App = () => {
                     <Route path="/login" element={<Login />} />
 
                     <Route path="/new_date" element={<NewDate />} />
+                    <Route path="/date/edit/:id" element={<EditDate />} />
                     <Route path="/account" element={<AccountPage />} />
                     <Route path="/account/edit" element={<EditUser />} />
                 </Routes>

@@ -1,7 +1,6 @@
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import Button from "@mui/material/Button";
-import Alert from "@mui/material/Alert";
 
 import { useGetSingleDateQuery, useDeleteDateMutation } from "../../redux/api";
 import { useParams, useNavigate } from "react-router-dom";
@@ -69,18 +68,24 @@ const SingleDate = () => {
                 </div>
             }
             {token &&
-                <Button
-                    onClick={() => {
-                        if (confirm("Are you sure you want to delete this event?") === true) {
-                            deleteDate(data.id)
-                            navigate("/calendar")
-                        }
-                    }}
-                    variant="outlined"
-                    color="error"
-                    sx={{ textTransform: "none", m: 1 }}>
-                    Delete Date
-                </Button>
+                <>
+                    <Button onClick={() => navigate(`/date/edit/${data.id}`)}
+                        sx={{textTransform: "none", m: 1}}>
+                        Update Date
+                    </Button>
+                    <Button
+                        onClick={() => {
+                            if (confirm("Are you sure you want to delete this event?") === true) {
+                                deleteDate(data.id)
+                                navigate("/calendar")
+                            }
+                        }}
+                        variant="outlined"
+                        color="error"
+                        sx={{ textTransform: "none", m: 1 }}>
+                        Delete Date
+                    </Button>
+                </>
             }
         </Card>
     )

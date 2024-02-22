@@ -76,9 +76,8 @@ const NewDate = () => {
                                 <Switch
                                     id="allDay"
                                     label="allDay"
-                                    // labelId="allDayLabel"
                                     defaultChecked={false}
-                                    required={true}
+                                    required
                                     onChange={() => {
                                         setAllDay(!allDay);
                                         console.log(`allDay: ${!allDay}`);
@@ -91,7 +90,6 @@ const NewDate = () => {
                             <Stack direction="column">
                                 {allDay ? //all day
                                     <>
-                                        {/* select */}
                                         <label> Start Date:
                                             <input
                                                 type="date"
