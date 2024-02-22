@@ -56,8 +56,7 @@ const NewDate = () => {
     }
 
     return (
-        <>
-
+        <div>
             <Grid container>
                 <Grid item xs={3}>
                 </Grid>
@@ -149,7 +148,7 @@ const NewDate = () => {
                 <Grid item xs={1}>
                 </Grid>
             </Grid>
-        </>
+        </div>
     )
 }
 

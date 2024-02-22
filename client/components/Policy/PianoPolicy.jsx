@@ -46,7 +46,7 @@ const PianoPolicy = () => {
     console.log(data)
     return (
         <div>
-            <Card sx={{ m: 3, p: 1 }}>
+            <Card sx={{ m: 5, p: 1 }}>
                 <Typography variant="h3" sx={{ m: 2 }}>
                     Piano Policy
                 </Typography>

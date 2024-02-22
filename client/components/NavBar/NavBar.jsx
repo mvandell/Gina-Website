@@ -9,45 +9,47 @@ import PolicyDropdown from "./PolicyDropdown";
 import AdminDropdown from "./AdminDropdown";
 
 const NavBar = () => {
-    
+
     //different color navbar?
     return (
-        <Stack direction="row">
-            <Typography variant="h2" sx={{ mx: 10 }}>
-                Gina Vandellos
-            </Typography>
-            <Box sx={{ maxHeight: '50px', backgroundColor: "#8DAF83", borderRadius: "50px", mt: 1.5, ml: 20 }}>
-                <Stack direction="row" sx={{ py: 1, px: 2 }}>
-                    <Link to="/" style={{ textDecoration: "none", color: "#303036" }}>
-                        <Button variant="text" sx={{ color: "#303036", textTransform: "none", fontWeight: "bold", fontSize: "16px" }}>
-                            Home
-                        </Button>
-                    </Link>
-                    <Link to="/about">
-                        <Button variant="text" sx={{ color: "#303036", textTransform: "none", fontWeight: "bold", fontSize: "16px" }}>
-                            About Me
-                        </Button>
-                    </Link>
-                    <PolicyDropdown />
-                    <Link to="/calendar">
-                        <Button variant="text" sx={{ color: "#303036", textTransform: "none", fontWeight: "bold", fontSize: "16px" }}>
-                            Calendar
-                        </Button>
-                    </Link>
-                    <Link to="/contact">
-                        <Button variant="text" sx={{ color: "#303036", textTransform: "none", fontWeight: "bold", fontSize: "16px" }}>
-                            Contact Me
-                        </Button>
-                    </Link>
-                    <a href="https://www.mtac.org/programs/cm/" target="_blank" >
-                        <Button variant="text" sx={{ color: "#303036", textTransform: "none", fontWeight: "bold", fontSize: "16px" }}>
-                            Certificate of Merit
-                        </Button>
-                    </a>
-                    <AdminDropdown />
-                </Stack>
-            </Box>
-        </Stack>
+        <div className="nav">
+            <Stack direction="row">
+                <Typography variant="h2" sx={{ mx: 10, color: "beige", mt: 1 }}>
+                    Gina Vandellos
+                </Typography>
+                <Box sx={{ maxHeight: '50px', backgroundColor: "#8DAF83", borderRadius: "50px", mt: 2, ml: 20 }}>
+                    <Stack direction="row" sx={{ py: 1, px: 2 }}>
+                        <Link to="/" style={{ textDecoration: "none", color: "#303036" }}>
+                            <Button variant="text" sx={{ color: "#303036", textTransform: "none", fontWeight: "bold", fontSize: "16px" }}>
+                                Home
+                            </Button>
+                        </Link>
+                        <Link to="/about">
+                            <Button variant="text" sx={{ color: "#303036", textTransform: "none", fontWeight: "bold", fontSize: "16px" }}>
+                                About Me
+                            </Button>
+                        </Link>
+                        <PolicyDropdown />
+                        <Link to="/calendar">
+                            <Button variant="text" sx={{ color: "#303036", textTransform: "none", fontWeight: "bold", fontSize: "16px" }}>
+                                Calendar
+                            </Button>
+                        </Link>
+                        <Link to="/contact">
+                            <Button variant="text" sx={{ color: "#303036", textTransform: "none", fontWeight: "bold", fontSize: "16px" }}>
+                                Contact Me
+                            </Button>
+                        </Link>
+                        <a href="https://www.mtac.org/programs/cm/" target="_blank" >
+                            <Button variant="text" sx={{ color: "#303036", textTransform: "none", fontWeight: "bold", fontSize: "16px" }}>
+                                Certificate of Merit
+                            </Button>
+                        </a>
+                        <AdminDropdown />
+                    </Stack>
+                </Box>
+            </Stack>
+        </div>
     )
 }
 

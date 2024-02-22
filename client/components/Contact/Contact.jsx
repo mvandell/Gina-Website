@@ -15,7 +15,7 @@ const Contact = () => {
 
     console.log(data);
     return (
-        <>
+        <div>
             <Typography variant="h3" sx={{ ml: 7, mt: 3 }}>
                 Contact Me
             </Typography>
@@ -37,7 +37,7 @@ const Contact = () => {
                     </Typography>
                 </Card>
             </Card>
-        </>
+        </div>
     )
 }
 

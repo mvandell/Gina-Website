@@ -48,7 +48,7 @@ const TeachingCalendar = () => {
     //Feeds into Calendar events
 
     return (
-        <>
+        <div>
             <Stack direction="row">
                 <Card sx={{ m: 10, p: 2 }}>
                     <Typography variant='h3' sx={{ textAlign: "center", m: 1 }}>
@@ -74,7 +74,7 @@ const TeachingCalendar = () => {
                 }
             </Stack>
                 <NewDateButton />
-        </>
+        </div>
     )
 }
 

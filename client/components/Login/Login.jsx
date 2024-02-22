@@ -44,7 +44,7 @@ const Login = () => {
     }
 
     return (
-        <>
+        <div>
             <Grid container>
                 <Grid item xs={3}>
                 </Grid>
@@ -88,7 +88,7 @@ const Login = () => {
                 <Grid item xs={1}>
                 </Grid>
             </Grid>
-        </>
+        </div>
     )
 }
 

@@ -16,7 +16,7 @@ const App = () => {
     const token = useSelector((state) => state.auth.token);
     console.log(token)
     return (
-        <div className='gradient_background'>
+        <div className='radial_background'>
             <div className="App">
                 <NavBar />
 
