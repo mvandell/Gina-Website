@@ -1,6 +1,7 @@
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import Button from "@mui/material/Button";
+import Stack from "@mui/material/Stack";
 
 import { useGetSingleDateQuery, useDeleteDateMutation } from "../../redux/api";
 import { useParams, useNavigate } from "react-router-dom";
@@ -69,22 +70,25 @@ const SingleDate = () => {
             }
             {token &&
                 <>
-                    <Button onClick={() => navigate(`/date/edit/${data.id}`)}
-                        sx={{textTransform: "none", m: 1}}>
-                        Update Date
-                    </Button>
-                    <Button
-                        onClick={() => {
-                            if (confirm("Are you sure you want to delete this event?") === true) {
-                                deleteDate(data.id)
-                                navigate("/calendar")
-                            }
-                        }}
-                        variant="outlined"
-                        color="error"
-                        sx={{ textTransform: "none", m: 1 }}>
-                        Delete Date
-                    </Button>
+                    <Stack direction="column">
+                        <Button onClick={() => navigate(`/date/edit/${data.id}`)}
+                            sx={{ textTransform: "none", m: 1, mt: 2 }}
+                            variant="outlined">
+                            Update Date
+                        </Button>
+                        <Button
+                            onClick={() => {
+                                if (confirm("Are you sure you want to delete this event?") === true) {
+                                    deleteDate(data.id)
+                                    navigate("/calendar")
+                                }
+                            }}
+                            variant="outlined"
+                            color="error"
+                            sx={{ textTransform: "none", m: 1 }}>
+                            Delete Date
+                        </Button>
+                    </Stack>
                 </>
             }
         </Card>
