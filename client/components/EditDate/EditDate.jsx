@@ -48,15 +48,15 @@ const EditDate = () => {
         const end = new Date(data.end);
         setAllDay(data.allDay);
         setTitle(data.title);
-        setStart(format(new Date(data.start), "yyyy-MM-dd'T'hh:mm"));
-        setEnd(format(new Date(data.end), "yyyy-MM-dd'T'hh:mm"));
+        setStart(format(new Date(data.start), "yyyy-MM-dd'T'HH:mm"));
+        setEnd(format(new Date(data.end), "yyyy-MM-dd'T'HH:mm"));
         if (data.allDay === true) {
             setStart(format(new Date(data.start), "yyyy-MM-dd"));
             setEnd(format(new Date(data.end), "yyyy-MM-dd"));
         }
         else {
-            setStart(format(new Date(data.start), "yyyy-MM-dd'T'hh:mm"));
-            setEnd(format(new Date(data.end), "yyyy-MM-dd'T'hh:mm"));
+            setStart(format(new Date(data.start), "yyyy-MM-dd'T'HH:mm"));
+            setEnd(format(new Date(data.end), "yyyy-MM-dd'T'HH:mm"));
         }
     }
 
