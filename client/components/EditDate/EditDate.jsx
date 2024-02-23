@@ -74,8 +74,8 @@ const EditDate = () => {
                     <Card sx={{ p: 3, maxWidth: 600, mt: 5 }}>
                         <form onSubmit={handleSubmit}>
                             <Stack direction="column">
-                                <Button onClick={populateForm} sx={{ textTransform: "none" }}>
-                                    Please populate the form
+                                <Button onClick={populateForm}  variant= "contained" sx={{ textTransform: "none", backgroundColor: "#088395", color: "white", p: 1, mx: 20, my: 1 }}>
+                                    Populate the form
                                 </Button>
                                 {allDay ? //all day
                                     <>
