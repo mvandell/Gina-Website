@@ -23,8 +23,8 @@ model About {
   paragraph String
 }
 
-model Policy {
-  id Int @id @default(autoincrement())
+model Policy { //one to many self relation?
+  id Int @id @default(autoincrement()) //not autoincrement, to adjust location of content?
   instrument String
   heading String? @default("")
   content String @default("")
