@@ -2,6 +2,7 @@ import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 
 import { useGetUserQuery } from "../../redux/api"
+import profilePic from "../../images/Profile/ProfileSmile.jpg"
 
 const Contact = () => {
     const { data, error, isLoading } = useGetUserQuery();
@@ -36,6 +37,11 @@ const Contact = () => {
                         {data[0].phone}
                     </Typography>
                 </Card>
+            </Card>
+            <Card sx={{ p: 3, mx: 60, backgroundColor: "white" }}>
+                <Typography textAlign="center">
+                    <img src={profilePic} alt="a small waterfall in Tuolome Meadows" width="700" />
+                </Typography>
             </Card>
         </div>
     )

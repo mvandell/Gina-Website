@@ -22,13 +22,13 @@ const App = () => {
                 <NavBar />
 
                 <Routes>
-                    <Route path="/" element={<Homepage />} />
-                    <Route path="/contact" element={<Contact />} />
-                    <Route path="/about" element={<About />} />
+                    <Route path="/" element={<Homepage />} /> 
+                    <Route path="/contact" element={<Contact />} /> 
+                    <Route path="/about" element={<About />} /> 
                     <Route path="/calendar" element={<TeachingCalendar />} />
                     <Route path="/calendar/:id" element={<TeachingCalendar />} />
-                    <Route path="/policy/voice" element={<VoicePolicy />} />
-                    <Route path="/policy/piano" element={<PianoPolicy />} />
+                    <Route path="/policy/voice" element={<VoicePolicy />} /> 
+                    <Route path="/policy/piano" element={<PianoPolicy />} /> 
                     <Route path="/login" element={<Login />} />
 
                     <Route path="/new_date" element={<NewDate />} />
