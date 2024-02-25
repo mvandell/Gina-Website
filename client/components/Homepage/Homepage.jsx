@@ -5,10 +5,6 @@ import Stack from '@mui/material/Stack'
 import profilePic from "../../images/Profile/ProfilePiano.jpg"
 import MTACLogo from "./MTAC Logo.png"
 
-//need inspiration
-//picture of mom?
-//as a student?
-
 const Homepage = () => {
     return (
         <div>
@@ -23,7 +19,10 @@ const Homepage = () => {
                         <img src={profilePic} alt="Gina Vandellos sitting at her piano" width="600" />
                     </Typography>
                 </Card>
-                <img src={MTACLogo} alt="MTAC logo" width="100" />
+                <Stack direction="row" >
+                    <img src="https://www.nats.org/_Library/template/site_logo.svg" alt="NATS logo" width="100" />
+                    <img src="https://www.mtac.org/wp-content/uploads/2023/01/MTAC-LogoGlow100.png" alt="MTAC logo contemporary" width="125" />
+                </Stack>
             </Stack>
         </div>
     )
