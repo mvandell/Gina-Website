@@ -13,7 +13,7 @@ import { useState } from "react";
 const EditBio = () => {
     const { id } = useParams();
     const navigate = useNavigate();
-
+// TODO: make backend route for GET single bio paragraph
     const { data, isLoading, error: bioError } = useGetBioQuery();
     const [patchBio, { error }] = usePatchBioMutation();
     const [paragraph, setParagraph] = useState("");
