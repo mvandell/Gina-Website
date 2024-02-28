@@ -7,14 +7,14 @@ import Grid from "@mui/material/Grid";
 
 import { useNavigate, useParams } from "react-router-dom";
 
-import { useGetBioQuery, usePatchBioMutation } from "../../redux/api";
+import { useGetSingleBioQuery, usePatchBioMutation } from "../../redux/api";
 import { useState } from "react";
 
 const EditBio = () => {
     const { id } = useParams();
     const navigate = useNavigate();
-// TODO: make backend route for GET single bio paragraph
-    const { data, isLoading, error: bioError } = useGetBioQuery();
+
+    const { data, isLoading, error: bioError } = useGetSingleBioQuery(id);
     const [patchBio, { error }] = usePatchBioMutation();
     const [paragraph, setParagraph] = useState("");
 
@@ -22,12 +22,9 @@ const EditBio = () => {
         return <div> </div>
     }
     if (bioError) {
-        console.error(userError)
+        console.error(bioError)
     }
     console.log("bio", data)
-
-    const currentParagraph = data && data.find((paragraph) => { return paragraph.id === id });
-    console.log("currentParagraph", currentParagraph)
 
     const handleSubmit = async (event) => {
         try {
@@ -42,7 +39,7 @@ const EditBio = () => {
 
     const populateForm = (event) => {
         event.preventDefault();
-        setParagraph(currentParagraph.paragraph);
+        setParagraph(data.paragraph);
     }
 
     return data && (
@@ -53,9 +50,11 @@ const EditBio = () => {
                 <Grid item xs={6}>
                     <Card sx={{ p: 3, maxWidth: 600, mt: 5 }}>
                         <form onSubmit={handleSubmit}>
-                            <Button onClick={populateForm} variant="contained" sx={{ textTransform: "none", backgroundColor: "#088395", color: "white", p: 1, mx: 20, my: 1 }}>
-                                Populate the form
-                            </Button>
+                            <Typography textAlign="center">
+                                <Button onClick={populateForm} variant="contained" sx={{ textTransform: "none", backgroundColor: "#8DAF83", color: "black", mb: 1.5, p: 1, fontWeight: "bold" }}>
+                                    Populate the form
+                                </Button>
+                            </Typography>
                             <TextField
                                 label="Update Bio"
                                 value={paragraph}
@@ -63,6 +62,8 @@ const EditBio = () => {
                                 size="small"
                                 variant="filled"
                                 fullWidth
+                                multiline
+                                minRows={3}
                                 sx={{ m: 1, backgroundColor: "white" }}
                             />
                             <Typography textAlign="center">
@@ -72,7 +73,7 @@ const EditBio = () => {
                             </Typography>
                             <Typography textAlign="center">
                                 <Button
-                                    onClick={() => navigate("/account")}
+                                    onClick={() => navigate("/about")}
                                     sx={{ textTransform: "none", backgroundColor: "#A9C6EF", color: "black", p: 1, fontWeight: "bold" }}>
                                     Cancel
                                 </Button>

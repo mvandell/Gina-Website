@@ -25,6 +25,20 @@ apiRouter.get("/about", async (req, res, next) => {
     }
 });
 
+//GET /api/about/:id
+apiRouter.get("/about/:id", async (req, res, next) => {
+    try {
+        const about = await prisma.about.findUnique({
+            where: {
+                id: Number(req.params.id)
+            }
+        });
+        res.send(about);
+    } catch (error) {
+        next(error);
+    }
+});
+
 //GET /api/policy/piano
 apiRouter.get("/policy/piano", async (req, res, next) => {
     try {

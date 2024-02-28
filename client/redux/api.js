@@ -45,6 +45,14 @@ const api = createApi({
             }),
             providesTags: ["About"]
         }),
+        //GET SINGLE BIO
+        getSingleBio: builder.query({
+            query: (id) => ({
+                url: `/api/about/${id}`,
+                method: "GET",
+            }),
+            providesTags: ["About"]
+        }),
         //GET PIANO POLICY
         getPianoPolicy: builder.query({
             query: () => ({
@@ -167,6 +175,7 @@ export const {
     useGetUserQuery,
     useGetAccountQuery,
     useGetBioQuery,
+    useGetSingleBioQuery,
     useGetPianoPolicyQuery,
     useGetVoicePolicyQuery,
     useGetDatesQuery,
