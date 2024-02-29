@@ -16,7 +16,7 @@ const api = createApi({
         },
     }),
 
-    tagTypes: ["Me", "Dates", "Policy", "Merit", "About"],
+    tagTypes: ["Me", "Dates", "Policy", "About"],
     //unique
 
     endpoints: (builder) => ({
@@ -120,6 +120,23 @@ const api = createApi({
             }),
             invalidatesTags: ["About"]
         }),
+        //ADD POLICY PARAGRAPH
+        postPolicy: builder.mutation({
+            query: (policy) => ({
+                url: "/auth/policy/add",
+                method: "POST",
+                body: policy,
+            }),
+            invalidatesTags: ["Policy"]
+        }),
+        //DELETE POLICY
+        deletePolicy: builder.mutation({
+            query: (id) => ({
+                url: `/auth/policy/${id}`,
+                method: "DELETE",
+            }),
+            invalidatesTags: ["Policy"]
+        }),
         //DELETE DATE
         deleteDate: builder.mutation({
             query: (id) => ({
@@ -185,6 +202,8 @@ export const {
     useLogoutMutation,
     usePostDateMutation,
     usePostBioMutation,
+    usePostPolicyMutation,
+    useDeletePolicyMutation,
     useDeleteDateMutation,
     //PATCH
     usePatchUserMutation,

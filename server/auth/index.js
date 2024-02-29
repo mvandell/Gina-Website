@@ -90,6 +90,23 @@ authRouter.post("/about/add", requireUser, async (req, res, next) => {
     }
 });
 
+//POST /auth/policy/add
+authRouter.post("/policy/add", requireUser, async (req, res, next) => {
+    try {
+        const {instrument, heading, content} = req.body;
+        const newPolicy = await prisma.policy.create({
+            data: {
+                instrument,
+                heading,
+                content
+            },
+        });
+        res.status(201).send(newPolicy);
+    } catch (error) {
+        next(error);
+    }
+});
+
 //PATCH /auth/account/:id/edit
 authRouter.patch("/account/:id/edit", requireUser, async (req, res, next) => {
     try {
@@ -179,6 +196,22 @@ authRouter.delete("/dates/:id", requireUser, async (req, res, next) => {
        }
        console.log("deleted date");
        res.send(deletedDate);
+    } catch (error) {
+        next(error)
+    }
+});
+
+//DELETE /auth/policy/:id
+authRouter.delete("/policy/:id", requireUser, async (req, res, next) => {
+    try {
+       const deletedPolicy = await prisma.policy.delete({
+        where: {id: Number(req.params.id)},
+       });
+       if (!deletedPolicy) {
+        return res.status(404).send("Policy not found!");
+       }
+       console.log("deleted policy");
+       res.send(deletedPolicy);
     } catch (error) {
         next(error)
     }
