@@ -26,8 +26,9 @@ model About {
 model Policy { //one to many self relation?
   id Int @id @default(autoincrement()) //not autoincrement, to adjust location of content?
   instrument String
-  heading String? @default("")
-  content String @default("")
+  headingId Int?
+  heading Policy? @relation("HeadingContents", fields: [headingId], references: [id])
+  content Policy[] @relation("HeadingContents")
 }
 
 model Dates {

@@ -45,67 +45,76 @@ async function seed() {
         const piano = await prisma.policy.createMany({
             data: [
                 {
-                    instrument: "piano", 
-                    heading: "Billing and Fees", //Billing and Fees
-                    content: "School Year (Sept - May)"
-                },
-                {
                     instrument: "piano",
-                    content: "I bill a flat monthly fee for the school year. This is based on 32 lessons per school year (9 months). The rate per lesson averages out to $55 for a 30-minute lesson and $70 for a 45-minute lesson. Payment is due at the first lesson of each month. I accept cash, checks, PayPal, and Venmo."
-                },
-                {
-                    instrument: "piano",
-                    content: "The monthly fee is:"
-                },
-                {
-                    instrument: "piano",
-                    content: "$200 for 30-minute lessons" //bullet?
-                },
-                {
-                    instrument: "piano",
-                    content: "$255 for 45-minute lessons" //bullet?
-                },
-                {
-                    instrument: "piano",
-                    content: "Summer lessons (June - Aug)"
-                },
-                {
-                    instrument: "piano",
-                    content: "Are billed on a per lesson basis to accommodate changing schedules."
-                },
-                {
-                    instrument: "piano",
-                    content: "A weekly lesson time is reserved for your student and regular attendance is necessary for steady progress. If you need to  cancel a lesson, please notify me twenty-four hours in advance. This will guarantee a make-up or credit for the lesson.  If I receive less than 24 hours notice, you will be required to pay for the lesson. If I am unable to teach a scheduled  lesson, you will be given a credit or a refund for the lesson."
-                },
-                {
-                    instrument: "piano", 
-                    heading: "Certificate of Merit (CM)", //Certificate of Merit (CM)
-                    content: "Certificate of Merit registration and fees will be processed in September."
-                },
-                {
-                    instrument: "piano",
-                    heading: "No lessons on Mondays and the following dates:", //No lessons
-                    content: "September 18-22, November 10, November 13-24, December 25-29, January 1-5, February 19-23, April 8-12"
-                },
-                {
-                    instrument: "piano",
-                    heading: "Performance Classes and Recitals", //Performance Classes and Recitals
-                    content: "More information coming soon"
-                },
-                {
-                    instrument: "piano",
-                    heading: "Communication", //Communication
-                    content: "Please communicate to me via email or text. Text is especially helpful if you need to inform me of a  same day cancellation."
-                },
-                {
-                    instrument: "piano",
-                    heading: "Parking and Waiting", //Parking and Waiting
-                    content: " Please try to park directly in front of my house during the lesson and take care not to block the  driveway. Parents, while you wait feel free to use the chairs on my front porch or have a seat in the studio."
-                },
-                {
-                    instrument: "piano",
-                    content: "I look forward to a highly productive year! Please don't hesitate to contact me if you have any questions about my  policy or any other matter."
-                },
+                    heading: "Billing and Fees",
+                    content: {
+                        create: [{
+                            
+                        }]
+                    }
+                }
+                // {
+                //     instrument: "piano", 
+                //     heading: "Billing and Fees", //Billing and Fees
+                //     content: "School Year (Sept - May)"
+                // },
+                // {
+                //     instrument: "piano",
+                //     content: "I bill a flat monthly fee for the school year. This is based on 32 lessons per school year (9 months). The rate per lesson averages out to $55 for a 30-minute lesson and $70 for a 45-minute lesson. Payment is due at the first lesson of each month. I accept cash, checks, PayPal, and Venmo."
+                // },
+                // {
+                //     instrument: "piano",
+                //     content: "The monthly fee is:"
+                // },
+                // {
+                //     instrument: "piano",
+                //     content: "$200 for 30-minute lessons" //bullet?
+                // },
+                // {
+                //     instrument: "piano",
+                //     content: "$255 for 45-minute lessons" //bullet?
+                // },
+                // {
+                //     instrument: "piano",
+                //     content: "Summer lessons (June - Aug)"
+                // },
+                // {
+                //     instrument: "piano",
+                //     content: "Are billed on a per lesson basis to accommodate changing schedules."
+                // },
+                // {
+                //     instrument: "piano",
+                //     content: "A weekly lesson time is reserved for your student and regular attendance is necessary for steady progress. If you need to  cancel a lesson, please notify me twenty-four hours in advance. This will guarantee a make-up or credit for the lesson.  If I receive less than 24 hours notice, you will be required to pay for the lesson. If I am unable to teach a scheduled  lesson, you will be given a credit or a refund for the lesson."
+                // },
+                // {
+                //     instrument: "piano", 
+                //     heading: "Certificate of Merit (CM)", //Certificate of Merit (CM)
+                //     content: "Certificate of Merit registration and fees will be processed in September."
+                // },
+                // {
+                //     instrument: "piano",
+                //     heading: "No lessons on Mondays and the following dates:", //No lessons
+                //     content: "September 18-22, November 10, November 13-24, December 25-29, January 1-5, February 19-23, April 8-12"
+                // },
+                // {
+                //     instrument: "piano",
+                //     heading: "Performance Classes and Recitals", //Performance Classes and Recitals
+                //     content: "More information coming soon"
+                // },
+                // {
+                //     instrument: "piano",
+                //     heading: "Communication", //Communication
+                //     content: "Please communicate to me via email or text. Text is especially helpful if you need to inform me of a  same day cancellation."
+                // },
+                // {
+                //     instrument: "piano",
+                //     heading: "Parking and Waiting", //Parking and Waiting
+                //     content: " Please try to park directly in front of my house during the lesson and take care not to block the  driveway. Parents, while you wait feel free to use the chairs on my front porch or have a seat in the studio."
+                // },
+                // {
+                //     instrument: "piano",
+                //     content: "I look forward to a highly productive year! Please don't hesitate to contact me if you have any questions about my  policy or any other matter."
+                // },
             ]
         })
         const voice = await prisma.policy.createMany({
