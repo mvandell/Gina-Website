@@ -66,9 +66,21 @@ const VoicePolicy = () => {
                                 }
                                 <Stack direction="row">
                                     {token &&
+                                        <Stack direction="row">
                                         <IconButton onClick={() => setAlert(policy.id)} sx={{ color: "black", m: 0, p: 0, mr: 1 }}>
                                             <EditIcon fontSize="small" />
                                         </IconButton>
+                                        <IconButton
+                                            onClick={() => {
+                                                if (confirm("Are you sure you want to delete this policy?") === true) {
+                                                    deletePolicy(data.id)
+                                                }
+                                            }}
+                                            color="error"
+                                            sx={{ textTransform: "none", m: 0, p: 0, mr: 1 }}>
+                                            <DeleteForeverIcon fontSize="small" />
+                                        </IconButton>
+                                    </Stack>
                                     }
                                     <Stack direction="column">
                                         <Typography>

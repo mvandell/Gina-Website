@@ -9,9 +9,10 @@ import IconButton from "@mui/material/IconButton";
 import EditIcon from '@mui/icons-material/Edit';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 
-import { useGetPianoPolicyQuery, usePatchPolicyMutation } from "../../redux/api";
+import { useGetPianoPolicyQuery, usePatchPolicyMutation, useDeletePolicyMutation } from "../../redux/api";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
@@ -26,7 +27,8 @@ const PianoPolicy = () => {
     const [content, setContent] = useState(null);
 
     const { data, error, isLoading } = useGetPianoPolicyQuery();
-    const [patchPolicy, { error: patchError }] = usePatchPolicyMutation(id)
+    const [patchPolicy, { error: patchError }] = usePatchPolicyMutation(id);
+    const [deletePolicy, {error: deleteError}] = useDeletePolicyMutation(id);
 
     if (isLoading) {
         return <div></div>
@@ -66,9 +68,21 @@ const PianoPolicy = () => {
                                 }
                                 <Stack direction="row">
                                     {token &&
-                                        <IconButton onClick={() => setAlert(policy.id)} sx={{ color: "black", m: 0, p: 0, mr: 1 }}>
-                                            <EditIcon fontSize="small" />
-                                        </IconButton>
+                                        <Stack direction="row">
+                                            <IconButton onClick={() => setAlert(policy.id)} sx={{ color: "black", m: 0, p: 0, mr: 1 }}>
+                                                <EditIcon fontSize="small" />
+                                            </IconButton>
+                                            <IconButton
+                                                onClick={() => {
+                                                    if (confirm("Are you sure you want to delete this policy?") === true) {
+                                                        deletePolicy(data.id)
+                                                    }
+                                                }}
+                                                color="error"
+                                                sx={{ textTransform: "none", m: 0, p: 0, mr: 1 }}>
+                                                <DeleteForeverIcon fontSize="small" />
+                                            </IconButton>
+                                        </Stack>
                                     }
                                     <Stack direction="column">
                                         <Typography>
