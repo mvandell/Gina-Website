@@ -8,7 +8,7 @@ async function seed() {
     await prisma.about.deleteMany();
     await prisma.policy.deleteMany();
     await prisma.dates.deleteMany();
-// TODO: In schema, one-to-many self relation, and not autoincrement, to adjust location of content
+// TODO: In schema, one-to-many self relation, or new table for headings
     try {
         //User
         const gina = await prisma.user.create({
@@ -44,15 +44,12 @@ async function seed() {
         //Policy
         const piano = await prisma.policy.createMany({
             data: [
-                {
-                    instrument: "piano",
-                    heading: "Billing and Fees",
-                    content: {
-                        create: [{
-                            
-                        }]
-                    }
-                }
+               
+                // {
+                //     instrument: "piano",
+                //     heading: "Certificate of Merit (CM)",
+                //     create: {}
+                // }
                 // {
                 //     instrument: "piano", 
                 //     heading: "Billing and Fees", //Billing and Fees
@@ -119,43 +116,43 @@ async function seed() {
         })
         const voice = await prisma.policy.createMany({
             data: [
-                {
-                    instrument: "voice",
-                    heading: "Billing and Fees",
-                    content: "Lessons are 45 minutes and 30 minutes in length.  Payment is due on a monthly basis.  I will email you a bill at the beginning of the month for the previous month's lessons.  Contact me directly for specific fees."
-                },
-                {
-                    instrument: "voice",
-                    content: "A weekly lesson time is reserved and regular attendance is necessary for steady progress. If you need to cancel a lesson, you must notify me twenty-four hours in advance.  If I receive less than 24 hours notice, you will be required to pay for the lesson."
-                },
-                {
-                    instrument: "voice",
-                    content: "Music books and materials will be billed separately.  Please write a separate check for music."
-                },
-                {
-                    instrument: "voice",
-                    content: "Please go to my current Calendar to view dates for recitals, workshops, and the Certificate of Merit evaluation."
-                },
-                {
-                    instrument: "voice",
-                    heading: "Rehearsals and Recitals",
-                    content: " I invite my students to participate in workshops and recitals.  Although these events are optional, they are highly recommended to build confidence in performance.  Workshop and recital fees will be equally divided up between the participants and billed accordingly. Rehearsal time with the accompanist will be billed according to each students time used."
-                },
-                {
-                    instrument: "voice",
-                    heading: "Certificate of Merit",
-                    content: "Studio and registration fees will be billed in October."
-                },
-                {
-                    instrument: "voice",
-                    heading: "E-mail",
-                    content: " E-mail is a great way to communicate with me!  Please send me your e-mail address.  Sending me an email to cancel or change lesson times is fine as long as you give me 24 hours notice of any changes."
-                },
-                {
-                    instrument: "voice",
-                    heading: "Parking",
-                    content: "Please try to park directly in front of the house during the lesson and take care not to block the driveway."
-                },
+                // {
+                //     instrument: "voice",
+                //     heading: "Billing and Fees",
+                //     content: "Lessons are 45 minutes and 30 minutes in length.  Payment is due on a monthly basis.  I will email you a bill at the beginning of the month for the previous month's lessons.  Contact me directly for specific fees."
+                // },
+                // {
+                //     instrument: "voice",
+                //     content: "A weekly lesson time is reserved and regular attendance is necessary for steady progress. If you need to cancel a lesson, you must notify me twenty-four hours in advance.  If I receive less than 24 hours notice, you will be required to pay for the lesson."
+                // },
+                // {
+                //     instrument: "voice",
+                //     content: "Music books and materials will be billed separately.  Please write a separate check for music."
+                // },
+                // {
+                //     instrument: "voice",
+                //     content: "Please go to my current Calendar to view dates for recitals, workshops, and the Certificate of Merit evaluation."
+                // },
+                // {
+                //     instrument: "voice",
+                //     heading: "Rehearsals and Recitals",
+                //     content: " I invite my students to participate in workshops and recitals.  Although these events are optional, they are highly recommended to build confidence in performance.  Workshop and recital fees will be equally divided up between the participants and billed accordingly. Rehearsal time with the accompanist will be billed according to each students time used."
+                // },
+                // {
+                //     instrument: "voice",
+                //     heading: "Certificate of Merit",
+                //     content: "Studio and registration fees will be billed in October."
+                // },
+                // {
+                //     instrument: "voice",
+                //     heading: "E-mail",
+                //     content: " E-mail is a great way to communicate with me!  Please send me your e-mail address.  Sending me an email to cancel or change lesson times is fine as long as you give me 24 hours notice of any changes."
+                // },
+                // {
+                //     instrument: "voice",
+                //     heading: "Parking",
+                //     content: "Please try to park directly in front of the house during the lesson and take care not to block the driveway."
+                // },
             ]
         })
 

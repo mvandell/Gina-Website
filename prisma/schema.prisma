@@ -23,11 +23,12 @@ model About {
   paragraph String
 }
 
-model Policy { //one to many self relation?
+model Policy { //one to many self relation? or new table for headings?
   id Int @id @default(autoincrement()) //not autoincrement, to adjust location of content?
   instrument String
   headingId Int?
-  heading Policy? @relation("HeadingContents", fields: [headingId], references: [id])
+  heading String?
+  headingRelation Policy? @relation("HeadingContents", fields: [headingId], references: [id]) //basically a junction table
   content Policy[] @relation("HeadingContents")
 }
 
