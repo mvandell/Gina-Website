@@ -7,7 +7,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url = env("DATABASE_URL")
 }
 
 model User {
@@ -28,8 +28,9 @@ model Policy { //one to many self relation? or new table for headings?
   instrument String
   headingId Int?
   heading String?
+  content String?
   headingRelation Policy? @relation("HeadingContents", fields: [headingId], references: [id]) //basically a junction table
-  content Policy[] @relation("HeadingContents")
+  contentRelation Policy[] @relation("HeadingContents")
 }
 
 model Dates {
