@@ -9,7 +9,6 @@ import PolicyDropdown from "./PolicyDropdown";
 import AdminDropdown from "./AdminDropdown";
 
 const NavBar = () => {
-
     //different color navbar?
     return (
         <div className="nav">
