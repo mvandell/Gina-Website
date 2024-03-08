@@ -38,9 +38,9 @@ const Contact = () => {
                     </Typography>
                 </Card>
             </Card>
-            <Card sx={{ p: 3, mx: 60, backgroundColor: "white" }}>
+            <Card sx={{ p: 3, mx: 40, backgroundColor: "white" }}>
                 <Typography textAlign="center">
-                    <img src={profilePic} alt="a small waterfall in Tuolome Meadows" width="700" />
+                    <img src={profilePic} alt="a small waterfall in Tuolome Meadows" style={{width: "100%"}} />
                 </Typography>
             </Card>
         </div>

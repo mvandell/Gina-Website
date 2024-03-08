@@ -47,10 +47,10 @@ const About = () => {
                     </Box>
                 ))}
             </Card>
-            <Card sx={{ p: 3, mx: 60, backgroundColor: "black" }}>
-                <Typography textAlign="center">
-                    <img src={naturePic} alt="a small waterfall in Tuolome Meadows" width="700" />
-                </Typography>
+            <Card sx={{ p: 3, mx: 40, backgroundColor: "black" }}>
+                
+                    <img src={naturePic} alt="a small waterfall in Tuolome Meadows" style={{width: "100%"}} />
+               
             </Card>
         </>
     )

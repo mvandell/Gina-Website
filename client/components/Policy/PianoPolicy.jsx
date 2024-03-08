@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
+import AspectRatio from '@mui/joy/AspectRatio';
 
 import { useGetPianoPolicyQuery } from "../../redux/api";
 import { useSelector } from "react-redux";
@@ -65,9 +66,7 @@ const PianoPolicy = () => {
                 </Grid>
                 <Grid item xs={4}>
                     <Card sx={{ p: 3, mx: 5, my: 5, backgroundColor: "white", mr: 3 }}>
-                        <Typography textAlign="center">
-                            <img src={profilePic} alt="Gina sitting at her piano" width="440" />
-                        </Typography>
+                        <img src={profilePic} alt="Gina sitting at her piano" style={{ width: "100%" }} />
                     </Card>
                 </Grid>
                 <Grid item xs={1}>

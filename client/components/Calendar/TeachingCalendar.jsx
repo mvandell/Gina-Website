@@ -46,7 +46,11 @@ const TeachingCalendar = () => {
     //Toggle for piano/voice
     //Sorts dates by instrument
     //Feeds into Calendar events
-
+    const dateData = [...data];
+    dateData.forEach((date) => {
+        date.start = new Date(date.start);
+        date.end = new Date(date.end);
+    })
     return (
         <div>
             <Stack direction="row">

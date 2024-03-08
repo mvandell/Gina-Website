@@ -39,9 +39,9 @@ const AccountPage = () => {
                     </Stack>
                 </Card>
             </Card>
-            <Card sx={{ p: 3, mx: 54 }}>
+            <Card sx={{ p: 3, mx: 50 }}>
                 <Typography textAlign="center">
-                    <img src={naturePic} alt="a small waterfall in Tuolome Meadows" width="800" />
+                    <img src={naturePic} alt="a small waterfall in Tuolome Meadows" style={{width: "100%"}} />
                 </Typography>
             </Card>
         </>
