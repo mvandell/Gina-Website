@@ -45,7 +45,7 @@ const PianoPolicy = () => {
                                                 {policy.heading}
                                             </Typography>
                                             {token &&
-                                                <Link to="/" style={{ textDecoration: "none", color: "#303036" }}>
+                                                <Link to={`/policy/piano/${policy.id}`} style={{ textDecoration: "none", color: "#303036" }}>
                                                     <Button variant="text" sx={{ color: "#303036", textTransform: "none" }}>
                                                         Edit Section
                                                     </Button>

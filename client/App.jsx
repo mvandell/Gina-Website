@@ -13,6 +13,7 @@ import AccountPage from "./components/AccountPage/AccountPage";
 import EditUser from "./components/AccountPage/EditUser";
 import EditDate from "./components/EditDate/EditDate";
 import EditBio from "./components/EditBio/EditBio";
+import EditPolicySection from "./components/EditPolicySection/EditPolicySection";
 
 const App = () => {
     const token = useSelector((state) => state.auth.token);
@@ -37,6 +38,7 @@ const App = () => {
                     <Route path="/account" element={<AccountPage />} />
                     <Route path="/account/edit" element={<EditUser />} />
                     <Route path="/about/edit/:id" element={<EditBio />} />
+                    <Route path="/policy/piano/:id" element={<EditPolicySection />} /> 
                 </Routes>
             </div>
         </div>
