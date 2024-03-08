@@ -28,7 +28,7 @@ const PianoPolicy = () => {
 
     const { data, error, isLoading } = useGetPianoPolicyQuery();
     const [patchPolicy, { error: patchError }] = usePatchPolicyMutation(id);
-    const [deletePolicy, {error: deleteError}] = useDeletePolicyMutation(id);
+    const [deletePolicy, { error: deleteError }] = useDeletePolicyMutation(id);
 
     if (isLoading) {
         return <div></div>
@@ -36,6 +36,8 @@ const PianoPolicy = () => {
     if (error) {
         return <div>Sorry! There's a problem loading the info.</div>
     }
+
+    const contentArr = data.filter(entry => entry.headingId);
 
     const handleSubmit = async (event) => {
         try {
@@ -46,12 +48,11 @@ const PianoPolicy = () => {
             console.error(error)
         }
     }
-
+    //TODO: edit section page
     console.log(data)
     return (
         <div>
             <Grid container>
-                {/* <Stack direction="row"> */}
                 <Grid item xs={1}>
                 </Grid>
                 <Grid item xs={6}>
@@ -61,13 +62,8 @@ const PianoPolicy = () => {
                         </Typography>
                         {data && data.map((policy) => (
                             <Box key={policy.id} sx={{ p: 0.5, m: 1 }}>
-                                {policy.heading &&
-                                    <Typography variant="h6" sx={{ fontWeight: "bold", borderTop: 2 }}>
-                                        {policy.heading}
-                                    </Typography>
-                                }
-                                <Stack direction="row">
-                                    {token &&
+                                {/* <Stack direction="row"> */}
+                                {/* {token &&
                                         <Stack direction="row">
                                             <IconButton onClick={() => setAlert(policy.id)} sx={{ color: "black", m: 0, p: 0, mr: 1 }}>
                                                 <EditIcon fontSize="small" />
@@ -83,33 +79,42 @@ const PianoPolicy = () => {
                                                 <DeleteForeverIcon fontSize="small" />
                                             </IconButton>
                                         </Stack>
-                                    }
+                                    } */}
                                     <Stack direction="column">
-                                        <Typography>
-                                            {policy.content}
-                                        </Typography>
-                                        {alert === policy.id &&
-                                            <form onSubmit={handleSubmit}>
-                                                <TextField
-                                                    label="Updated info"
-                                                    value={content}
-                                                    onChange={(event) => setContent(event.target.value)}
-                                                    size="small"
-                                                    sx={{ m: 1, backgroundColor: "white" }}
-                                                    multiline />
-                                                <IconButton type="submit" color="success">
-                                                    <CheckIcon />
-                                                </IconButton>
-                                                <IconButton onClick={() => setAlert(null)} color="error">
-                                                    <CloseIcon />
-                                                </IconButton>
-                                            </form>
-                                        }
-                                    </Stack>
+                                {policy.heading !== null && //if there's a heading, display it
+                                    <Typography variant="h6" sx={{ fontWeight: "bold", borderTop: 2 }}>
+                                        {policy.heading}
+                                    </Typography>
+                                }
+                                {contentArr.filter(entry => entry.headingId === policy.id).map((paragraph) => (
+                                    <Typography key={paragraph.id}>
+                                        {paragraph.content}
+                                    </Typography>
+                                ))}
                                 </Stack>
+                                {/* {alert === policy.id &&
+                                    <form onSubmit={handleSubmit}>
+                                        <TextField
+                                            label="Updated info"
+                                            value={content}
+                                            onChange={(event) => setContent(event.target.value)}
+                                            size="small"
+                                            sx={{ m: 1, backgroundColor: "white" }}
+                                            multiline />
+                                        <IconButton type="submit" color="success">
+                                            <CheckIcon />
+                                        </IconButton>
+                                        <IconButton onClick={() => setAlert(null)} color="error">
+                                            <CloseIcon />
+                                        </IconButton>
+                                    </form>
+                                } */}
+                                {/* </Stack> */}
                             </Box>
                         ))}
                     </Card>
+
+
                 </Grid>
                 <Grid item xs={4}>
                     <Card sx={{ p: 3, mx: 5, my: 5, backgroundColor: "white", mr: 3 }}>
@@ -118,7 +123,6 @@ const PianoPolicy = () => {
                         </Typography>
                     </Card>
                 </Grid>
-                {/* </Stack> */}
                 <Grid item xs={1}>
                 </Grid>
             </Grid>

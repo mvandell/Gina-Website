@@ -46,12 +46,51 @@ async function seed() {
             data: {
                 instrument: "piano",
                 heading: "Billing and Fees",
-                headingId: null,
-                content: "School Year (Sept - May)"
+                headingId: null
             }
         })
-        const pianoBillingContent = await prisma.policy.createMany({
+        const pianoCM = await prisma.policy.create({
+            data: {
+                instrument: "piano",
+                heading: "Certificate of Merit (CM)",
+                headingId: null
+            }
+        })
+        const pianoNoLessons = await prisma.policy.create({
+            data: {
+                instrument: "piano",
+                heading: "No lessons on Mondays and the following dates:",
+                headingId: null
+            }
+        })
+        const pianoClasses = await prisma.policy.create({
+            data: {
+                instrument: "piano",
+                heading: "Performance Classes and Recitals",
+                headingId: null
+            }
+        })
+        const pianoCommunication = await prisma.policy.create({
+            data: {
+                instrument: "piano",
+                heading: "Communication",
+                headingId: null
+            }
+        })
+        const pianoParking = await prisma.policy.create({
+            data: {
+                instrument: "piano",
+                headingId: null,
+                heading: "Parking and Waiting",
+            }
+        })
+        const pianoContent = await prisma.policy.createMany({
             data: [
+                {
+                    instrument: "piano",
+                    headingId: pianoBilling.id,
+                    content: "School Year (Sept - May)"
+                },
                 {
                     instrument: "piano",
                     headingId: pianoBilling.id,
@@ -87,58 +126,80 @@ async function seed() {
                     headingId: pianoBilling.id,
                     content: "A weekly lesson time is reserved for your student and regular attendance is necessary for steady progress. If you need to  cancel a lesson, please notify me twenty-four hours in advance. This will guarantee a make-up or credit for the lesson.  If I receive less than 24 hours notice, you will be required to pay for the lesson. If I am unable to teach a scheduled  lesson, you will be given a credit or a refund for the lesson."
                 },
-            ]
-        })
-        const piano = await prisma.policy.createMany({
-            data: [
                 {
                     instrument: "piano",
-                    heading: "Certificate of Merit (CM)", //Certificate of Merit (CM)
-                    headingId: null,
+                    headingId: pianoCM.id,
                     content: "Certificate of Merit registration and fees will be processed in September."
                 },
                 {
                     instrument: "piano",
-                    heading: "No lessons on Mondays and the following dates:", //No lessons
+                    headingId: pianoNoLessons.id,
                     content: "September 18-22, November 10, November 13-24, December 25-29, January 1-5, February 19-23, April 8-12"
                 },
                 {
                     instrument: "piano",
-                    heading: "Performance Classes and Recitals", //Performance Classes and Recitals
+                    headingId: pianoClasses.id,
                     content: "More information coming soon"
                 },
                 {
                     instrument: "piano",
-                    heading: "Communication", //Communication
-                    content: "Please communicate to me via email or text. Text is especially helpful if you need to inform me of a  same day cancellation."
-                }
+                    headingId: pianoCommunication.id,
+                    content: "Please communicate to me via email or text. Text is especially helpful if you need to inform me of a same day cancellation."
+                },
+                {
+                    instrument: "piano",
+                    headingId: pianoParking.id,
+                    content: "Please try to park directly in front of my house during the lesson and take care not to block the  driveway. Parents, while you wait feel free to use the chairs on my front porch or have a seat in the studio."
+                },
+                {
+                    instrument: "piano",
+                    headingId: pianoParking.id,
+                    content: "I look forward to a highly productive year! Please don't hesitate to contact me if you have any questions about my  policy or any other matter."
+                },
             ]
         })
-        const pianoParking = await prisma.policy.create({
-            data: {
-                instrument: "piano",
-                heading: "Parking and Waiting", //Parking and Waiting
-                content: " Please try to park directly in front of my house during the lesson and take care not to block the  driveway. Parents, while you wait feel free to use the chairs on my front porch or have a seat in the studio."
-            }
-        })
-        const pianoParkingContent = await prisma.policy.create({
-            data: {
-                instrument: "piano",
-                headingId: pianoParking.id,
-                content: "I look forward to a highly productive year! Please don't hesitate to contact me if you have any questions about my  policy or any other matter."
-            }
-        })
-
         const voiceBilling = await prisma.policy.create({
             data: {
                 instrument: "voice",
                 headingId: null,
-                heading: "Billing and Fees",
-                content: "Lessons are 45 minutes and 30 minutes in length.  Payment is due on a monthly basis.  I will email you a bill at the beginning of the month for the previous month's lessons.  Contact me directly for specific fees."
+                heading: "Billing and Fees"
+            }
+        })
+        const voiceClasses = await prisma.policy.create({
+            data: {
+                instrument: "voice",
+                headingId: null,
+                heading: "Rehearsals and Recitals"
+            }
+        })
+        const voiceCM = await prisma.policy.create({
+            data: {
+                instrument: "voice",
+                headingId: null,
+                heading: "Certificate of Merit"
+            }
+        })
+        const voiceEmail = await prisma.policy.create({
+            data: {
+                instrument: "voice",
+                headingId: null,
+                heading: "E-mail"
+            }
+        })
+        const voiceParking = await prisma.policy.create({
+            data: {
+                instrument: "voice",
+                headingId: null,
+                heading: "Parking"
             }
         })
         const voiceBillingContent = await prisma.policy.createMany({
             data: [
+                {
+                    instrument: "voice",
+                    headingId: voiceBilling.id,
+                    content: "Lessons are 45 minutes and 30 minutes in length.  Payment is due on a monthly basis.  I will email you a bill at the beginning of the month for the previous month's lessons.  Contact me directly for specific fees."
+                },
                 {
                     instrument: "voice",
                     headingId: voiceBilling.id,
@@ -154,33 +215,28 @@ async function seed() {
                     headingId: voiceBilling.id,
                     content: "Please go to my current Calendar to view dates for recitals, workshops, and the Certificate of Merit evaluation."
                 },
-            ]
-        })
-        const voice = await prisma.policy.createMany({
-            data: [
                 {
                     instrument: "voice",
-                    heading: "Rehearsals and Recitals",
-                    content: " I invite my students to participate in workshops and recitals.  Although these events are optional, they are highly recommended to build confidence in performance.  Workshop and recital fees will be equally divided up between the participants and billed accordingly. Rehearsal time with the accompanist will be billed according to each students time used."
+                    headingId: voiceClasses.id,
+                    content: "I invite my students to participate in workshops and recitals.  Although these events are optional, they are highly recommended to build confidence in performance.  Workshop and recital fees will be equally divided up between the participants and billed accordingly. Rehearsal time with the accompanist will be billed according to each students time used."
                 },
                 {
                     instrument: "voice",
-                    heading: "Certificate of Merit",
+                    headingId: voiceCM.id,
                     content: "Studio and registration fees will be billed in October."
                 },
                 {
                     instrument: "voice",
-                    heading: "E-mail",
-                    content: " E-mail is a great way to communicate with me!  Please send me your e-mail address.  Sending me an email to cancel or change lesson times is fine as long as you give me 24 hours notice of any changes."
+                    headingId: voiceEmail.id,
+                    content: "E-mail is a great way to communicate with me!  Please send me your e-mail address.  Sending me an email to cancel or change lesson times is fine as long as you give me 24 hours notice of any changes."
                 },
                 {
                     instrument: "voice",
-                    heading: "Parking",
+                    headingId: voiceParking.id,
                     content: "Please try to park directly in front of the house during the lesson and take care not to block the driveway."
                 },
             ]
         })
-
         //Dates
         const dates = await prisma.dates.createMany({
             data: [
