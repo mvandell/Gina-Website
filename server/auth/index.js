@@ -93,15 +93,31 @@ authRouter.post("/about/add", requireUser, async (req, res, next) => {
 //POST /auth/policy/add
 authRouter.post("/policy/add", requireUser, async (req, res, next) => {
     try {
-        const {instrument, heading, content} = req.body;
+        const {instrument, heading} = req.body;
         const newPolicy = await prisma.policy.create({
             data: {
                 instrument,
-                heading,
-                content
+                heading
             },
         });
         res.status(201).send(newPolicy);
+    } catch (error) {
+        next(error);
+    }
+});
+
+//POST /auth/policy/content/add
+authRouter.post("/policy/content/add", requireUser, async (req, res, next) => {
+    try {
+        const {instrument, headingId, content} = req.body;
+        const newPolicyContent = await prisma.policy.create({
+            data: {
+                instrument,
+                headingId,
+                content
+            },
+        });
+        res.status(201).send(newPolicyContent);
     } catch (error) {
         next(error);
     }
@@ -147,18 +163,36 @@ authRouter.patch("/about/:id/edit", requireUser, async (req, res, next) => {
     }
 });
 
-//PATCH /auth/policy/edit
+//PATCH /auth/policy/:id/edit
 authRouter.patch("/policy/:id/edit", requireUser, async (req, res, next) => {
     try {
-        const {instrument, content} = req.body;
+        const {instrument, heading} = req.body;
         const updatedPolicy = await prisma.policy.update({
             where: {id: Number(req.params.id)},
             data: {
                 instrument: instrument || undefined,
-                content: content || undefined
+                heading: heading || undefined
             }
         });
         res.send(updatedPolicy);
+    } catch (error) {
+        next(error)
+    }
+});
+
+//PATCH /auth/policy/content/:id/edit
+authRouter.patch("/policy/content/:id/edit", requireUser, async (req, res, next) => {
+    try {
+        const {instrument, headingId, content} = req.body;
+        const updatedPolicyContent = await prisma.policy.update({
+            where: {id: Number(req.params.id)},
+            data: {
+                instrument: instrument || undefined,
+                headingId: headingId || undefined,
+                content: content || undefined
+            }
+        });
+        res.send(updatedPolicyContent);
     } catch (error) {
         next(error)
     }

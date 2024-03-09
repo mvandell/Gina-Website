@@ -120,10 +120,19 @@ const api = createApi({
             }),
             invalidatesTags: ["About"]
         }),
-        //ADD POLICY PARAGRAPH
+        //ADD POLICY HEADING
         postPolicy: builder.mutation({
             query: (policy) => ({
                 url: "/auth/policy/add",
+                method: "POST",
+                body: policy,
+            }),
+            invalidatesTags: ["Policy"]
+        }),
+        //ADD POLICY CONTENT
+        postPolicyContent: builder.mutation({
+            query: (policy) => ({
+                url: "/auth/policy/content/add",
                 method: "POST",
                 body: policy,
             }),
@@ -164,12 +173,21 @@ const api = createApi({
             }),
             invalidatesTags: ["Me"]
         }),
-        //PATCH POLICY
+        //PATCH POLICY HEADING
         patchPolicy: builder.mutation({
-            query: ({ id, instrument, content }) => ({
+            query: ({ id, instrument, heading }) => ({
                 url: `/auth/policy/${id}/edit`,
                 method: "PATCH",
-                body: { instrument, content }
+                body: { instrument, heading }
+            }),
+            invalidatesTags: ["Policy"]
+        }),
+         //PATCH POLICY CONTENT
+         patchPolicyContent: builder.mutation({
+            query: ({ id, instrument, headingId, content }) => ({
+                url: `/auth/policy/content/${id}/edit`,
+                method: "PATCH",
+                body: { instrument, headingId, content }
             }),
             invalidatesTags: ["Policy"]
         }),
@@ -203,11 +221,13 @@ export const {
     usePostDateMutation,
     usePostBioMutation,
     usePostPolicyMutation,
+    usePostPolicyContentMutation,
     useDeletePolicyMutation,
     useDeleteDateMutation,
     //PATCH
     usePatchUserMutation,
     usePatchBioMutation,
     usePatchPolicyMutation,
+    usePatchPolicyContentMutation,
     usePatchDateMutation
 } = api
