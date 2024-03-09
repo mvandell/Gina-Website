@@ -4,7 +4,7 @@ import Stack from "@mui/material/Stack";
 
 import { useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { useDeletePolicyMutation, usePatchPolicyMutation, useGetPianoPolicyQuery } from "../../redux/api";
+import { useDeletePolicyMutation, usePatchPolicyMutation, usePatchPolicyContentMutation, usePostPolicyContentMutation, useGetPianoPolicyQuery } from "../../redux/api";
 
 const EditPolicySection = () => {
     const {id} = useParams();
@@ -12,11 +12,15 @@ const EditPolicySection = () => {
 
     const [heading, setHeading] = useState(null);
     const [content, setContent] = useState(null);
+    const [newHeading, setNewHeading] = useState(null);
+    const [newContent, setNewContent] = useState(null);
     const [alert, setAlert] = useState(null);
 
     const { data, error, isLoading } = useGetPianoPolicyQuery();
-    const [patchPolicy, { error: patchError }] = usePatchPolicyMutation(id)
-    const [deletePolicy, { error: deleteError }] = useDeletePolicyMutation()
+    const [patchPolicy, { error: patchError }] = usePatchPolicyMutation(id);
+    const [patchPolicyContent, {error: patchContentError}] = usePatchPolicyContentMutation(id);
+    const [deletePolicy, { error: deleteError }] = useDeletePolicyMutation();
+    const [postPolicy, { error: postError}] = usePostPolicyContentMutation();
 
     if (isLoading) {
         return <div></div>
