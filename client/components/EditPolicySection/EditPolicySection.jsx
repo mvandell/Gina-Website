@@ -12,6 +12,7 @@ const EditPolicySection = () => {
 
     const [heading, setHeading] = useState(null);
     const [content, setContent] = useState(null);
+    const [alert, setAlert] = useState(null);
 
     const { data, error, isLoading } = useGetPianoPolicyQuery();
     const [patchPolicy, { error: patchError }] = usePatchPolicyMutation(id)
@@ -23,10 +24,25 @@ const EditPolicySection = () => {
     if (error) {
         return <div>Sorry! There's a problem loading the info.</div>
     }
-
+    const head = data.find((entry) => entry.id === id)
+    //PATCH content/heading
+    //POST new content
+    //DELETE content
     return (
         <div>
-
+            <Card sx={{ m: 5, p: 1, mx: 1 }}>
+                {data && 
+                    <Typography variant="h4">
+                        {head.heading}
+                    </Typography>
+                }
+                {data && data.filter((entry) => entry.headingId === id).map((policy) => (
+                    <Typography key={policy.id}>
+                        {policy.content}
+                    </Typography>
+                ))
+                }
+            </Card>
         </div>
     )
 }

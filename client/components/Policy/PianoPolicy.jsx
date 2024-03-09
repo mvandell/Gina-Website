@@ -26,6 +26,8 @@ const PianoPolicy = () => {
     const contentArr = data.filter(entry => entry.headingId);
 
     //TODO: edit section page
+    //POST new heading
+    //DELETE section
     console.log(data)
     return (
         <div>

@@ -29,7 +29,7 @@ model Policy { //one to many self relation? or new table for headings?
   headingId Int?
   heading String?
   content String?
-  headingRelation Policy? @relation("HeadingContents", fields: [headingId], references: [id]) //basically a junction table
+  headingRelation Policy? @relation("HeadingContents", fields: [headingId], references: [id], onDelete: Cascade) //basically a junction table
   contentRelation Policy[] @relation("HeadingContents")
 }
 
