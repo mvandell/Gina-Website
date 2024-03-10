@@ -1,8 +1,7 @@
 import Typography from "@mui/material/Typography";
-import Card from "@mui/material/Card";
+import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
-import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import IconButton from "@mui/material/IconButton";
 
@@ -10,11 +9,12 @@ import EditIcon from '@mui/icons-material/Edit';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { usePatchPolicyMutation, useGetPianoPolicyQuery } from "../../redux/api";
 
 const PolicyHeading = ({ id }) => {
-
+    const navigate = useNavigate();
     const [heading, setHeading] = useState(null);
     const [alert, setAlert] = useState(null);
 
@@ -48,9 +48,16 @@ const PolicyHeading = ({ id }) => {
                         <EditIcon fontSize="small" />
                     </IconButton>
                     <Stack direction="column">
-                        <Typography variant="h4">
-                            {head.heading}
-                        </Typography>
+                        <Stack direction="row">
+                            <Typography variant="h4">
+                                {head.heading}
+                            </Typography>
+                            <Button variant="outlined" onClick={() => navigate("/policy/piano")} sx={{ml: 10}}>
+                                <Typography sx={{textTransform: "none"}}>
+                                    Back
+                                </Typography>
+                            </Button>
+                        </Stack>
                         {alert === head.id &&
                             <form onSubmit={handlePatchHeading}>
                                 <TextField

@@ -11,7 +11,7 @@ import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { useDeletePolicyMutation, usePatchPolicyMutation, usePatchPolicyContentMutation, usePostPolicyContentMutation, useGetPianoPolicyQuery } from "../../redux/api";
 import PolicyHeading from "./PolicyHeading";
@@ -19,11 +19,8 @@ import NewPolicyContent from "./NewPolicyContent";
 
 const EditPolicySection = () => {
     const { id } = useParams();
-    const navigate = useNavigate();
 
     const [content, setContent] = useState(null);
-    const [newHeading, setNewHeading] = useState(null);
-    const [newContent, setNewContent] = useState(null);
     const [alert, setAlert] = useState(null);
 
     const { data, error, isLoading } = useGetPianoPolicyQuery();
@@ -50,17 +47,13 @@ const EditPolicySection = () => {
 
     const head = data.find((entry) => { return entry.id == id })
 
-    //PATCH heading X
-    //PATCH content X
-    //POST new content
-    //DELETE content X
     return (
         <div>
             <Grid container>
                 <Grid item xs={1}>
                 </Grid>
                 <Grid item xs={6}>
-                    <Card sx={{ m: 5, p: 1, mx: 1, mb: 3 }}>
+                    <Card sx={{ m: 5, p: 2, mx: 1, mb: 3, pr: 3 }}>
                         <PolicyHeading id={id} />
                         {data && data.filter((entry) => entry.headingId == id).map((policy) => (
                             <Box key={policy.id} sx={{ py: 1 }}>
@@ -105,7 +98,7 @@ const EditPolicySection = () => {
                         ))}
                         
                     </Card>
-                    <Card sx={{ m: 3, p: 1, mx: 1 }}>
+                    <Card sx={{ m: 3, p: 2, mx: 1 }}>
                         <NewPolicyContent id={id} />
                     </Card>
                 </Grid>
