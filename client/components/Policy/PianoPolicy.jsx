@@ -9,17 +9,19 @@ import AspectRatio from '@mui/joy/AspectRatio';
 import { useGetPianoPolicyQuery, usePostPolicyMutation, useDeletePolicyMutation } from "../../redux/api";
 import { useSelector } from "react-redux";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import profilePic from "../../images/Profile/ProfileSisters.jpg"
 
 const PianoPolicy = () => {
+    const {id} = useParams();
     const token = useSelector((state) => state.auth.token);
     const [heading, setHeading] = useState(null);
-
+    
     const { data, error, isLoading } = useGetPianoPolicyQuery();
     const [deletePolicy, {error: deleteError}] = useDeletePolicyMutation(id);
     const [postPolicy, {error: postError}] = usePostPolicyMutation();
-
+    
+    
     if (isLoading) {
         return <div></div>
     }
@@ -53,7 +55,7 @@ const PianoPolicy = () => {
                                             </Typography>
                                             {token &&
                                                 <Link to={`/policy/piano/${policy.id}`} style={{ textDecoration: "none", color: "#303036" }}>
-                                                    <Button variant="text" sx={{ color: "#303036", textTransform: "none" }}>
+                                                    <Button variant="outlined" sx={{ textTransform: "none" }}>
                                                         Edit Section
                                                     </Button>
                                                 </Link>

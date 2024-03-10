@@ -112,7 +112,7 @@ const VoicePolicy = () => {
                 <Grid item xs={4}>
                     <Card sx={{ p: 3, mx: 5, my: 5, backgroundColor: "white", mr: 3 }}>
                         <Typography textAlign="center">
-                            <img src={profilePic} alt="a small waterfall in Tuolome Meadows" width="440" />
+                            <img src={profilePic} alt="a small waterfall in Tuolome Meadows" style={{width: "100%"}} />
                         </Typography>
                     </Card>
                 </Grid>
