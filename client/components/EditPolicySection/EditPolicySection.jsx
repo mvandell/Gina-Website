@@ -14,6 +14,7 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useDeletePolicyMutation, usePatchPolicyMutation, usePatchPolicyContentMutation, usePostPolicyContentMutation, useGetPianoPolicyQuery } from "../../redux/api";
+import PolicyHeading from "./PolicyHeading";
 
 const EditPolicySection = () => {
     const { id } = useParams();
@@ -41,7 +42,7 @@ const EditPolicySection = () => {
     const handlePatchContent = async (event) => {
         try {
             event.preventDefault();
-            const response = await patchPolicy({ instrument: "piano", headingId: id, content: content });
+            const response = await patchPolicyContent({ instrument: "piano", headingId: id, content: content });
         }
         catch (error) {
             console.error(error)
@@ -62,11 +63,7 @@ const EditPolicySection = () => {
                 <Grid item xs={6}>
                 </Grid>
                 <Card sx={{ m: 5, p: 1, mx: 1 }}>
-                    {data &&
-                        <Typography variant="h4">
-                            {head.heading}
-                        </Typography>
-                    }
+                    <PolicyHeading id={id}/>
                     {data && data.filter((entry) => entry.headingId == id).map((policy) => (
                         <Box key={policy.id} sx={{ py: 1 }}>
                             <Stack direction="row">
