@@ -39,4 +39,5 @@ model Dates {
   end DateTime
   title String @default("")
   allDay Boolean @default(false)
+  location String @default("")
 }

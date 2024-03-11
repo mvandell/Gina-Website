@@ -8,7 +8,7 @@ async function seed() {
     await prisma.about.deleteMany({});
     await prisma.policy.deleteMany({});
     await prisma.dates.deleteMany({});
-    // TODO: In schema, one-to-many self relation, or new table for headings
+ 
     try {
         //User
         const gina = await prisma.user.create({
