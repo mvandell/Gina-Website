@@ -285,17 +285,20 @@ async function seed() {
                 {
                     start: new Date(2024, 3, 6, 15), //location: Redwood Shores Library
                     end: new Date(2024, 3, 6, 15),
-                    title: "Piano Class"
+                    title: "Piano Class",
+                    location: "Redwood Shores Library"
                 },
                 {
                     start: new Date(2024, 1, 17, 15),
                     end: new Date(2024, 1, 17, 16),
-                    title: "Piano Class"
+                    title: "Piano Class",
+                    location: "Redwood Shores Library"
                 },
                 {
                     start: new Date(2024, 4, 4, 16),
                     end: new Date(2024, 4, 4, 17),
-                    title: "Piano Recital"
+                    title: "Piano Recital",
+                    location: "Redwood Shores Library"
                 },
             ]
         })
