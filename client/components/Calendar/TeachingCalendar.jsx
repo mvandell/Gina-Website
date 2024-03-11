@@ -41,8 +41,7 @@ const TeachingCalendar = () => {
 
     console.log(data);
 
-    //Link to new date form for admins
-
+    //allDay events too short
     //Toggle for piano/voice
     //Sorts dates by instrument
     //Feeds into Calendar events

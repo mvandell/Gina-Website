@@ -6,6 +6,7 @@ import Stack from "@mui/material/Stack";
 import { useGetSingleDateQuery, useDeleteDateMutation } from "../../redux/api";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { format } from "date-fns";
 
 const SingleDate = () => {
     const { id } = useParams();
@@ -22,16 +23,9 @@ const SingleDate = () => {
         return <div>Error: {error.message}</div>
     }
     console.log("single date", data)
-    let time;
-    const start = new Date(data.start).toDateString();
-    const end = new Date(data.end).toDateString();
-    let hours = new Date(data.start).getHours();
-    if (hours > 12) {
-        hours -= 12;
-        time = `${hours} pm`
-    } else {
-        time = `${hours} am`
-    }
+    const startDay = format(new Date(data.start), "eeee, MMM do");
+    const endDay = format(new Date(data.end), "eeee, MMM do");
+    const time = format(new Date(data.start), "p");
 
     return (
         <Card sx={{ my: 10, p: 3 }}>
@@ -44,27 +38,30 @@ const SingleDate = () => {
             {data.allDay ? //all day
                 data.start === data.end ? //single day
                     <Typography sx={{ textAlign: "center" }}>
-                        {start}
+                        {startDay}
                     </Typography>
                     : //multiple days
                     <div>
                         <Typography sx={{ textAlign: "center" }}>
-                            {start}
+                            {startDay}
                         </Typography>
                         <Typography sx={{ textAlign: "center" }}>
                             to
                         </Typography>
                         <Typography sx={{ textAlign: "center" }}>
-                            {end}
+                            {endDay}
                         </Typography>
                     </div>
                 : //not all day
                 <div>
                     <Typography sx={{ textAlign: "center" }}>
-                        {start}
+                        {startDay}
                     </Typography>
                     <Typography sx={{ textAlign: "center" }}>
                         {time}
+                    </Typography>
+                    <Typography sx={{ textAlign: "center", pt: 1 }}>
+                        {data.location}
                     </Typography>
                 </div>
             }

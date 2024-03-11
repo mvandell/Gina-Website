@@ -106,6 +106,9 @@ const NewDate = () => {
                                                 onChange={handleEnd}
                                                 required />
                                         </label>
+                                        <Typography sx={{color: "red", py: 0.5}}>
+                                            Note: multi-day events render one day shorter than specified
+                                        </Typography>
                                     </>
                                     : //not all day
                                     <>

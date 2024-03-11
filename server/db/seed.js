@@ -272,13 +272,13 @@ async function seed() {
                 },
                 {
                     start: new Date(2024, 1, 19),
-                    end: new Date(2024, 1, 23),
+                    end: new Date(2024, 1, 24),
                     title: "No lessons",
                     allDay: true
                 },
                 {
                     start: new Date(2024, 3, 8),
-                    end: new Date(2024, 3, 12),
+                    end: new Date(2024, 3, 13),
                     title: "No lessons",
                     allDay: true
                 },
