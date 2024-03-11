@@ -6,11 +6,13 @@ import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
 import EditNoteIcon from '@mui/icons-material/EditNote';
 
-import { useGetPianoPolicyQuery, usePostPolicyMutation, useDeletePolicyMutation } from "../../redux/api";
+import { useGetPianoPolicyQuery, useDeletePolicyMutation } from "../../redux/api";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import profilePic from "../../images/Profile/ProfileSisters.jpg"
+import NewPolicyHeading from "./NewPolicyHeading";
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 const PianoPolicy = () => {
     const { id } = useParams();
@@ -20,7 +22,7 @@ const PianoPolicy = () => {
 
     const { data, error, isLoading } = useGetPianoPolicyQuery();
     const [deletePolicy, { error: deleteError }] = useDeletePolicyMutation(id);
-    const [postPolicy, { error: postError }] = usePostPolicyMutation();
+
 
 
     if (isLoading) {
@@ -30,10 +32,6 @@ const PianoPolicy = () => {
         return <div>Sorry! There's a problem loading the info.</div>
     }
 
-    const contentArr = data.filter(entry => entry.headingId);
-
-    //TODO: POST new heading
-    //TODO: DELETE section
     console.log(data)
     return (
         <div>
@@ -46,31 +44,46 @@ const PianoPolicy = () => {
                             Piano Policy
                         </Typography>
                         {data && data.map((policy) => (
-                            <Box key={policy.id} sx={{ p: 0.5, m: 1 }}>
-                                {/* <Stack direction="column"> */}
+                            <>
                                 {policy.heading !== null && //if there's a heading, display it
-                                    <Box sx={{ borderTop: 2 }}>
+                                    <Box sx={{ borderTop: 2, mx: 1, mt: 3, mb: 0 }}>
                                         <Stack direction="row">
                                             <Typography variant="h6" sx={{ fontWeight: "bold" }}>
                                                 {policy.heading}
                                             </Typography>
                                             {token &&
-                                                <IconButton onClick={() => navigate(`/policy/piano/${policy.id}`)} color="secondary">
-                                                    <EditNoteIcon />
-                                                </IconButton>
+                                                <Box>
+                                                    <IconButton onClick={() => navigate(`/policy/piano/${policy.id}`)} color="secondary" sx={{ pb: 0, pt: 0.5 }}>
+                                                        <EditNoteIcon />
+                                                    </IconButton>
+                                                    <IconButton
+                                                        onClick={() => {
+                                                            if (confirm("Are you sure you want to delete this entire policy section?") === true) {
+                                                                deletePolicy(policy.id)
+                                                            }
+                                                        }}
+                                                        color="error"
+                                                        sx={{ textTransform: "none", m: 0, p: 0, mr: 1 }}>
+                                                        <DeleteForeverIcon fontSize="small" />
+                                                    </IconButton>
+                                                </Box>
                                             }
                                         </Stack>
                                     </Box>
                                 }
-                                {contentArr.filter(entry => entry.headingId === policy.id).map((paragraph) => (
-                                    <Typography key={paragraph.id} sx={{ pt: 1 }}>
+                                {data.filter(entry => entry.headingId === policy.id).map((paragraph) => (
+                                    <Typography key={paragraph.id} sx={{ pt: 1, mx: 1 }}>
                                         {paragraph.content}
                                     </Typography>
                                 ))}
-                                {/* </Stack> */}
-                            </Box>
+                            </>
                         ))}
                     </Card>
+                    {token && 
+                    <Card sx={{ m: 3, p: 2, mx: 1 }}>
+                        <NewPolicyHeading />
+                    </Card>
+                    }
                 </Grid>
                 <Grid item xs={4}>
                     <Card sx={{ p: 3, mx: 5, my: 5, backgroundColor: "white", mr: 3 }}>

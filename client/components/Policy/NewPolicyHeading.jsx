@@ -5,13 +5,13 @@ import CheckIcon from '@mui/icons-material/Check';
 
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { usePostPolicyContentMutation } from "../../redux/api";
+import { usePostPolicyMutation } from "../../redux/api";
 
-const NewPolicyContent = ({ id }) => {
+const NewPolicyHeading = ({ id }) => {
     const navigate = useNavigate();
-    const [postPolicy, { error, isLoading }] = usePostPolicyContentMutation();
+    const [postPolicy, { error, isLoading }] = usePostPolicyMutation();
 
-    const [newContent, setNewContent] = useState("");
+    const [heading, setHeading] = useState("");
 
     if (isLoading) {
         return <div></div>
@@ -20,12 +20,12 @@ const NewPolicyContent = ({ id }) => {
         return <div>Sorry! There's a problem submitting the info.</div>
     }
 
-    const handlePostContent = async (event) => {
+    const handlePostHeading = async (event) => {
         try {
             event.preventDefault();
-            const response = await postPolicy({ instrument: "piano", headingId: parseInt(id), content: newContent });
-            setNewContent("");
-            navigate(`/policy/piano/${id}`)
+            const response = await postPolicy({ instrument: "piano", heading: heading });
+            setHeading("");
+            navigate("/policy/piano")
         }
         catch (error) {
             console.error(error)
@@ -33,14 +33,14 @@ const NewPolicyContent = ({ id }) => {
     }
 
     return (
-        <form onSubmit={handlePostContent}>
+        <form onSubmit={handlePostHeading}>
             <Typography variant="h5">
-                New Entry
+                New Section
             </Typography>
             <TextField
-                label="New content"
-                value={newContent}
-                onChange={(event) => setNewContent(event.target.value)}
+                label="New heading"
+                value={heading}
+                onChange={(event) => setHeading(event.target.value)}
                 size="small"
                 sx={{ m: 1, backgroundColor: "white" }}
                 multiline />
@@ -51,4 +51,4 @@ const NewPolicyContent = ({ id }) => {
     )
 }
 
-export default NewPolicyContent;
+export default NewPolicyHeading;
