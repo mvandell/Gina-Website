@@ -12,6 +12,11 @@ import Grid from "@mui/material/Grid";
 
 import { usePostDateMutation } from "../../redux/api";
 
+// import '@fontsource/roboto/300.css';
+// import '@fontsource/roboto/400.css';
+// import '@fontsource/roboto/500.css';
+// import '@fontsource/roboto/700.css';
+
 // TODO: needs styling in CSS 
 
 //dropdown for title?
@@ -117,6 +122,7 @@ const NewDate = () => {
                                                 type="datetime-local"
                                                 name="startTime"
                                                 value={start}
+                                                style={{marginLeft: 5}}
                                                 onChange={handleStart}
                                                 required />
                                         </label>
@@ -125,12 +131,13 @@ const NewDate = () => {
                                                 type="datetime-local"
                                                 name="endTime"
                                                 value={end}
+                                                style={{marginLeft: 5}}
                                                 onChange={handleEnd}
                                                 required />
                                         </label>
                                     </>
                                 }
-                                <TextField
+                                <TextField //Dropdown?
                                     label="Event"
                                     value={title}
                                     onChange={(event) => setTitle(event.target.value)}
