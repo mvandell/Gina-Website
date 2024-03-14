@@ -45,8 +45,7 @@ const TeachingCalendar = () => {
     //Toggle for piano/voice
     //Sorts dates by instrument
     //Feeds into Calendar events
-    
-    
+
     return (
         <div>
             <Stack direction="row">
@@ -59,8 +58,8 @@ const TeachingCalendar = () => {
                             localizer={localizer}
                             events={data}
                             defaultView='month'
-                            startAccessor={(event) => {return new Date(event.start)}}
-                            endAccessor={(event) => {return new Date(event.end)}}
+                            startAccessor={(event) => { return new Date(event.start) }}
+                            endAccessor={(event) => { return new Date(event.end) }}
                             allDayAccessor="allDay"
                             defaultDate={new Date()}
                             views={['month', "agenda"]}
@@ -73,7 +72,7 @@ const TeachingCalendar = () => {
                     <SingleDate />
                 }
             </Stack>
-                <NewDateButton />
+            <NewDateButton />
         </div>
     )
 }
