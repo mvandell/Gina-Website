@@ -40,4 +40,5 @@ model Dates {
   title String @default("")
   allDay Boolean @default(false)
   location String @default("")
+  instrument String @default("piano")
 }
