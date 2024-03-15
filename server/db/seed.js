@@ -42,6 +42,7 @@ async function seed() {
         })
 
         //Policy
+        //Piano
         const pianoBilling = await prisma.policy.create({
             data: {
                 instrument: "piano",
@@ -158,6 +159,7 @@ async function seed() {
                 },
             ]
         })
+        //Voice
         const voiceBilling = await prisma.policy.create({
             data: {
                 instrument: "voice",
@@ -165,11 +167,18 @@ async function seed() {
                 heading: "Billing and Fees"
             }
         })
+        const voiceNoLessons = await prisma.policy.create({
+            data: {
+                instrument: "voice",
+                heading: "No lessons on Mondays and the following dates:",
+                headingId: null
+            }
+        })
         const voiceClasses = await prisma.policy.create({
             data: {
                 instrument: "voice",
                 headingId: null,
-                heading: "Rehearsals and Recitals"
+                heading: "Performance Workshops and Recitals"
             }
         })
         const voiceCM = await prisma.policy.create({
@@ -179,62 +188,62 @@ async function seed() {
                 heading: "Certificate of Merit"
             }
         })
-        const voiceEmail = await prisma.policy.create({
+        const voiceCommunication = await prisma.policy.create({
             data: {
                 instrument: "voice",
                 headingId: null,
-                heading: "E-mail"
+                heading: "Communication"
             }
         })
         const voiceParking = await prisma.policy.create({
             data: {
                 instrument: "voice",
                 headingId: null,
-                heading: "Parking"
+                heading: "Parking and Waiting"
             }
         })
-        const voiceBillingContent = await prisma.policy.createMany({
+        const voiceContent = await prisma.policy.createMany({
             data: [
                 {
                     instrument: "voice",
                     headingId: voiceBilling.id,
-                    content: "Lessons are 45 minutes and 30 minutes in length.  Payment is due on a monthly basis.  I will email you a bill at the beginning of the month for the previous month's lessons.  Contact me directly for specific fees."
+                    content: "Lessons are $75 for a 45-minute lesson beginning in September. Payment is on a monthly basis. I will email you a bill at the beginning of the month for the previous month's lessons. I accept cash, checks, PayPal and Venmo."
                 },
                 {
                     instrument: "voice",
                     headingId: voiceBilling.id,
-                    content: "A weekly lesson time is reserved and regular attendance is necessary for steady progress. If you need to cancel a lesson, you must notify me twenty-four hours in advance.  If I receive less than 24 hours notice, you will be required to pay for the lesson."
+                    content: "A weekly lesson time is reserved for your student and regular attendance is necessary for steady progress. If you need to cancel a lesson, please notify me 24 hours in advance. If I receive less than 24-hour notice, you will be required to pay for the lesson. If I am unable to teach a scheduled lesson, you will be given credit or a refund for the lesson."
                 },
                 {
                     instrument: "voice",
-                    headingId: voiceBilling.id,
-                    content: "Music books and materials will be billed separately.  Please write a separate check for music."
-                },
-                {
-                    instrument: "voice",
-                    headingId: voiceBilling.id,
-                    content: "Please go to my current Calendar to view dates for recitals, workshops, and the Certificate of Merit evaluation."
+                    headingId: voiceNoLessons.id,
+                    content: "September 18 - 22, November 13 - 24, December 25 - 29, January 1 - 5"
                 },
                 {
                     instrument: "voice",
                     headingId: voiceClasses.id,
-                    content: "I invite my students to participate in workshops and recitals.  Although these events are optional, they are highly recommended to build confidence in performance.  Workshop and recital fees will be equally divided up between the participants and billed accordingly. Rehearsal time with the accompanist will be billed according to each students time used."
+                    content: "More information coming soon."
                 },
                 {
                     instrument: "voice",
                     headingId: voiceCM.id,
-                    content: "Studio and registration fees will be billed in October."
+                    content: "Certificate of Merit registration and fees will be processed in September."
                 },
                 {
                     instrument: "voice",
-                    headingId: voiceEmail.id,
-                    content: "E-mail is a great way to communicate with me!  Please send me your e-mail address.  Sending me an email to cancel or change lesson times is fine as long as you give me 24 hours notice of any changes."
+                    headingId: voiceCommunication.id,
+                    content: "Please communicate to me thru email and text. Text is especially helpful if you need to inform me of a same day cancellation."
                 },
                 {
                     instrument: "voice",
                     headingId: voiceParking.id,
-                    content: "Please try to park directly in front of the house during the lesson and take care not to block the driveway."
+                    content: "Please try to park directly in front of my house during the lesson and take care not to block the driveway. Parents, while you wait feel free to use the chairs on my front porch or have a seat in the studio."
                 },
+                {
+                    instrument: "voice",
+                    headingId: voiceParking.id,
+                    content: "I look forward to a highly productive year! Please don't hesitate to contact me if you have any questions about my policy or any other matter."
+                }
             ]
         })
         //Dates
