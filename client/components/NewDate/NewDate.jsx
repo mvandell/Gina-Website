@@ -4,7 +4,10 @@ import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import TextField from "@mui/material/TextField";
-import RadioGroup from "@mui/material/RadioGroup";
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
 import Switch from "@mui/material/Switch";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
@@ -12,21 +15,14 @@ import Grid from "@mui/material/Grid";
 
 import { usePostDateMutation } from "../../redux/api";
 
-// import '@fontsource/roboto/300.css';
-// import '@fontsource/roboto/400.css';
-// import '@fontsource/roboto/500.css';
-// import '@fontsource/roboto/700.css';
-
-// TODO: needs styling in CSS 
-
 //dropdown for title?
-//radio for instrument
 
 const NewDate = () => {
     const [allDay, setAllDay] = useState(false);
     const [title, setTitle] = useState("");
     const [start, setStart] = useState("");
     const [end, setEnd] = useState("");
+    const [instrument, setInstrument] = useState("");
 
     const navigate = useNavigate();
 
@@ -45,7 +41,7 @@ const NewDate = () => {
     const handleSubmit = async (event) => {
         try {
             event.preventDefault();
-            const result = await postDate({ start: start, end: end, title: title, allDay: allDay })
+            const result = await postDate({ start: start, end: end, title: title, allDay: allDay, instrument: instrument })
             console.log(result);
             navigate("/calendar");
         } catch (error) {
@@ -111,7 +107,7 @@ const NewDate = () => {
                                                 onChange={handleEnd}
                                                 required />
                                         </label>
-                                        <Typography sx={{color: "red", py: 0.5}}>
+                                        <Typography sx={{ color: "red", py: 0.5 }}>
                                             Note: multi-day events render one day shorter than specified
                                         </Typography>
                                     </>
@@ -122,7 +118,7 @@ const NewDate = () => {
                                                 type="datetime-local"
                                                 name="startTime"
                                                 value={start}
-                                                style={{marginLeft: 5}}
+                                                style={{ marginLeft: 5 }}
                                                 onChange={handleStart}
                                                 required />
                                         </label>
@@ -131,12 +127,25 @@ const NewDate = () => {
                                                 type="datetime-local"
                                                 name="endTime"
                                                 value={end}
-                                                style={{marginLeft: 5}}
+                                                style={{ marginLeft: 5 }}
                                                 onChange={handleEnd}
                                                 required />
                                         </label>
                                     </>
                                 }
+                                <FormControl>
+                                    <RadioGroup
+                                        row
+                                        defaultValue="piano"
+                                        onChange={((event) => {
+                                            console.log(event.target.value);
+                                            setInstrument(event.target.value);
+                                        })} >
+                                        <FormControlLabel value="piano" control={<Radio />} label="Piano" />
+                                        <FormControlLabel value="voice" control={<Radio />} label="Voice" />
+                                        <FormControlLabel value="both" control={<Radio />} label="Both" />
+                                    </RadioGroup>
+                                </FormControl>
                                 <TextField //Dropdown?
                                     label="Event"
                                     value={title}
