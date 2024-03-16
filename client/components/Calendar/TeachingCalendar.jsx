@@ -9,9 +9,14 @@ import enUS from 'date-fns/locale/en-US'
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import Stack from "@mui/material/Stack";
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
 
 import { useGetDatesQuery } from '../../redux/api'
 import { useNavigate, useParams } from 'react-router-dom';
+import { useState } from 'react';
 import SingleDate from './SingleDate';
 import NewDateButton from './NewDateButton';
 
@@ -30,6 +35,7 @@ const localizer = dateFnsLocalizer({
 const TeachingCalendar = () => {
     const navigate = useNavigate();
     const { id } = useParams();
+    const [instrument, setInstrument] = useState(null)
     const { data, error, isLoading } = useGetDatesQuery();
 
     if (isLoading) {
@@ -41,22 +47,33 @@ const TeachingCalendar = () => {
 
     console.log(data);
 
-    //allDay events too short
-    //Toggle for piano/voice
-    //Sorts dates by instrument
-    //Feeds into Calendar events
-
     return (
         <div>
             <Stack direction="row">
+
                 <Card sx={{ m: 10, p: 2 }}>
+
                     <Typography variant='h3' sx={{ textAlign: "center", m: 1 }}>
                         Calendar
+                    </Typography>
+                    <Typography textAlign="center">
+                        <FormControl sx={{ textAlign: "center" }}>
+                            <RadioGroup
+                                row
+                                defaultValue="piano"
+                                onChange={((event) => {
+                                    console.log(event.target.value);
+                                    setInstrument(event.target.value);
+                                })} >
+                                <FormControlLabel value="piano" control={<Radio />} label="Piano" />
+                                <FormControlLabel value="voice" control={<Radio />} label="Voice" />
+                            </RadioGroup>
+                        </FormControl>
                     </Typography>
                     <div className='calendar'>
                         <Calendar
                             localizer={localizer}
-                            events={data}
+                            events={data.filter((entry) => entry.instrument === instrument || entry.instrument === "both")}
                             defaultView='month'
                             startAccessor={(event) => { return new Date(event.start) }}
                             endAccessor={(event) => { return new Date(event.end) }}
