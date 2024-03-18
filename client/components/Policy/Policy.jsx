@@ -53,7 +53,7 @@ const Policy = () => {
                                             </Typography>
                                             {token &&
                                                 <Box>
-                                                    <IconButton onClick={() => navigate(`/policy//${policy.id}`)} color="secondary" sx={{ pb: 0, pt: 0.5 }}>
+                                                    <IconButton onClick={() => navigate(`/policy/${policy.id}`)} color="secondary" sx={{ pb: 0, pt: 0.5 }}>
                                                         <EditNoteIcon />
                                                     </IconButton>
                                                     <IconButton
