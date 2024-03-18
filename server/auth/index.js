@@ -93,10 +93,9 @@ authRouter.post("/about/add", requireUser, async (req, res, next) => {
 //POST /auth/policy/add
 authRouter.post("/policy/add", requireUser, async (req, res, next) => {
     try {
-        const {instrument, heading} = req.body;
+        const { heading} = req.body;
         const newPolicy = await prisma.policy.create({
             data: {
-                instrument,
                 heading
             },
         });
@@ -109,10 +108,9 @@ authRouter.post("/policy/add", requireUser, async (req, res, next) => {
 //POST /auth/policy/content/add
 authRouter.post("/policy/content/add", requireUser, async (req, res, next) => {
     try {
-        const {instrument, headingId, content} = req.body;
+        const { headingId, content} = req.body;
         const newPolicyContent = await prisma.policy.create({
             data: {
-                instrument,
                 headingId,
                 content
             },

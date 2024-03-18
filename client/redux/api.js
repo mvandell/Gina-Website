@@ -53,18 +53,10 @@ const api = createApi({
             }),
             providesTags: ["About"]
         }),
-        //GET PIANO POLICY
+        //GET POLICY
         getPianoPolicy: builder.query({
             query: () => ({
-                url: "/api/policy/piano",
-                method: "GET",
-            }),
-            providesTags: ["Policy"]
-        }),
-        //GET VOICE POLICY
-        getVoicePolicy: builder.query({
-            query: () => ({
-                url: "/api/policy/voice",
+                url: "/api/policy",
                 method: "GET",
             }),
             providesTags: ["Policy"]
@@ -175,19 +167,19 @@ const api = createApi({
         }),
         //PATCH POLICY HEADING
         patchPolicy: builder.mutation({
-            query: ({ id, instrument, heading }) => ({
+            query: ({ id, heading }) => ({
                 url: `/auth/policy/${id}/edit`,
                 method: "PATCH",
-                body: { instrument, heading }
+                body: { heading }
             }),
             invalidatesTags: ["Policy"]
         }),
          //PATCH POLICY CONTENT
          patchPolicyContent: builder.mutation({
-            query: ({ id, instrument, headingId, content }) => ({
+            query: ({ id, headingId, content }) => ({
                 url: `/auth/policy/content/${id}/edit`,
                 method: "PATCH",
-                body: { instrument, headingId, content }
+                body: { headingId, content }
             }),
             invalidatesTags: ["Policy"]
         }),

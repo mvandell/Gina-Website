@@ -39,29 +39,11 @@ apiRouter.get("/about/:id", async (req, res, next) => {
     }
 });
 
-//GET /api/policy/piano
-apiRouter.get("/policy/piano", async (req, res, next) => {
+//GET /api/policy
+apiRouter.get("/policy", async (req, res, next) => {
     try {
-        const pianoPolicy = await prisma.policy.findMany({
-            where: {
-                instrument: "piano"
-            }
-        });
-        res.send(pianoPolicy);
-    } catch (error) {
-        next(error)
-    }
-});
-
-//GET /api/policy/voice
-apiRouter.get("/policy/voice", async (req, res, next) => {
-    try {
-        const voicePolicy = await prisma.policy.findMany({
-            where: {
-                instrument: "voice"
-            }
-        });
-        res.send(voicePolicy);
+        const policy = await prisma.policy.findMany({});
+        res.send(policy);
     } catch (error) {
         next(error)
     }
