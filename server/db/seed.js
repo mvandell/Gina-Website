@@ -8,7 +8,7 @@ async function seed() {
     await prisma.about.deleteMany({});
     await prisma.policy.deleteMany({});
     await prisma.dates.deleteMany({});
- 
+
     try {
         //User
         const gina = await prisma.user.create({
@@ -44,42 +44,36 @@ async function seed() {
         //Policy
         const billing = await prisma.policy.create({
             data: {
-                instrument: "piano",
                 heading: "Billing and Fees",
                 headingId: null
             }
         })
         const CM = await prisma.policy.create({
             data: {
-                instrument: "piano",
                 heading: "Certificate of Merit (CM)",
                 headingId: null
             }
         })
         const noLessons = await prisma.policy.create({
             data: {
-                instrument: "piano",
                 heading: "No lessons on Mondays and the following dates:",
                 headingId: null
             }
         })
         const recitals = await prisma.policy.create({
             data: {
-                instrument: "piano",
                 heading: "Performance Classes and Recitals",
                 headingId: null
             }
         })
         const communication = await prisma.policy.create({
             data: {
-                instrument: "piano",
                 heading: "Communication",
                 headingId: null
             }
         })
         const parking = await prisma.policy.create({
             data: {
-                instrument: "piano",
                 headingId: null,
                 heading: "Parking and Waiting",
             }

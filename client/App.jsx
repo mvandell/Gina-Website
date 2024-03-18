@@ -3,8 +3,7 @@ import { useSelector } from "react-redux";
 import NavBar from "./components/NavBar/NavBar";
 import Contact from "./components/Contact/Contact";
 import About from "./components/About/About";
-import PianoPolicy from "./components/Policy/PianoPolicy";
-import VoicePolicy from "./components/Policy/VoicePolicy";
+import Policy from "./components/Policy/Policy";
 import Homepage from "./components/Homepage/Homepage";
 import TeachingCalendar from "./components/Calendar/TeachingCalendar";
 import Login from "./components/Login/Login";
@@ -29,7 +28,7 @@ const App = () => {
                     <Route path="/about" element={<About />} /> 
                     <Route path="/calendar" element={<TeachingCalendar />} />
                     <Route path="/calendar/:id" element={<TeachingCalendar />} />
-                    <Route path="/policy" element={<PianoPolicy />} /> 
+                    <Route path="/policy" element={<Policy />} /> 
                     <Route path="/login" element={<Login />} />
                     <Route path="/new_date" element={<NewDate />} />
                     <Route path="/date/edit/:id" element={<EditDate />} />
