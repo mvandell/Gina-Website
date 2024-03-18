@@ -54,7 +54,7 @@ const api = createApi({
             providesTags: ["About"]
         }),
         //GET POLICY
-        getPianoPolicy: builder.query({
+        getPolicy: builder.query({
             query: () => ({
                 url: "/api/policy",
                 method: "GET",
@@ -203,8 +203,7 @@ export const {
     useGetAccountQuery,
     useGetBioQuery,
     useGetSingleBioQuery,
-    useGetPianoPolicyQuery,
-    useGetVoicePolicyQuery,
+    useGetPolicyQuery,
     useGetDatesQuery,
     useGetSingleDateQuery,
     //MUTATIONS

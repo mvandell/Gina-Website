@@ -13,7 +13,7 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 import { useParams } from "react-router-dom";
 import { useState } from "react";
-import { useDeletePolicyMutation, usePatchPolicyContentMutation, useGetPianoPolicyQuery } from "../../redux/api";
+import { useDeletePolicyMutation, usePatchPolicyContentMutation, useGetPolicyQuery } from "../../redux/api";
 import PolicyHeading from "./PolicyHeading";
 import NewPolicyContent from "./NewPolicyContent";
 
@@ -23,7 +23,7 @@ const EditPolicySection = () => {
     const [content, setContent] = useState(null);
     const [alert, setAlert] = useState(null);
 
-    const { data, error, isLoading } = useGetPianoPolicyQuery();
+    const { data, error, isLoading } = useGetPolicyQuery();
     const [patchPolicyContent, { error: patchContentError }] = usePatchPolicyContentMutation(id);
     const [deletePolicy, { error: deleteError }] = useDeletePolicyMutation();
     
@@ -37,7 +37,7 @@ const EditPolicySection = () => {
     const handlePatchContent = async (event) => {
         try {
             event.preventDefault();
-            const response = await patchPolicyContent({ instrument: "piano", headingId: id, content: content });
+            const response = await patchPolicyContent({ headingId: id, content: content });
         }
         catch (error) {
             console.error(error)

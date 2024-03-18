@@ -23,9 +23,9 @@ const NewPolicyContent = ({ id }) => {
     const handlePostContent = async (event) => {
         try {
             event.preventDefault();
-            const response = await postPolicy({ instrument: "piano", headingId: parseInt(id), content: newContent });
+            const response = await postPolicy({ headingId: parseInt(id), content: newContent });
             setNewContent("");
-            navigate(`/policy/piano/${id}`)
+            navigate(`/policy/${id}`)
         }
         catch (error) {
             console.error(error)

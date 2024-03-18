@@ -29,16 +29,14 @@ const App = () => {
                     <Route path="/about" element={<About />} /> 
                     <Route path="/calendar" element={<TeachingCalendar />} />
                     <Route path="/calendar/:id" element={<TeachingCalendar />} />
-                    <Route path="/policy/voice" element={<VoicePolicy />} /> 
-                    <Route path="/policy/piano" element={<PianoPolicy />} /> 
+                    <Route path="/policy" element={<PianoPolicy />} /> 
                     <Route path="/login" element={<Login />} />
-
                     <Route path="/new_date" element={<NewDate />} />
                     <Route path="/date/edit/:id" element={<EditDate />} />
                     <Route path="/account" element={<AccountPage />} />
                     <Route path="/account/edit" element={<EditUser />} />
                     <Route path="/about/edit/:id" element={<EditBio />} />
-                    <Route path="/policy/piano/:id" element={<EditPolicySection />} /> 
+                    <Route path="/policy/:id" element={<EditPolicySection />} /> 
                 </Routes>
             </div>
         </div>

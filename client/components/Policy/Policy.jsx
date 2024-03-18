@@ -6,7 +6,7 @@ import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
 import EditNoteIcon from '@mui/icons-material/EditNote';
 
-import { useGetPianoPolicyQuery, useDeletePolicyMutation } from "../../redux/api";
+import { useGetPolicyQuery, useDeletePolicyMutation } from "../../redux/api";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -14,13 +14,13 @@ import profilePic from "../../images/Profile/ProfileSisters.jpg"
 import NewPolicyHeading from "./NewPolicyHeading";
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
-const PianoPolicy = () => {
+const Policy = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const token = useSelector((state) => state.auth.token);
     const [heading, setHeading] = useState(null);
 
-    const { data, error, isLoading } = useGetPianoPolicyQuery();
+    const { data, error, isLoading } = useGetPolicyQuery();
     const [deletePolicy, { error: deleteError }] = useDeletePolicyMutation(id);
 
 
@@ -41,7 +41,7 @@ const PianoPolicy = () => {
                 <Grid item xs={6}>
                     <Card sx={{ m: 5, p: 1, mx: 1 }}>
                         <Typography variant="h3" sx={{ m: 2 }}>
-                            Piano Policy
+                            Policy
                         </Typography>
                         {data && data.map((policy) => (
                             <>
@@ -53,7 +53,7 @@ const PianoPolicy = () => {
                                             </Typography>
                                             {token &&
                                                 <Box>
-                                                    <IconButton onClick={() => navigate(`/policy/piano/${policy.id}`)} color="secondary" sx={{ pb: 0, pt: 0.5 }}>
+                                                    <IconButton onClick={() => navigate(`/policy//${policy.id}`)} color="secondary" sx={{ pb: 0, pt: 0.5 }}>
                                                         <EditNoteIcon />
                                                     </IconButton>
                                                     <IconButton
@@ -87,7 +87,7 @@ const PianoPolicy = () => {
                 </Grid>
                 <Grid item xs={4}>
                     <Card sx={{ p: 3, mx: 5, my: 5, backgroundColor: "white", mr: 3 }}>
-                        <img src={profilePic} alt="Gina sitting at her piano" style={{ width: "100%" }} />
+                        <img src={profilePic} alt="Gina sitting at her " style={{ width: "100%" }} />
                     </Card>
                 </Grid>
                 <Grid item xs={1}>
@@ -97,4 +97,4 @@ const PianoPolicy = () => {
     )
 }
 
-export default PianoPolicy;
+export default Policy;

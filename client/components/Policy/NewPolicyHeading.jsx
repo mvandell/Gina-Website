@@ -23,9 +23,9 @@ const NewPolicyHeading = ({ id }) => {
     const handlePostHeading = async (event) => {
         try {
             event.preventDefault();
-            const response = await postPolicy({ instrument: "piano", heading: heading });
+            const response = await postPolicy({ heading: heading });
             setHeading("");
-            navigate("/policy/piano")
+            navigate("/policy")
         }
         catch (error) {
             console.error(error)

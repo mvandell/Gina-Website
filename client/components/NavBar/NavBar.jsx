@@ -5,7 +5,6 @@ import Typography from "@mui/material/Typography";
 
 import { Link } from "react-router-dom";
 
-import PolicyDropdown from "./PolicyDropdown";
 import AdminDropdown from "./AdminDropdown";
 
 const NavBar = () => {
@@ -28,7 +27,11 @@ const NavBar = () => {
                                 About Me
                             </Button>
                         </Link>
-                        <PolicyDropdown />
+                        <Link to="/policy">
+                            <Button variant="text" sx={{ color: "#303036", textTransform: "none", fontWeight: "bold", fontSize: "16px" }}>
+                                Policy
+                            </Button>
+                        </Link>
                         <Link to="/calendar">
                             <Button variant="text" sx={{ color: "#303036", textTransform: "none", fontWeight: "bold", fontSize: "16px" }}>
                                 Calendar

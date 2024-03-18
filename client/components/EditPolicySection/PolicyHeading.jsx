@@ -11,14 +11,14 @@ import CloseIcon from '@mui/icons-material/Close';
 
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { usePatchPolicyMutation, useGetPianoPolicyQuery } from "../../redux/api";
+import { usePatchPolicyMutation, useGetPolicyQuery } from "../../redux/api";
 
 const PolicyHeading = ({ id }) => {
     const navigate = useNavigate();
     const [heading, setHeading] = useState(null);
     const [alert, setAlert] = useState(null);
 
-    const { data, error, isLoading } = useGetPianoPolicyQuery();
+    const { data, error, isLoading } = useGetPolicyQuery();
     const [patchPolicy, { error: patchError }] = usePatchPolicyMutation(id);
 
     if (isLoading) {
@@ -31,7 +31,7 @@ const PolicyHeading = ({ id }) => {
     const handlePatchHeading = async (event) => {
         try {
             event.preventDefault();
-            const response = await patchPolicy({ instrument: "piano", heading: heading });
+            const response = await patchPolicy({ heading: heading });
         }
         catch (error) {
             console.error(error)
@@ -52,7 +52,7 @@ const PolicyHeading = ({ id }) => {
                             <Typography variant="h4">
                                 {head.heading}
                             </Typography>
-                            <Button variant="outlined" onClick={() => navigate("/policy/piano")} sx={{ml: 10}}>
+                            <Button variant="outlined" onClick={() => navigate("/policy")} sx={{ml: 10}}>
                                 <Typography sx={{textTransform: "none"}}>
                                     Back
                                 </Typography>
