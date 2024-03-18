@@ -42,208 +42,90 @@ async function seed() {
         })
 
         //Policy
-        //Piano
-        const pianoBilling = await prisma.policy.create({
+        const billing = await prisma.policy.create({
             data: {
                 instrument: "piano",
                 heading: "Billing and Fees",
                 headingId: null
             }
         })
-        const pianoCM = await prisma.policy.create({
+        const CM = await prisma.policy.create({
             data: {
                 instrument: "piano",
                 heading: "Certificate of Merit (CM)",
                 headingId: null
             }
         })
-        const pianoNoLessons = await prisma.policy.create({
+        const noLessons = await prisma.policy.create({
             data: {
                 instrument: "piano",
                 heading: "No lessons on Mondays and the following dates:",
                 headingId: null
             }
         })
-        const pianoClasses = await prisma.policy.create({
+        const recitals = await prisma.policy.create({
             data: {
                 instrument: "piano",
                 heading: "Performance Classes and Recitals",
                 headingId: null
             }
         })
-        const pianoCommunication = await prisma.policy.create({
+        const communication = await prisma.policy.create({
             data: {
                 instrument: "piano",
                 heading: "Communication",
                 headingId: null
             }
         })
-        const pianoParking = await prisma.policy.create({
+        const parking = await prisma.policy.create({
             data: {
                 instrument: "piano",
                 headingId: null,
                 heading: "Parking and Waiting",
             }
         })
-        const pianoContent = await prisma.policy.createMany({
+        const content = await prisma.policy.createMany({
             data: [
                 {
-                    instrument: "piano",
-                    headingId: pianoBilling.id,
-                    content: "School Year (Sept - May)"
+                    headingId: billing.id,
+                    content: "I bill a flat monthly fee for the school year (Sept - May). Payment is due at the first lesson of each month."
                 },
                 {
-                    instrument: "piano",
-                    headingId: pianoBilling.id,
-                    content: "I bill a flat monthly fee for the school year. This is based on 32 lessons per school year (9 months). The rate per lesson averages out to $55 for a 30-minute lesson and $70 for a 45-minute lesson. Payment is due at the first lesson of each month. I accept cash, checks, PayPal, and Venmo."
+                    headingId: billing.id,
+                    content: "Summer lessons (June - Aug) are billed on a per lesson basis to accommodate changing schedules."
                 },
                 {
-                    instrument: "piano",
-                    headingId: pianoBilling.id,
-                    content: "The monthly fee is:"
+                    headingId: billing.id,
+                    content: "I accept cash, checks, PayPal, and Venmo."
                 },
                 {
-                    instrument: "piano",
-                    headingId: pianoBilling.id,
-                    content: "$200 for 30-minute lessons"
+                    headingId: billing.id,
+                    content: "A weekly lesson time is reserved for your student and regular attendance is necessary for steady progress. If you need to cancel a lesson, please notify me twenty-four hours in advance. This will guarantee a make-up or credit for the lesson. If I receive less than 24 hours notice, you will be required to pay for the lesson. If I am unable to teach a scheduled lesson, you will be given a credit or a refund for the lesson."
                 },
                 {
-                    instrument: "piano",
-                    headingId: pianoBilling.id,
-                    content: "$255 for 45-minute lessons"
-                },
-                {
-                    instrument: "piano",
-                    headingId: pianoBilling.id,
-                    content: "Summer lessons (June - Aug)"
-                },
-                {
-                    instrument: "piano",
-                    headingId: pianoBilling.id,
-                    content: "Are billed on a per lesson basis to accommodate changing schedules."
-                },
-                {
-                    instrument: "piano",
-                    headingId: pianoBilling.id,
-                    content: "A weekly lesson time is reserved for your student and regular attendance is necessary for steady progress. If you need to  cancel a lesson, please notify me twenty-four hours in advance. This will guarantee a make-up or credit for the lesson.  If I receive less than 24 hours notice, you will be required to pay for the lesson. If I am unable to teach a scheduled  lesson, you will be given a credit or a refund for the lesson."
-                },
-                {
-                    instrument: "piano",
-                    headingId: pianoCM.id,
+                    headingId: CM.id,
                     content: "Certificate of Merit registration and fees will be processed in September."
                 },
                 {
-                    instrument: "piano",
-                    headingId: pianoNoLessons.id,
+                    headingId: noLessons.id,
                     content: "September 18-22, November 10, November 13-24, December 25-29, January 1-5, February 19-23, April 8-12"
                 },
                 {
-                    instrument: "piano",
-                    headingId: pianoClasses.id,
+                    headingId: recitals.id,
                     content: "More information coming soon"
                 },
                 {
-                    instrument: "piano",
-                    headingId: pianoCommunication.id,
-                    content: "Please communicate to me via email or text. Text is especially helpful if you need to inform me of a same day cancellation."
+                    headingId: communication.id,
+                    content: "Please communicate with me via email or text. Text is especially helpful if you need to inform me of a same day cancellation."
                 },
                 {
-                    instrument: "piano",
-                    headingId: pianoParking.id,
+                    headingId: parking.id,
                     content: "Please try to park directly in front of my house during the lesson and take care not to block the  driveway. Parents, while you wait feel free to use the chairs on my front porch or have a seat in the studio."
                 },
                 {
-                    instrument: "piano",
-                    headingId: pianoParking.id,
+                    headingId: parking.id,
                     content: "I look forward to a highly productive year! Please don't hesitate to contact me if you have any questions about my  policy or any other matter."
                 },
-            ]
-        })
-        //Voice
-        const voiceBilling = await prisma.policy.create({
-            data: {
-                instrument: "voice",
-                headingId: null,
-                heading: "Billing and Fees"
-            }
-        })
-        const voiceNoLessons = await prisma.policy.create({
-            data: {
-                instrument: "voice",
-                heading: "No lessons on Mondays and the following dates:",
-                headingId: null
-            }
-        })
-        const voiceClasses = await prisma.policy.create({
-            data: {
-                instrument: "voice",
-                headingId: null,
-                heading: "Performance Workshops and Recitals"
-            }
-        })
-        const voiceCM = await prisma.policy.create({
-            data: {
-                instrument: "voice",
-                headingId: null,
-                heading: "Certificate of Merit"
-            }
-        })
-        const voiceCommunication = await prisma.policy.create({
-            data: {
-                instrument: "voice",
-                headingId: null,
-                heading: "Communication"
-            }
-        })
-        const voiceParking = await prisma.policy.create({
-            data: {
-                instrument: "voice",
-                headingId: null,
-                heading: "Parking and Waiting"
-            }
-        })
-        const voiceContent = await prisma.policy.createMany({
-            data: [
-                {
-                    instrument: "voice",
-                    headingId: voiceBilling.id,
-                    content: "Lessons are $75 for a 45-minute lesson beginning in September. Payment is on a monthly basis. I will email you a bill at the beginning of the month for the previous month's lessons. I accept cash, checks, PayPal and Venmo."
-                },
-                {
-                    instrument: "voice",
-                    headingId: voiceBilling.id,
-                    content: "A weekly lesson time is reserved for your student and regular attendance is necessary for steady progress. If you need to cancel a lesson, please notify me 24 hours in advance. If I receive less than 24-hour notice, you will be required to pay for the lesson. If I am unable to teach a scheduled lesson, you will be given credit or a refund for the lesson."
-                },
-                {
-                    instrument: "voice",
-                    headingId: voiceNoLessons.id,
-                    content: "September 18 - 22, November 13 - 24, December 25 - 29, January 1 - 5"
-                },
-                {
-                    instrument: "voice",
-                    headingId: voiceClasses.id,
-                    content: "More information coming soon."
-                },
-                {
-                    instrument: "voice",
-                    headingId: voiceCM.id,
-                    content: "Certificate of Merit registration and fees will be processed in September."
-                },
-                {
-                    instrument: "voice",
-                    headingId: voiceCommunication.id,
-                    content: "Please communicate to me thru email and text. Text is especially helpful if you need to inform me of a same day cancellation."
-                },
-                {
-                    instrument: "voice",
-                    headingId: voiceParking.id,
-                    content: "Please try to park directly in front of my house during the lesson and take care not to block the driveway. Parents, while you wait feel free to use the chairs on my front porch or have a seat in the studio."
-                },
-                {
-                    instrument: "voice",
-                    headingId: voiceParking.id,
-                    content: "I look forward to a highly productive year! Please don't hesitate to contact me if you have any questions about my policy or any other matter."
-                }
             ]
         })
         //Dates
