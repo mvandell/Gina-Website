@@ -39,14 +39,14 @@ const Policy = () => {
                 <Grid item xs={1}>
                 </Grid>
                 <Grid item xs={6}>
-                    <Card sx={{ m: 5, p: 1, mx: 1 }}>
+                    <Card sx={{ m: 5, p: 1, mx: 1, pb: 2 }}>
                         <Typography variant="h3" sx={{ m: 2 }}>
                             Policy
                         </Typography>
                         {data && data.map((policy) => (
                             <>
                                 {policy.heading !== null && //if there's a heading, display it
-                                    <Box sx={{ borderTop: 2, mx: 1, mt: 3, mb: 0 }}>
+                                    <Box key={policy.id} sx={{ borderTop: 2, mx: 1, mt: 3, mb: 0 }}>
                                         <Stack direction="row">
                                             <Typography variant="h6" sx={{ fontWeight: "bold" }}>
                                                 {policy.heading}
@@ -87,7 +87,7 @@ const Policy = () => {
                 </Grid>
                 <Grid item xs={4}>
                     <Card sx={{ p: 3, mx: 5, my: 5, backgroundColor: "white", mr: 3 }}>
-                        <img src={profilePic} alt="Gina sitting at her " style={{ width: "100%" }} />
+                        <img src={profilePic} alt="Gina sitting at her piano" style={{ width: "100%" }} />
                     </Card>
                 </Grid>
                 <Grid item xs={1}>

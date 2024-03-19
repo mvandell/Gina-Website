@@ -16,6 +16,7 @@ import { useState } from "react";
 import { useDeletePolicyMutation, usePatchPolicyContentMutation, useGetPolicyQuery } from "../../redux/api";
 import PolicyHeading from "./PolicyHeading";
 import NewPolicyContent from "./NewPolicyContent";
+import naturePic from "../../images/Nature/flowers.jpg"
 
 const EditPolicySection = () => {
     const { id } = useParams();
@@ -26,7 +27,7 @@ const EditPolicySection = () => {
     const { data, error, isLoading } = useGetPolicyQuery();
     const [patchPolicyContent, { error: patchContentError }] = usePatchPolicyContentMutation(id);
     const [deletePolicy, { error: deleteError }] = useDeletePolicyMutation();
-    
+
     if (isLoading) {
         return <div></div>
     }
@@ -95,15 +96,19 @@ const EditPolicySection = () => {
                                 </Stack>
                             </Box>
                         ))}
-                        
+
                     </Card>
                     <Card sx={{ m: 3, p: 2, mx: 1 }}>
                         <NewPolicyContent id={id} />
                     </Card>
                 </Grid>
-            </Grid>
-            <Grid item xs={4}>
-                {/* some image */}
+                <Grid item xs={4}>
+                    <Card sx={{ p: 3, mx: 5, my: 5, backgroundColor: "white", mr: 3 }}>
+                        <img src={naturePic} alt="white flowers" style={{ width: "100%" }} />
+                    </Card>
+                </Grid>
+                <Grid item xs={1}>
+                </Grid>
             </Grid>
         </div>
     )
