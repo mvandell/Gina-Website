@@ -129,8 +129,7 @@ async function seed() {
                     start: new Date("September 18, 2023"),
                     end: new Date("September 22, 2023"),
                     title: "No lessons",
-                    allDay: true,
-                    instrument: "both"
+                    allDay: true
                 },
                 {
                     start: new Date("November 10, 2023"),
@@ -142,22 +141,19 @@ async function seed() {
                     start: new Date("November 13, 2023"),
                     end: new Date("November 24, 2023"),
                     title: "No lessons",
-                    allDay: true,
-                    instrument: "both"
+                    allDay: true
                 },
                 {
                     start: new Date("December 25, 2023"),
                     end: new Date("December 29, 2023"),
                     title: "No lessons",
-                    allDay: true,
-                    instrument: "both"
+                    allDay: true
                 },
                 {
                     start: new Date("January 1, 2024"),
                     end: new Date("January 5, 2024"),
                     title: "No lessons",
-                    allDay: true,
-                    instrument: "both"
+                    allDay: true
                 },
                 {
                     start: new Date(2024, 1, 19),

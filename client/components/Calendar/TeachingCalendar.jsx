@@ -31,7 +31,6 @@ const localizer = dateFnsLocalizer({
 const TeachingCalendar = () => {
     const navigate = useNavigate();
     const { id } = useParams();
-    const [instrument, setInstrument] = useState("piano")
     const { data, error, isLoading } = useGetDatesQuery();
 
     if (isLoading) {

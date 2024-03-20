@@ -4,10 +4,6 @@ import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import TextField from "@mui/material/TextField";
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
 import Switch from "@mui/material/Switch";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
@@ -22,7 +18,6 @@ const NewDate = () => {
     const [title, setTitle] = useState("");
     const [start, setStart] = useState("");
     const [end, setEnd] = useState("");
-    const [instrument, setInstrument] = useState("");
 
     const navigate = useNavigate();
 
@@ -41,7 +36,7 @@ const NewDate = () => {
     const handleSubmit = async (event) => {
         try {
             event.preventDefault();
-            const result = await postDate({ start: start, end: end, title: title, allDay: allDay, instrument: instrument })
+            const result = await postDate({ start: start, end: end, title: title, allDay: allDay })
             console.log(result);
             navigate("/calendar");
         } catch (error) {
@@ -133,19 +128,6 @@ const NewDate = () => {
                                         </label>
                                     </>
                                 }
-                                <FormControl>
-                                    <RadioGroup
-                                        row
-                                        defaultValue="piano"
-                                        onChange={((event) => {
-                                            console.log(event.target.value);
-                                            setInstrument(event.target.value);
-                                        })} >
-                                        <FormControlLabel value="piano" control={<Radio />} label="Piano" />
-                                        <FormControlLabel value="voice" control={<Radio />} label="Voice" />
-                                        <FormControlLabel value="both" control={<Radio />} label="Both" />
-                                    </RadioGroup>
-                                </FormControl>
                                 <TextField //Dropdown?
                                     label="Event"
                                     value={title}

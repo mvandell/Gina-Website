@@ -1,10 +1,6 @@
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import TextField from "@mui/material/TextField";
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
 import Switch from "@mui/material/Switch";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
@@ -23,7 +19,6 @@ const EditDate = () => {
     const [title, setTitle] = useState("");
     const [start, setStart] = useState("");
     const [end, setEnd] = useState("");
-    const [instrument, setInstrument] = useState("");
 
     const { data, error, isLoading } = useGetSingleDateQuery(id);
     const [editDate, { isError }] = usePatchDateMutation();
@@ -52,7 +47,6 @@ const EditDate = () => {
         const end = new Date(data.end);
         setAllDay(data.allDay);
         setTitle(data.title);
-        setInstrument(data.instrument);
         setStart(format(new Date(data.start), "yyyy-MM-dd'T'HH:mm"));
         setEnd(format(new Date(data.end), "yyyy-MM-dd'T'HH:mm"));
         if (data.allDay === true) {
@@ -66,7 +60,6 @@ const EditDate = () => {
     }
 
     //dropdown for title?
-    //radio for instrument
 
     return data && (
         <div>
@@ -139,19 +132,6 @@ const EditDate = () => {
                                         </label>
                                     </>
                                 }
-                                <FormControl>
-                                    <RadioGroup
-                                        row
-                                        defaultValue={data.instrument}
-                                        onChange={((event) => {
-                                            console.log(event.target.value);
-                                            setInstrument(event.target.value);
-                                        })} >
-                                        <FormControlLabel value="piano" control={<Radio />} label="Piano" />
-                                        <FormControlLabel value="voice" control={<Radio />} label="Voice" />
-                                        <FormControlLabel value="both" control={<Radio />} label="Both" />
-                                    </RadioGroup>
-                                </FormControl>
                                 <TextField
                                     label="Event"
                                     value={title}
