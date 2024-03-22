@@ -10,7 +10,7 @@ import { useGetPolicyQuery, useDeletePolicyMutation } from "../../redux/api";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import profilePic from "../../images/Profile/ProfileSisters.jpg"
+import profilePic from "../../images/Profile/ProfileBlack.jpg"
 import NewPolicyHeading from "./NewPolicyHeading";
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
