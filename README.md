@@ -1,129 +1,36 @@
-# React + Express Boilerplate
+# Gina Vandellos' Website  
+### Designed by [Marisa Vandellos](https://github.com/mvandell)  
+Website link coming soon!
 
-## Getting Started
+## Table of Contents  
+1. [Description](https://github.com/mvandell/Gina-Website/tree/readme?tab=readme-ov-file#description)  
+2. [Technology Used](https://github.com/mvandell/Gina-Website/tree/readme?tab=readme-ov-file#technology-used)    
+3. [How to Setup the Project](https://github.com/mvandell/Gina-Website/tree/readme?tab=readme-ov-file#how-to-setup-the-project)  
+4. [Known Issues](https://github.com/mvandell/Gina-Website/tree/readme?tab=readme-ov-file#known-issues)  
 
-1. Make a new repository using this template
-2. Add your teammates as collaborators on the repository
-3. Clone your repository locally
-4. Run `npm install` to install all the dependencies
-5. Setup your `.env` file locally - you can use the `.env.example` as a guideline. In particular, you will need to setup `PORT` and `DATABASE_URL` environment variables. But you may as well at a `JWT_SECRET` while you're in there.
-6. Run `npm run dev` to run locally
+## Description  
+This website is an easy-to-use, yet robust, way for my mom to share important information about her business. The simple layout allows users to quickly find what they are looking for, without extra elements distracting them. It is designed to both draw in new students and provide up-to-date information to her current students.  
 
+## Technology Used  
+![Prisma badge](https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white)  ![Redux badge](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)  ![React badge](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)  ![React Router badge](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)  ![Vite badge](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)  ![NPM badge](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white)  ![Node badge](https://img.shields.io/badge/Node%20js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 
-### Starting the App
+## How to Setup the Project  
+To run this code on your computer, follow these steps:  
+1. Copy the 'clone' link from the **<> Code** button
+2. Run `git clone <copied link>` in the command line to copy the repo down to your local computer
+3. Run `cd Gina-Website` to switch to the repo's folder
+4. Run `npm install` in the command line to install any dependencies you don't have installed globally
+used
+5. Create a .env file in the top-level of your folder
+6. In the .env file, insert this code:  
+    `PORT=<port number>`  
+    `DATABASE_URL="postgresql://postgres:postgres@localhost:5432/<database name>"`  
+    `JWT_SECRET="<some secret>"`  
+7. Run  the following commands in the command line to add prisma and initialize the database:  
+    `npm install prisma --save-dev`  
+    `npx prisma migrate dev --name init`  
+8. Run `npm run seed` in the command line to seed the database  
+9. Run `npm run dev` in the command line to start the server  
+10. Open the app on your localhost at the port you specified!  
 
-Start just the server (great while only working on API endpoints)
-```
-npm run server:dev
-```
-
-For starting the full-stack application - the server will restart whenever changes are made in the `server` directory, and the React app will rebuild whenever changes are made in the `client` directory.
-
-```
-npm run dev
-```
-
-### Running Tests
-
-This will run Jest with verbose output enabled:
-```
-npm run test
-```
-
-If you want Jest to continually run as files are changed, you can call:
-```
-npm run test -- --watch
-```
-
-Or if you want Jest to continually run all tests when files change:
-```
-npm run test -- --watchAll
-```
-
-### Seed the Database
-
-This will run the `server/db/seed.js` file:
-```
-npm run seed
-```
-
-### Deploying the App
-
-You will need to create a Database in your hosting provider of choice (Render or Heroku both work well, but only Render is free).
-
-Once you have a Database URL setup, you will need to setup your Environment Variables to include your Database URL, as well as any other app secrets needed (eg. JWT secret, Client ID and Secret for OAuth, etc)
-
-Whichever provider you use, you will need to set the following settings:
-
-**Build Command:** `npm install && npm run seed && npm run build`
-**Start Command:** `npm start`
-
-## Basic File Structure
-```
-.
-├── client/
-├── dist (ignored by git)
-├── mocks/
-├── node_modules (ignored by git)
-├── prisma/
-├── server/
-├── .gitignore
-├── index.html
-├── jest.config.js
-├── package.json
-├── README.md
-└── vite.config.js
-```
-
-### Client Files
-
-```
-.
-├── client/
-│   ├── components/
-│   │   ├── __tests__/
-│   │   │   └── MyComponent.test.js
-│   │   ├── MyComponent.jsx
-│   │   ├── ... (etc, with as many nested folders as needed to keep organized)
-│   │   └── profile/
-│   │       ├── Profile.jsx
-│   │       ├── ProfileImage.jsx
-│   │       └── ProfileHeader.jsx
-│   ├── app/
-│   │   └── store.js
-│   ├── features/
-│   │   ├── api/
-│   │   │   └── apiSlice.js
-│   │   ├── auth/
-│   │   │   └── authSlice.js
-│   │   └── counter/
-│   │       └── counterSlice.js
-│   ├── App.jsx
-│   ├── index.css
-│   └── main.jsx
-```
-
-### Server Files
-
-```
-.
-├── server/
-│   ├── __tests__/
-│   │   └── app.test.js
-│   ├── api/
-│   │   ├── __tests__/
-│   │   │   └── user.test.js
-│   │   ├── index.js
-│   │   ├── user.js
-│   │   └── // ... (etc, with nested folders for sub-routes as needed to keep organized)
-│   ├── auth/
-│   │   ├── __tests__/
-│   │   │   └── auth.test.js
-│   │   └── index.js (used for authenticating with your app)
-│   ├── db/
-│   │   ├── client.js
-│   │   ├── seed.js
-│   │   └── // ... (optionally, add files / sub-folders with helper methods for accessing the DB with Prisma)
-│   ├── app.js (configure the app)
-│   └── index.js (start the app)
-```
+## Known Issues  
