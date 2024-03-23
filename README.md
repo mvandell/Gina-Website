@@ -3,10 +3,10 @@
 Website link coming soon!
 
 ## Table of Contents  
-1. [Description](https://github.com/mvandell/Gina-Website/tree/readme?tab=readme-ov-file#description)  
-2. [Technology Used](https://github.com/mvandell/Gina-Website/tree/readme?tab=readme-ov-file#technology-used)    
-3. [How to Setup the Project](https://github.com/mvandell/Gina-Website/tree/readme?tab=readme-ov-file#how-to-setup-the-project)  
-4. [Known Issues](https://github.com/mvandell/Gina-Website/tree/readme?tab=readme-ov-file#known-issues)  
+1. [Description](https://github.com/mvandell/Gina-Website?tab=readme-ov-file#description)  
+2. [Technology Used](https://github.com/mvandell/Gina-Website?tab=readme-ov-file#technology-used)    
+3. [How to Setup the Project](https://github.com/mvandell/Gina-Website?tab=readme-ov-file#how-to-setup-the-project)  
+4. [Known Issues](https://github.com/mvandell/Gina-Website?tab=readme-ov-file#known-issues)  
 
 ## Description  
 This website is an easy-to-use, yet robust, way for my mom to share important information about her business. The simple layout allows users to quickly find what they are looking for, without extra elements distracting them. It is designed to both draw in new students and provide up-to-date information to her current students.  
