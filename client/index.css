@@ -1,7 +1,7 @@
 body { /* covers the whole page */
     padding: 0;
     margin: 0; 
-    background-image: url("./images/Nature/meadow.jpg");
+    background-image: url("./images/Garden/lavender.jpg");
     background-size: cover;
 }
 .gradient_background {
