@@ -15,6 +15,22 @@ apiRouter.get("/user", async (req, res, next) => {
     }
 });
 
+//GET /api/blurb
+apiRouter.get("/blurb", async (req, res, next) => {
+    try {
+        const blurb = await prisma.about.findMany({
+            select: {
+                blurb1: true,
+                blurb2: true,
+                blurb3: true
+            }
+        });
+        res.send(blurb);
+    } catch (error) {
+        next(error);
+    }
+});
+
 //GET /api/about
 apiRouter.get("/about", async (req, res, next) => {
     try {

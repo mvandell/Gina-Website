@@ -16,7 +16,7 @@ const api = createApi({
         },
     }),
 
-    tagTypes: ["Me", "Dates", "Policy", "About"],
+    tagTypes: ["Me", "Dates", "Policy", "About", "Blurb"],
     //unique
 
     endpoints: (builder) => ({
@@ -76,6 +76,14 @@ const api = createApi({
                 method: "GET",
             }),
             providesTags: ["Dates"]
+        }),
+        //GET BLURB
+        getBlurb: builder.query({
+            query: () => ({
+                url: "/api/blurb",
+                method: "GET"
+            }),
+            providesTags: ["Blurb"]
         }),
         //<-----------------------MUTATIONS------------------------------>
         //LOGIN
@@ -174,8 +182,8 @@ const api = createApi({
             }),
             invalidatesTags: ["Policy"]
         }),
-         //PATCH POLICY CONTENT
-         patchPolicyContent: builder.mutation({
+        //PATCH POLICY CONTENT
+        patchPolicyContent: builder.mutation({
             query: ({ id, headingId, content }) => ({
                 url: `/auth/policy/content/${id}/edit`,
                 method: "PATCH",
@@ -192,6 +200,16 @@ const api = createApi({
             }),
             invalidatesTags: ["Dates"]
         }),
+        //PATCH BLURB
+        patchBlurb: builder.mutation({
+            query: ({ blurb1, blurb2, blurb3 }) => ({
+                url: "/auth/blurb/edit",
+                method: "PATCH",
+                body: { blurb1, blurb2, blurb3 },
+            }),
+            invalidatesTags: ["Me"]
+        }),
+
     }),
 })
 
@@ -206,6 +224,7 @@ export const {
     useGetPolicyQuery,
     useGetDatesQuery,
     useGetSingleDateQuery,
+    useGetBlurbQuery,
     //MUTATIONS
     useLoginMutation,
     useLogoutMutation,
@@ -220,5 +239,6 @@ export const {
     usePatchBioMutation,
     usePatchPolicyMutation,
     usePatchPolicyContentMutation,
-    usePatchDateMutation
+    usePatchDateMutation,
+    usePatchBlurbMutation
 } = api

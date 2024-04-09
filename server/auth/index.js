@@ -147,6 +147,24 @@ authRouter.patch("/account/:id/edit", requireUser, async (req, res, next) => {
     }
 });
 
+//PATCH /auth/blurb/edit
+authRouter.patch("/blurb/edit", requireUser, async (req, res, next) => {
+    try {
+        const {blurb1, blurb2, blurb3} = req.body;
+        const updatedBlurb = await prisma.user.update({
+            where: {id: req.user.id},
+            data: {
+                blurb1: blurb1 || undefined,
+                blurb2: blurb2 || undefined,
+                blurb3: blurb3 || undefined
+            }
+        });
+        res.send(updatedBlurb);
+    } catch (error) {
+        next(error)
+    }
+});
+
 //PATCH /auth/bio/:id/edit
 authRouter.patch("/about/:id/edit", requireUser, async (req, res, next) => {
     try {
