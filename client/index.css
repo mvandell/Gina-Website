@@ -17,6 +17,10 @@ label {
     margin-bottom: 8px;
 }
 .nav {
-    background-image: url("./images/Piano/piano8.jpeg");
+    background-image: url("./images/Garden/snailPlant.jpg");
     background-size: cover;
+}
+
+.homepage {
+    background-color: black;
 }

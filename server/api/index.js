@@ -18,7 +18,7 @@ apiRouter.get("/user", async (req, res, next) => {
 //GET /api/blurb
 apiRouter.get("/blurb", async (req, res, next) => {
     try {
-        const blurb = await prisma.about.findMany({
+        const blurb = await prisma.user.findMany({
             select: {
                 blurb1: true,
                 blurb2: true,
