@@ -16,7 +16,10 @@ async function seed() {
                 username: "gvandellos",
                 password: bcrypt.hashSync("B@thSo@kT1me", SALT_COUNT),
                 email: "ginavandellos@hotmail.com",
-                phone: "(650) 868 - 3285"
+                phone: "(650) 868 - 3285",
+                blurb1: "I have been teaching private piano and voice lessons on the peninsula for 20 years.",
+                blurb2: "My teaching philosophy consists of providing a warm, supportive atmosphere where students can excel.  I give careful attention to technique to ease the delivery of the music.",
+                blurb3: "I am an active member of the Music Teachers Association of California and the National Association of Teachers of Singing."
             }
         })
 
