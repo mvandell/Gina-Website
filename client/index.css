@@ -16,11 +16,16 @@ label {
     font-family: "arial";
     margin-bottom: 8px;
 }
-.nav {
-    background-image: url("./images/Garden/snailPlant.jpg");
+#nav {
+    background-color: black;
     background-size: cover;
 }
 
-.homepage {
-    background-color: black;
+#links {
+    display: flex;
+    justify-content: space-between;
+}
+
+.link:hover {
+    background-color: rgba(169, 169, 169, 0.411);
 }

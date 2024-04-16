@@ -17,7 +17,7 @@ import EditPolicySection from "./components/EditPolicySection/EditPolicySection"
 const App = () => {
     const token = useSelector((state) => state.auth.token);
     console.log(token)
-
+       
     return (
         <div className='radial_background'>
             <div className="App">

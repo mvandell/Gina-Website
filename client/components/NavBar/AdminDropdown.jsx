@@ -27,7 +27,7 @@ const AdminDropdown = () => {
                 aria-haspopup="true"
                 aria-expanded={open ? 'true' : undefined}
                 onClick={handleClick}
-                sx={{ color: "#303036", textTransform: "none", fontWeight: "bold", fontSize: "16px" }}
+                sx={{ color: "white", textTransform: "none", fontWeight: "bold", fontSize: "16px" }}
             >
                 Admin
             </Button>

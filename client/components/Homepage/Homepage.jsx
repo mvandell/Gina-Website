@@ -30,7 +30,7 @@ const Homepage = () => {
             <Grid container>
                 <Grid item xs={1}></Grid>
                 <Grid item xs={5}>
-                    <Card sx={{ backgroundColor: "black", py: 2 }}>
+                    <Card sx={{ p: 1, m: 2, pb: 0, backgroundColor: "black" }}>
                         <Typography textAlign="center">
                             <img src={profilePic} alt="Gina Vandellos sitting at her piano" width="100%" />
                         </Typography>
@@ -58,8 +58,9 @@ const Homepage = () => {
                 <Grid item xs={1}></Grid>
             </Grid>
             <Stack direction="row" >
+                {/* Replace with proper images, preferably urls */}
                 <img src="https://www.nats.org/_Library/template/site_logo.svg" alt="NATS logo" width="100" />
-                <img src={MTACLogo} alt="MTAC logo contemporary" width="100" />
+                <img src={MTACLogo} alt="MTAC logo" width="100" />
             </Stack>
         </div>
     )
