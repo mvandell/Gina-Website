@@ -26,10 +26,10 @@ const About = () => {
     console.log(data);
     return (
         <>
-            <Typography variant="h3" sx={{ mx: 4, my: 1 }}>
-                About Me
-            </Typography>
-            <Card sx={{ m: 2, p: 1, mx: 10 }}>
+            <Card sx={{ m: 2, p: 1, mx: 10, backgroundColor: "black", color: "white" }}>
+                <Typography variant="h3" sx={{ mx: 5, mt: 1 }}>
+                    About Me
+                </Typography>
                 {data && data.map((paragraph) => (
                     <Box key={paragraph.id} sx={{ p: 1, m: 2 }}>
                         <Stack direction="row">
@@ -48,9 +48,9 @@ const About = () => {
                 ))}
             </Card>
             <Card sx={{ p: 3, mx: 40, backgroundColor: "black" }}>
-                
-                    <img src={naturePic} alt="a small waterfall in Tuolome Meadows" style={{width: "100%"}} />
-               
+
+                <img src={naturePic} alt="a small waterfall in Tuolome Meadows" style={{ width: "100%" }} />
+
             </Card>
         </>
     )

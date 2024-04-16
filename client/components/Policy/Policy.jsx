@@ -23,8 +23,6 @@ const Policy = () => {
     const { data, error, isLoading } = useGetPolicyQuery();
     const [deletePolicy, { error: deleteError }] = useDeletePolicyMutation(id);
 
-
-
     if (isLoading) {
         return <div></div>
     }
@@ -39,7 +37,7 @@ const Policy = () => {
                 <Grid item xs={1}>
                 </Grid>
                 <Grid item xs={6}>
-                    <Card sx={{ m: 5, p: 1, mx: 1, pb: 2 }}>
+                    <Card sx={{ m: 5, p: 1, mx: 1, pb: 2, backgroundColor: "black", color: "white" }}>
                         <Typography variant="h3" sx={{ m: 2 }}>
                             Policy
                         </Typography>
@@ -86,7 +84,7 @@ const Policy = () => {
                     }
                 </Grid>
                 <Grid item xs={4}>
-                    <Card sx={{ p: 3, mx: 5, my: 5, backgroundColor: "white", mr: 3 }}>
+                    <Card sx={{ p: 3, mx: 5, my: 5, backgroundColor: "black", mr: 3 }}>
                         <img src={profilePic} alt="Gina sitting at her piano" style={{ width: "100%" }} />
                     </Card>
                 </Grid>
