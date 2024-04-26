@@ -1,8 +1,9 @@
 body { /* covers the whole page */
     padding: 0;
     margin: 0; 
-    background-image: url("./images/Garden/lavender.jpg");
-    background-size: cover;
+    background-image: linear-gradient(to bottom right, gray, black, gray, black, gray, gray, black, gray, black, gray, black, gray);
+    /* background-size: cover; */
+    height: 100vh;
 }
 .gradient_background {
     background: linear-gradient(#A9C6EF, #7CDF7C, #DDE7DA, #DDE7DA, white); /* 6 colors */
@@ -29,3 +30,7 @@ label {
 .link:hover {
     background-color: rgba(169, 169, 169, 0.411);
 }
+
+/* .homepage {
+    background-image: linear-gradient(to bottom right, gray, black, gray, black, gray, gray, black, gray, black, gray, black, gray);
+} */

@@ -3,7 +3,7 @@ import Card from "@mui/material/Card";
 import Stack from '@mui/material/Stack'
 import Grid from '@mui/material/Grid'
 
-import profilePic from "../../images/Profile/ProfilePiano.jpg"
+import profilePic from "../../images/Profile/ProfileBlack.jpg"
 import MTACLogo from "./MTAC Logo.png"
 import { useGetBlurbQuery } from "../../redux/api";
 
@@ -37,7 +37,7 @@ const Homepage = () => {
                     </Card>
                 </Grid>
                 <Grid item xs={5}>
-                    <Card sx={{ p: 2, mx: 5, my: "15vh", borderRadius: 4, backgroundColor: "black", color: "white" }}>
+                    <Card sx={{ p: 2, mx: 5, my: "12vh", borderRadius: 4, backgroundColor: "black", color: "white" }}>
                         <Typography variant="h3" textAlign="center" sx={{mb: 3}}>
                             Welcome to my Website!
                         </Typography>
