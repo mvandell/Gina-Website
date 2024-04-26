@@ -16,14 +16,14 @@ const AccountPage = () => {
     if (error) {
         return <div>Error:{error.message}</div>;
     }
-
+//TODO: change color of button
     return (
         <>
-            <Card sx={{ backgroundColor: "#AFC7A8", px: 2, py: 1, mx: 40, my: 5, borderRadius: 5 }}>
+            <Card sx={{ backgroundColor: "black", color: "white", px: 2, py: 1, mx: 40, my: 5, borderRadius: 5 }}>
                 <Typography variant="h3">
                     Welcome, {data.username}!
                 </Typography>
-                <Card sx={{ p: 3, m: 1 }}>
+                <Card sx={{ backgroundColor: "black", color: "white", p: 3, m: 1, border: 1, borderColor: "white", borderRadius: 3 }}>
                     <Stack direction="column">
                         <Typography sx={{ pb: 2 }}>
                             Email: {data.email}
@@ -39,9 +39,9 @@ const AccountPage = () => {
                     </Stack>
                 </Card>
             </Card>
-            <Card sx={{ p: 3, mx: 50 }}>
+            <Card sx={{ p: 3, mx: 50, backgroundColor: "black" }}>
                 <Typography textAlign="center">
-                    <img src={naturePic} alt="a small waterfall in Tuolome Meadows" style={{width: "100%"}} />
+                    <img src={naturePic} alt="a small waterfall in Tuolome Meadows" style={{ width: "100%" }} />
                 </Typography>
             </Card>
         </>

@@ -18,7 +18,8 @@ const Homepage = () => {
     }
 
     const withLinks = data[0].blurb3.replace("Music Teachers Association of California", `${<a href='https://www.mtac.org' target='_blank'>Music Teachers Association of California</a>}`).replace("National Association of Teachers of Singing", `${<a href='https://www.nats.org' target='_blank'>National Association of Teachers of Singing</a>}`);
-
+//TODO: add patch blurb mutation for admin
+//dark mode for entire website?
     console.log(data)
     return (
         <div className="homepage">
