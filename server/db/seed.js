@@ -57,28 +57,10 @@ async function seed() {
                 headingId: null
             }
         })
-        const noLessons = await prisma.policy.create({
-            data: {
-                heading: "No lessons on Mondays and the following dates:",
-                headingId: null
-            }
-        })
         const recitals = await prisma.policy.create({
             data: {
                 heading: "Performance Classes and Recitals",
                 headingId: null
-            }
-        })
-        const communication = await prisma.policy.create({
-            data: {
-                heading: "Communication",
-                headingId: null
-            }
-        })
-        const parking = await prisma.policy.create({
-            data: {
-                headingId: null,
-                heading: "Parking and Waiting",
             }
         })
         const content = await prisma.policy.createMany({
@@ -104,24 +86,8 @@ async function seed() {
                     content: "Certificate of Merit registration and fees will be processed in September."
                 },
                 {
-                    headingId: noLessons.id,
-                    content: "September 18-22, November 10, November 13-24, December 25-29, January 1-5, February 19-23, April 8-12"
-                },
-                {
                     headingId: recitals.id,
                     content: "More information coming soon"
-                },
-                {
-                    headingId: communication.id,
-                    content: "Please communicate with me via email or text. Text is especially helpful if you need to inform me of a same day cancellation."
-                },
-                {
-                    headingId: parking.id,
-                    content: "Please try to park directly in front of my house during the lesson and take care not to block the  driveway. Parents, while you wait feel free to use the chairs on my front porch or have a seat in the studio."
-                },
-                {
-                    headingId: parking.id,
-                    content: "I look forward to a highly productive year! Please don't hesitate to contact me if you have any questions about my  policy or any other matter."
                 },
             ]
         })

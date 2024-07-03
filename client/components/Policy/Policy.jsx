@@ -10,9 +10,17 @@ import { useGetPolicyQuery, useDeletePolicyMutation } from "../../redux/api";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import profilePic from "../../images/Profile/ProfileBlack.jpg"
+import profilePic from "../../images/Profile/ProfilePiano.jpg"
 import NewPolicyHeading from "./NewPolicyHeading";
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+
+
+//TODO: a few paragraphs about lessons
+//TODO: more like the blurb on the homepage
+//TODO: card background image
+    //ProfileSide?
+    //more gray tones
+//TODO: rename to Lessons
 
 const Policy = () => {
     const { id } = useParams();
@@ -36,10 +44,10 @@ const Policy = () => {
             <Grid container>
                 <Grid item xs={1}>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={5}>
                     <Card sx={{ m: 5, p: 1, mx: 1, pb: 2, backgroundColor: "black", color: "white" }}>
                         <Typography variant="h3" sx={{ m: 2 }}>
-                            Policy
+                            Lessons
                         </Typography>
                         {data && data.map((policy) => (
                             <>
@@ -83,7 +91,7 @@ const Policy = () => {
                     </Card>
                     }
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={5}>
                     <Card sx={{ p: 3, mx: 5, my: 5, backgroundColor: "black", mr: 3 }}>
                         <img src={profilePic} alt="Gina sitting at her piano" style={{ width: "100%" }} />
                     </Card>

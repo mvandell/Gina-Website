@@ -8,7 +8,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import { useGetBioQuery } from "../../redux/api";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import naturePic from "../../images/Nature/YosemiteRiver.jpg"
+import profilePic from "../../images/Profile/ProfileClose.jpg"
 //hobbies?
 const About = () => {
     const token = useSelector((state) => state.auth.token);
@@ -49,7 +49,7 @@ const About = () => {
             </Card>
             <Card sx={{ p: 3, mx: 40, backgroundColor: "black" }}>
 
-                <img src={naturePic} alt="a small waterfall in Tuolome Meadows" style={{ width: "100%" }} />
+                <img src={profilePic} alt="a small waterfall in Tuolome Meadows" style={{ width: "100%" }} />
 
             </Card>
         </>

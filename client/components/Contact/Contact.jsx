@@ -4,6 +4,8 @@ import Card from "@mui/material/Card";
 import { useGetUserQuery } from "../../redux/api"
 import profilePic from "../../images/Profile/ProfileSmile.jpg"
 
+//TODO: move to Lessons page
+
 const Contact = () => {
     const { data, error, isLoading } = useGetUserQuery();
 

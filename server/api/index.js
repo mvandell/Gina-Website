@@ -7,7 +7,7 @@ const prisma = new PrismaClient();
 //GET /api/user
 apiRouter.get("/user", async (req, res, next) => {
     try {
-        const user = await prisma.user.findMany();
+        const user = await prisma.user.findMany(); //use select to not send password
         delete user.password;
         res.send(user);
     } catch (error) {

@@ -16,6 +16,10 @@ import { useState } from 'react';
 import SingleDate from './SingleDate';
 import NewDateButton from './NewDateButton';
 
+//calendar of the year
+//light mode?
+//fix agenda
+
 const locales = {
     'en-US': enUS,
 }

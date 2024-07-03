@@ -30,14 +30,14 @@ const Homepage = () => {
             </Card> */}
             <Grid container>
                 <Grid item xs={1}></Grid>
-                <Grid item xs={5}>
-                    <Card sx={{ p: 1, m: 2, pb: 0, backgroundColor: "black" }}>
+                <Grid item xs={6}>
+                    <Card sx={{ p: 0, m: 0, pb: 0, backgroundColor: "black" }}>
                         <Typography textAlign="center">
                             <img src={profilePic} alt="Gina Vandellos sitting at her piano" width="100%" />
                         </Typography>
                     </Card>
                 </Grid>
-                <Grid item xs={5}>
+                <Grid item xs={4}>
                     <Card sx={{ p: 2, mx: 5, my: "12vh", borderRadius: 4, backgroundColor: "black", color: "white" }}>
                         <Typography variant="h3" textAlign="center" sx={{mb: 3}}>
                             Welcome to my Website!
@@ -59,7 +59,7 @@ const Homepage = () => {
                 <Grid item xs={1}></Grid>
             </Grid>
             <Stack direction="row" >
-                {/* Replace with proper images, preferably urls */}
+                {/* TODO: Replace with proper images, preferably urls */}
                 <img src="https://www.nats.org/_Library/template/site_logo.svg" alt="NATS logo" width="100" />
                 <img src={MTACLogo} alt="MTAC logo" width="100" />
             </Stack>

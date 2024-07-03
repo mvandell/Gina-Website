@@ -1,5 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
 import NavBar from "./components/NavBar/NavBar";
 import Contact from "./components/Contact/Contact";
 import About from "./components/About/About";
@@ -14,11 +16,22 @@ import EditDate from "./components/EditDate/EditDate";
 import EditBio from "./components/EditBio/EditBio";
 import EditPolicySection from "./components/EditPolicySection/EditPolicySection";
 
+//Hobbies
+//Students Achievements
+//
+
 const App = () => {
     const token = useSelector((state) => state.auth.token);
-    console.log(token)
+    console.log(token) //delete when website finished
        
+    const darkTheme = createTheme({
+        palette: {
+          mode: 'dark',
+        },
+      });
+
     return (
+        <ThemeProvider theme={darkTheme}>
         <div className='radial_background'>
             <div className="App">
                 <NavBar />
@@ -40,6 +53,7 @@ const App = () => {
                 </Routes>
             </div>
         </div>
+        </ThemeProvider>
     );
 }
 
