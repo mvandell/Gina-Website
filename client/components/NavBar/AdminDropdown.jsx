@@ -40,7 +40,7 @@ const AdminDropdown = () => {
                         onClose={handleClose}>
                         <MenuItem>
                         <Link to="/account">
-                            <Button variant="text" sx={{ color: "#303036", textTransform: "none", fontWeight: "bold", fontSize: "16px" }}>
+                            <Button variant="text" sx={{ color: "white", textTransform: "none", fontWeight: "bold", fontSize: "16px" }}>
                                 Account Page
                             </Button>
                         </Link>
@@ -59,7 +59,7 @@ const AdminDropdown = () => {
                         onClose={handleClose}>
                         <MenuItem>
                         <Link to="/login">
-                            <Button variant="text" sx={{ color: "#303036", textTransform: "none", fontWeight: "bold", fontSize: "16px" }}>
+                            <Button variant="text" sx={{ color: "white", textTransform: "none", fontWeight: "bold", fontSize: "16px" }}>
                                 Login
                             </Button>
                         </Link>

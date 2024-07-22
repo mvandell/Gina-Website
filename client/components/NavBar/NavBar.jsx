@@ -38,17 +38,12 @@ const NavBar = () => {
                         </Link>
                         <Link to="/policy" className="link">
                             <Button variant="text" sx={{ color: "white", textTransform: "none", fontWeight: "bold", fontSize: "16px" }}>
-                                Policy
+                                Lessons
                             </Button>
                         </Link>
                         <Link to="/calendar" className="link">
                             <Button variant="text" sx={{ color: "white", textTransform: "none", fontWeight: "bold", fontSize: "16px" }}>
                                 Calendar
-                            </Button>
-                        </Link>
-                        <Link to="/contact" className="link">
-                            <Button variant="text" sx={{ color: "white", textTransform: "none", fontWeight: "bold", fontSize: "16px" }}>
-                                Contact Me
                             </Button>
                         </Link>
                         <a href="https://www.mtac.org/programs/cm/" target="_blank" className="link">

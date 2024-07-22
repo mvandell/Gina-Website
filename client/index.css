@@ -9,7 +9,7 @@ body { /* covers the whole page */
 .gradient_background {
     background: linear-gradient(#A9C6EF, #7CDF7C, #DDE7DA, #DDE7DA, white); /* 6 colors */
     background-size: cover;
-}
+} /* TODO: play with shades of black and white */
 .calendar {
     display: grid;
     row-gap: 10rem;

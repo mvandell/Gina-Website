@@ -3,9 +3,7 @@ import { useSelector } from "react-redux";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 import NavBar from "./components/NavBar/NavBar";
-import Contact from "./components/Contact/Contact";
 import About from "./components/About/About";
-import Policy from "./components/Policy/Policy";
 import Homepage from "./components/Homepage/Homepage";
 import TeachingCalendar from "./components/Calendar/TeachingCalendar";
 import Login from "./components/Login/Login";
@@ -15,10 +13,12 @@ import EditUser from "./components/AccountPage/EditUser";
 import EditDate from "./components/EditDate/EditDate";
 import EditBio from "./components/EditBio/EditBio";
 import EditPolicySection from "./components/EditPolicySection/EditPolicySection";
+import Lessons from "./components/Lessons/Lessons";
 
 //Hobbies
 //Students Achievements
-//
+//TODO: more non-profile pictures
+//TODO: play with borders in different colors
 
 const App = () => {
     const token = useSelector((state) => state.auth.token);
@@ -37,12 +37,11 @@ const App = () => {
                 <NavBar />
 
                 <Routes>
-                    <Route path="/" element={<Homepage />} /> 
-                    <Route path="/contact" element={<Contact />} /> 
+                    <Route path="/" element={<Homepage />} />  
                     <Route path="/about" element={<About />} /> 
                     <Route path="/calendar" element={<TeachingCalendar />} />
                     <Route path="/calendar/:id" element={<TeachingCalendar />} />
-                    <Route path="/policy" element={<Policy />} /> 
+                    <Route path="/policy" element={<Lessons />} /> 
                     <Route path="/login" element={<Login />} />
                     <Route path="/new_date" element={<NewDate />} />
                     <Route path="/date/edit/:id" element={<EditDate />} />

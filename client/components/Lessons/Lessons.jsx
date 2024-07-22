@@ -10,6 +10,8 @@ import { useGetPolicyQuery, useDeletePolicyMutation } from "../../redux/api";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+
+import Contact from "./Contact";
 import profilePic from "../../images/Profile/ProfilePiano.jpg"
 import NewPolicyHeading from "./NewPolicyHeading";
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
@@ -20,9 +22,8 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 //TODO: card background image
     //ProfileSide?
     //more gray tones
-//TODO: rename to Lessons
 
-const Policy = () => {
+const Lessons = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const token = useSelector((state) => state.auth.token);
@@ -90,6 +91,7 @@ const Policy = () => {
                         <NewPolicyHeading />
                     </Card>
                     }
+                    <Contact />
                 </Grid>
                 <Grid item xs={5}>
                     <Card sx={{ p: 3, mx: 5, my: 5, backgroundColor: "black", mr: 3 }}>
@@ -103,4 +105,4 @@ const Policy = () => {
     )
 }
 
-export default Policy;
+export default Lessons;
