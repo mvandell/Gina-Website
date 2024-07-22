@@ -27,30 +27,30 @@ const About = () => {
     return (
         <>
             <Card sx={{ m: 2, p: 1, mx: 10, backgroundColor: "black", color: "white" }}>
-                <Typography variant="h3" sx={{ mx: 5, mt: 1 }}>
+                <Typography variant="h3" sx={{ mt: 1 }}>
                     About Me
                 </Typography>
-                {data && data.map((paragraph) => (
-                    <Box key={paragraph.id} sx={{ p: 1, m: 2 }}>
-                        <Stack direction="row">
-                            {token &&
-                                <IconButton onClick={() => navigate(`/about/edit/${paragraph.id}`)}>
-                                    <EditIcon fontSize="small" />
-                                </IconButton>
-                            }
-                            <Stack direction="column">
-                                <Typography>
-                                    {paragraph.paragraph}
-                                </Typography>
+                <Box id="aboutPage"> {/* TODO: alternate paragraphs indented */}
+                    {data && data.map((paragraph) => (
+                        <Box key={paragraph.id} sx={{ p: 1, m: 2 }}>
+                            <Stack direction="row">
+                                {token &&
+                                    <IconButton onClick={() => navigate(`/about/edit/${paragraph.id}`)}>
+                                        <EditIcon fontSize="small" />
+                                    </IconButton>
+                                }
+                                <Stack direction="column">
+                                    <Typography>
+                                        {paragraph.paragraph}
+                                    </Typography>
+                                </Stack>
                             </Stack>
-                        </Stack>
-                    </Box>
-                ))}
+                        </Box>
+                    ))}
+                </Box>
             </Card>
             <Card sx={{ p: 3, mx: 40, backgroundColor: "black" }}>
-
                 <img src={profilePic} alt="a small waterfall in Tuolome Meadows" style={{ width: "100%" }} />
-
             </Card>
         </>
     )
