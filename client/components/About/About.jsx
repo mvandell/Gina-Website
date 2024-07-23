@@ -30,7 +30,7 @@ const About = () => {
                 <Typography variant="h3" sx={{ mt: 1 }}>
                     About Me
                 </Typography>
-                <Box id="aboutPage"> {/* TODO: alternate paragraphs indented */}
+                <Box sx={{">*:nth-child(even)": {ml: "2.5vw"}}}>
                     {data && data.map((paragraph) => (
                         <Box key={paragraph.id} sx={{ p: 1, m: 2 }}>
                             <Stack direction="row">
