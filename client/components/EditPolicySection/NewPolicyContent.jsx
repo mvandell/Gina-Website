@@ -42,7 +42,7 @@ const NewPolicyContent = ({ id }) => {
                 value={newContent}
                 onChange={(event) => setNewContent(event.target.value)}
                 size="small"
-                sx={{ m: 1, backgroundColor: "white" }}
+                sx={{ m: 1 }}
                 multiline />
             <IconButton type="submit" color="success">
                 <CheckIcon />

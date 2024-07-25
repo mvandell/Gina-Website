@@ -49,7 +49,7 @@ const Login = () => {
                 <Grid item xs={3}>
                 </Grid>
                 <Grid item xs={6}>
-                    <Card sx={{ p: 5, backgroundColor: "white", maxWidth: 600, mt: 5 }}>
+                    <Card sx={{ p: 5, maxWidth: 600, mt: 5 }}>
                         <Typography variant="h4" sx={{ textAlign: "center" }}>
                             Login:
                         </Typography>

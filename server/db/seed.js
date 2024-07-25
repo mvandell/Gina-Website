@@ -1,7 +1,7 @@
 const prisma = require("./client");
 const bcrypt = require("bcrypt");
 const SALT_COUNT = 10;
-
+// TODO: remove headings from policy table and update in seed, api, and redux
 async function seed() {
     console.log("Seeding the database.");
     await prisma.user.deleteMany({});

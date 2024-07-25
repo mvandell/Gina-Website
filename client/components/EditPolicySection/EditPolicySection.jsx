@@ -58,7 +58,7 @@ const EditPolicySection = () => {
                         {data && data.filter((entry) => entry.headingId == id).map((policy) => (
                             <Box key={policy.id} sx={{ py: 1 }}>
                                 <Stack direction="row">
-                                    <IconButton onClick={() => setAlert(policy.id)} sx={{ color: "black", m: 0, p: 0, mr: 1 }}>
+                                    <IconButton onClick={() => setAlert(policy.id)} sx={{ color: "lightblue", m: 0, p: 0, mr: 1 }}>
                                         <EditIcon fontSize="small" />
                                     </IconButton>
                                     <IconButton
@@ -82,7 +82,7 @@ const EditPolicySection = () => {
                                                     value={content}
                                                     onChange={(event) => setContent(event.target.value)}
                                                     size="small"
-                                                    sx={{ m: 1, backgroundColor: "white" }}
+                                                    sx={{ m: 1 }}
                                                     multiline />
                                                 <IconButton type="submit" color="success">
                                                     <CheckIcon />

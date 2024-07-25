@@ -64,7 +64,7 @@ const EditBio = () => {
                                 fullWidth
                                 multiline
                                 minRows={3}
-                                sx={{ m: 1, backgroundColor: "white" }}
+                                sx={{ m: 1 }}
                             />
                             <Typography textAlign="center">
                                 <Button type="submit" sx={{ textTransform: "none", backgroundColor: "#8DAF83", color: "black", my: 2, p: 1, fontWeight: "bold" }}>

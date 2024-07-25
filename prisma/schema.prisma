@@ -26,7 +26,7 @@ model About {
   paragraph String
 }
 
-model Policy { //one to many self relation? or new table for headings?
+model Policy {  //remove headings
   id Int @id @default(autoincrement()) //not autoincrement, to adjust location of content?
   headingId Int?
   heading String?

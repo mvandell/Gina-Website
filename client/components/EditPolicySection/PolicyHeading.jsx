@@ -44,7 +44,7 @@ const PolicyHeading = ({ id }) => {
         <>
             <Box sx={{ pb: 2 }}>
                 <Stack direction="row">
-                    <IconButton onClick={() => setAlert(head.id)} sx={{ color: "black", m: 0, p: 0, mr: 1 }}>
+                    <IconButton onClick={() => setAlert(head.id)} sx={{ color: "lightblue", m: 0, p: 0, mr: 1 }}>
                         <EditIcon fontSize="small" />
                     </IconButton>
                     <Stack direction="column">
@@ -65,7 +65,7 @@ const PolicyHeading = ({ id }) => {
                                     value={heading}
                                     onChange={(event) => setHeading(event.target.value)}
                                     size="small"
-                                    sx={{ m: 1, backgroundColor: "white" }}
+                                    sx={{ m: 1 }}
                                     multiline />
                                 <IconButton type="submit" color="success">
                                     <CheckIcon />
