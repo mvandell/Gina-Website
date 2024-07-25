@@ -45,48 +45,24 @@ async function seed() {
         })
 
         //Policy
-        const billing = await prisma.policy.create({
-            data: {
-                heading: "Billing and Fees",
-                headingId: null
-            }
-        })
-        const CM = await prisma.policy.create({
-            data: {
-                heading: "Certificate of Merit (CM)",
-                headingId: null
-            }
-        })
-        const recitals = await prisma.policy.create({
-            data: {
-                heading: "Performance Classes and Recitals",
-                headingId: null
-            }
-        })
         const content = await prisma.policy.createMany({
             data: [
                 {
-                    headingId: billing.id,
                     content: "I bill a flat monthly fee for the school year (Sept - May). Payment is due at the first lesson of each month."
                 },
                 {
-                    headingId: billing.id,
                     content: "Summer lessons (June - Aug) are billed on a per lesson basis to accommodate changing schedules."
                 },
                 {
-                    headingId: billing.id,
                     content: "I accept cash, checks, PayPal, and Venmo."
                 },
                 {
-                    headingId: billing.id,
                     content: "A weekly lesson time is reserved for your student and regular attendance is necessary for steady progress. If you need to cancel a lesson, please notify me twenty-four hours in advance. This will guarantee a make-up or credit for the lesson. If I receive less than 24 hours notice, you will be required to pay for the lesson. If I am unable to teach a scheduled lesson, you will be given a credit or a refund for the lesson."
                 },
                 {
-                    headingId: CM.id,
                     content: "Certificate of Merit registration and fees will be processed in September."
                 },
                 {
-                    headingId: recitals.id,
                     content: "More information coming soon"
                 },
             ]
