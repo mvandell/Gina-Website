@@ -90,28 +90,12 @@ authRouter.post("/about/add", requireUser, async (req, res, next) => {
     }
 });
 
-//POST /auth/policy/add
-authRouter.post("/policy/add", requireUser, async (req, res, next) => {
-    try {
-        const { heading} = req.body;
-        const newPolicy = await prisma.policy.create({
-            data: {
-                heading
-            },
-        });
-        res.status(201).send(newPolicy);
-    } catch (error) {
-        next(error);
-    }
-});
-
 //POST /auth/policy/content/add
 authRouter.post("/policy/content/add", requireUser, async (req, res, next) => {
     try {
-        const { headingId, content} = req.body;
+        const { content} = req.body;
         const newPolicyContent = await prisma.policy.create({
             data: {
-                headingId,
                 content
             },
         });
@@ -179,30 +163,13 @@ authRouter.patch("/about/:id/edit", requireUser, async (req, res, next) => {
     }
 });
 
-//PATCH /auth/policy/:id/edit
-authRouter.patch("/policy/:id/edit", requireUser, async (req, res, next) => {
-    try {
-        const { heading} = req.body;
-        const updatedPolicy = await prisma.policy.update({
-            where: {id: Number(req.params.id)},
-            data: {
-                heading: heading || undefined
-            }
-        });
-        res.send(updatedPolicy);
-    } catch (error) {
-        next(error)
-    }
-});
-
 //PATCH /auth/policy/content/:id/edit
 authRouter.patch("/policy/content/:id/edit", requireUser, async (req, res, next) => {
     try {
-        const { headingId, content} = req.body;
+        const { content} = req.body;
         const updatedPolicyContent = await prisma.policy.update({
             where: {id: Number(req.params.id)},
             data: {
-                headingId: headingId || undefined,
                 content: content || undefined
             }
         });

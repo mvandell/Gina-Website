@@ -13,21 +13,18 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import Contact from "./Contact";
 import profilePic from "../../images/Profile/ProfilePiano.jpg"
-import NewPolicyHeading from "./NewPolicyHeading";
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 
 //TODO: a few paragraphs about lessons
 //TODO: more like the blurb on the homepage
 //TODO: card background image
-    //ProfileSide?
-    //more gray tones
+//ProfileSide?
+//more gray tones
 
 const Lessons = () => {
     const { id } = useParams();
     const navigate = useNavigate();
-    const token = useSelector((state) => state.auth.token);
-    const [heading, setHeading] = useState(null);
 
     const { data, error, isLoading } = useGetPolicyQuery();
     const [deletePolicy, { error: deleteError }] = useDeletePolicyMutation(id);
@@ -52,45 +49,33 @@ const Lessons = () => {
                         </Typography>
                         {data && data.map((policy) => (
                             <>
-                                {policy.heading !== null && //if there's a heading, display it
-                                    <Box key={policy.id} sx={{ borderTop: 2, mx: 1, mt: 3, mb: 0 }}>
-                                        <Stack direction="row">
-                                            <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-                                                {policy.heading}
-                                            </Typography>
-                                            {token &&
-                                                <Box>
-                                                    <IconButton onClick={() => navigate(`/policy/${policy.id}`)} color="secondary" sx={{ pb: 0, pt: 0.5 }}>
-                                                        <EditNoteIcon />
-                                                    </IconButton>
-                                                    <IconButton
-                                                        onClick={() => {
-                                                            if (confirm("Are you sure you want to delete this entire policy section?") === true) {
-                                                                deletePolicy(policy.id)
-                                                            }
-                                                        }}
-                                                        color="error"
-                                                        sx={{ textTransform: "none", m: 0, p: 0, mr: 1 }}>
-                                                        <DeleteForeverIcon fontSize="small" />
-                                                    </IconButton>
-                                                </Box>
-                                            }
-                                        </Stack>
-                                    </Box>
-                                }
-                                {data.filter(entry => entry.headingId === policy.id).map((paragraph) => (
-                                    <Typography key={paragraph.id} sx={{ pt: 1, mx: 1 }}>
-                                        {paragraph.content}
-                                    </Typography>
-                                ))}
+                                <Box key={policy.id} sx={{ borderTop: 2, mx: 1, mt: 3, mb: 0 }}>
+                                    <Stack direction="row">
+                                        {token &&
+                                            <Box>
+                                                <IconButton onClick={() => navigate(`/policy/${policy.id}`)} color="secondary" sx={{ pb: 0, pt: 0.5 }}>
+                                                    <EditNoteIcon />
+                                                </IconButton>
+                                                <IconButton
+                                                    onClick={() => {
+                                                        if (confirm("Are you sure you want to delete this entire policy section?") === true) {
+                                                            deletePolicy(policy.id)
+                                                        }
+                                                    }}
+                                                    color="error"
+                                                    sx={{ textTransform: "none", m: 0, p: 0, mr: 1 }}>
+                                                    <DeleteForeverIcon fontSize="small" />
+                                                </IconButton>
+                                            </Box>
+                                        }
+                                    </Stack>
+                                </Box>
+                                <Typography key={paragraph.id} sx={{ pt: 1, mx: 1 }}>
+                                    {paragraph.content}
+                                </Typography>
                             </>
                         ))}
                     </Card>
-                    {token && 
-                    <Card sx={{ m: 3, p: 2, mx: 1 }}>
-                        <NewPolicyHeading />
-                    </Card>
-                    }
                     <Contact />
                 </Grid>
                 <Grid item xs={5}>

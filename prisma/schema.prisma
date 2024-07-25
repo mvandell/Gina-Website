@@ -26,7 +26,7 @@ model About {
   paragraph String
 }
 
-model Policy {  //remove headings
+model Policy { 
   id Int @id @default(autoincrement()) //not autoincrement, to adjust location of content?
   content String
 }

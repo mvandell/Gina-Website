@@ -23,7 +23,7 @@ const NewPolicyContent = ({ id }) => {
     const handlePostContent = async (event) => {
         try {
             event.preventDefault();
-            const response = await postPolicy({ headingId: parseInt(id), content: newContent });
+            const response = await postPolicy({ content: newContent });
             setNewContent("");
             navigate(`/policy/${id}`)
         }

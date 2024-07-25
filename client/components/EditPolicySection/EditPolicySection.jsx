@@ -14,7 +14,6 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { useDeletePolicyMutation, usePatchPolicyContentMutation, useGetPolicyQuery } from "../../redux/api";
-import PolicyHeading from "./PolicyHeading";
 import NewPolicyContent from "./NewPolicyContent";
 import naturePic from "../../images/Nature/flowers.jpg"
 
@@ -38,7 +37,7 @@ const EditPolicySection = () => {
     const handlePatchContent = async (event) => {
         try {
             event.preventDefault();
-            const response = await patchPolicyContent({ headingId: id, content: content });
+            const response = await patchPolicyContent({ content: content });
         }
         catch (error) {
             console.error(error)
@@ -54,8 +53,7 @@ const EditPolicySection = () => {
                 </Grid>
                 <Grid item xs={6}>
                     <Card sx={{ m: 5, p: 2, mx: 1, mb: 3, pr: 3 }}>
-                        <PolicyHeading id={id} />
-                        {data && data.filter((entry) => entry.headingId == id).map((policy) => (
+                        {data && data.map((policy) => (
                             <Box key={policy.id} sx={{ py: 1 }}>
                                 <Stack direction="row">
                                     <IconButton onClick={() => setAlert(policy.id)} sx={{ color: "lightblue", m: 0, p: 0, mr: 1 }}>
