@@ -42,7 +42,7 @@ const NewPolicyHeading = ({ id }) => {
                 value={heading}
                 onChange={(event) => setHeading(event.target.value)}
                 size="small"
-                sx={{ m: 1, backgroundColor: "white" }}
+                sx={{ m: 1 }}
                 multiline />
             <IconButton type="submit" color="success">
                 <CheckIcon />

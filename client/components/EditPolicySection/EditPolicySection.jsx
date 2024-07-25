@@ -103,7 +103,7 @@ const EditPolicySection = () => {
                     </Card>
                 </Grid>
                 <Grid item xs={4}>
-                    <Card sx={{ p: 3, mx: 5, my: 5, backgroundColor: "white", mr: 3 }}>
+                    <Card sx={{ p: 3, mx: 5, my: 5, mr: 3 }}>
                         <img src={naturePic} alt="white flowers" style={{ width: "100%" }} />
                     </Card>
                 </Grid>
