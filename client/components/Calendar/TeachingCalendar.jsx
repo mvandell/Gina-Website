@@ -57,7 +57,6 @@ const TeachingCalendar = () => {
 const color1 = "floralwhite";
 const color2 = "oldlace";
 const color3 = "seashell";
-//TODO: try showing details on event on calendar
 //TODO: add clip art of piano - flip with popup box
     return (
         <ThemeProvider theme={lightTheme}>
@@ -75,15 +74,16 @@ const color3 = "seashell";
                                 startAccessor={(event) => { return new Date(event.start) }}
                                 endAccessor={(event) => { return new Date(event.end) }}
                                 allDayAccessor="allDay"
+                                titleAccessor={(event) => {return event.allDay ? event.title : `${event.title} ${format(new Date(event.start), "p")}`}}
                                 defaultDate={new Date()}
                                 views={['month', "agenda"]}
                                 onSelectEvent={(event) => { navigate(`/calendar/${event.id}`); }}
-                                style={{ height: "60vh", width: "60vw" }}
+                                style={{ height: "60vh", width: "65vw" }}
                             />
                         </div>
                     </Card>
-                    {id && //TODO: make box smaller
-                        <SingleDate /> //TODO: pass down color
+                    {id &&
+                        <SingleDate color={color3} />
                     }
                 </Stack>
                 <NewDateButton />

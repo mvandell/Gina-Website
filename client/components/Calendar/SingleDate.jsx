@@ -8,7 +8,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { format } from "date-fns";
 
-const SingleDate = () => {
+const SingleDate = ({color}) => {
     const { id } = useParams();
     const navigate = useNavigate();
     const token = useSelector((state) => state.auth.token);
@@ -28,7 +28,7 @@ const SingleDate = () => {
     const time = format(new Date(data.start), "p");
 
     return (
-        <Card sx={{ my: 10, p: 3 }}>
+        <Card sx={{ my: 10, p: 3, backgroundColor: color, height: "15vh" }}>
             <Button onClick={() => navigate("/calendar")} sx={{ textTransform: "none" }}>
                 Close
             </Button>
