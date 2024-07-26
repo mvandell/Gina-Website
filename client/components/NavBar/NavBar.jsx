@@ -22,7 +22,7 @@ const NavBar = () => {
             <Stack direction="row" id="links" sx={{py: 1}}>
                 <Typography variant="h2" sx={{ mx: 1, color: "white", mt: 1 }}>
                     Gina Vandellos
-                <img src="client\images\Favicons\planogram.png" width="50" height="50" style={{paddingLeft: "10px", paddingRight: "10px"}}/>
+                {/* <img src="client\images\Favicons\planogram.png" width="50" height="50" style={{paddingLeft: "10px", paddingRight: "10px"}}/> */}
                 </Typography>
                 <Box sx={{ maxHeight: '50px', mt: 2}}>
                     <Stack direction="row" sx={{ py: 1, px: 2 }}>

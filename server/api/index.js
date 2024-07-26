@@ -58,7 +58,7 @@ apiRouter.get("/about/:id", async (req, res, next) => {
 //GET /api/policy
 apiRouter.get("/policy", async (req, res, next) => {
     try {
-        const policy = await prisma.policy.findMany({});
+        const policy = await prisma.policy.findMany();
         res.send(policy);
     } catch (error) {
         next(error)

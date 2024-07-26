@@ -16,8 +16,8 @@ const Homepage = () => {
     if (error) {
         return <div>Error:{error.message}</div>;
     }
-//TODO: add patch blurb mutation for admin
-//dark mode for entire website?
+    //TODO: add patch blurb mutation for admin
+    //dark mode for entire website?
     console.log(data)
     return (
         <div className="homepage">
@@ -37,7 +37,7 @@ const Homepage = () => {
                 </Grid>
                 <Grid item xs={4}>
                     <Card sx={{ p: 2, mx: 5, my: "12vh", borderRadius: 4, backgroundColor: "black", color: "white" }}>
-                        <Typography variant="h3" textAlign="center" sx={{mb: 3}}>
+                        <Typography variant="h3" textAlign="center" sx={{ mb: 3 }}>
                             Welcome to my Website!
                         </Typography>
                         <Typography sx={{ fontSize: 24 }}>
@@ -52,15 +52,15 @@ const Homepage = () => {
                         <Typography variant="h4" textAlign="right">
                             -Gina Vandellos
                         </Typography>
+                    <Stack direction="row" sx={{justifyContent: "center"}}>
+                        {/* TODO: Replace with proper images, preferably urls */}
+                        <img src="https://www.nats.org/_Library/template/site_logo.svg" alt="NATS logo" width="100" />
+                        <img src={MTACLogo} alt="MTAC logo" width="100" />
+                    </Stack>
                     </Card>
                 </Grid>
                 <Grid item xs={1}></Grid>
             </Grid>
-            <Stack direction="row" >
-                {/* TODO: Replace with proper images, preferably urls */}
-                <img src="https://www.nats.org/_Library/template/site_logo.svg" alt="NATS logo" width="100" />
-                <img src={MTACLogo} alt="MTAC logo" width="100" />
-            </Stack>
         </div>
     )
 }

@@ -57,12 +57,13 @@ const TeachingCalendar = () => {
 const color1 = "floralwhite";
 const color2 = "oldlace";
 const color3 = "seashell";
-
+//TODO: try showing details on event on calendar
+//TODO: add clip art of piano - flip with popup box
     return (
         <ThemeProvider theme={lightTheme}>
             <div>
                 <Stack direction="row">
-                    <Card sx={{ m: 10, p: 2, backgroundColor: color1 }}>
+                    <Card sx={{ m: 10, p: 2, backgroundColor: color3 }}>
                         <Typography variant='h3' sx={{ textAlign: "center", m: 1 }}>
                             Calendar
                         </Typography>
@@ -81,8 +82,8 @@ const color3 = "seashell";
                             />
                         </div>
                     </Card>
-                    {id &&
-                        <SingleDate />
+                    {id && //TODO: make box smaller
+                        <SingleDate /> //TODO: pass down color
                     }
                 </Stack>
                 <NewDateButton />

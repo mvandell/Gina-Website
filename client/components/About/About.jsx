@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import profilePic from "../../images/Profile/ProfileClose.jpg"
 //hobbies?
+//TODO: make sure everything fits without scrolling, once new bio is done
 const About = () => {
     const token = useSelector((state) => state.auth.token);
     const navigate = useNavigate();

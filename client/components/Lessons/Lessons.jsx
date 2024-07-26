@@ -23,6 +23,7 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 //more gray tones
 
 const Lessons = () => {
+    const token = useSelector((state) => state.auth.token);
     const { id } = useParams();
     const navigate = useNavigate();
 
@@ -48,8 +49,7 @@ const Lessons = () => {
                             Lessons
                         </Typography>
                         {data && data.map((policy) => (
-                            <>
-                                <Box key={policy.id} sx={{ borderTop: 2, mx: 1, mt: 3, mb: 0 }}>
+                                <Box key={policy.id} sx={{ mx: 1, mt: 3, mb: 0 }}>
                                     <Stack direction="row">
                                         {token &&
                                             <Box>
@@ -58,7 +58,7 @@ const Lessons = () => {
                                                 </IconButton>
                                                 <IconButton
                                                     onClick={() => {
-                                                        if (confirm("Are you sure you want to delete this entire policy section?") === true) {
+                                                        if (confirm("Are you sure you want to delete this section?") === true) {
                                                             deletePolicy(policy.id)
                                                         }
                                                     }}
@@ -69,11 +69,10 @@ const Lessons = () => {
                                             </Box>
                                         }
                                     </Stack>
+                                    <Typography >
+                                        {policy.content}
+                                    </Typography>
                                 </Box>
-                                <Typography key={paragraph.id} sx={{ pt: 1, mx: 1 }}>
-                                    {paragraph.content}
-                                </Typography>
-                            </>
                         ))}
                     </Card>
                     <Contact />

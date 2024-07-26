@@ -1,7 +1,7 @@
 const prisma = require("./client");
 const bcrypt = require("bcrypt");
 const SALT_COUNT = 10;
-// TODO: remove headings from policy table and update in seed, api, and redux
+
 async function seed() {
     console.log("Seeding the database.");
     await prisma.user.deleteMany({});
@@ -17,7 +17,7 @@ async function seed() {
                 password: bcrypt.hashSync("B@thSo@kT1me", SALT_COUNT),
                 email: "ginavandellos@hotmail.com",
                 phone: "(650) 868 - 3285",
-                blurb1: "I have been teaching private piano and voice lessons on the peninsula for 20 years.",
+                blurb1: "I have been teaching private piano and voice lessons on the peninsula for over 25 years.",
                 blurb2: "My teaching philosophy consists of providing a warm, supportive atmosphere where students can excel.  I give careful attention to technique to ease the delivery of the music.",
                 blurb3: "I am an active member of the Music Teachers Association of California and the National Association of Teachers of Singing."
             }
