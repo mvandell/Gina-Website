@@ -6,6 +6,8 @@ import startOfWeek from 'date-fns/startOfWeek'
 import getDay from 'date-fns/getDay'
 import enUS from 'date-fns/locale/en-US'
 
+import PianoIcon from '@mui/icons-material/Piano';
+import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import Stack from "@mui/material/Stack";
@@ -16,6 +18,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import SingleDate from './SingleDate';
 import NewDateButton from './NewDateButton';
+import pianoPic from "../../images/Piano/piano2.jpeg"
 
 //calendar of the year
 //light mode?
@@ -52,12 +55,12 @@ const TeachingCalendar = () => {
     }
 
     console.log(data);
-    
-// const color = ["floralwhite", "oldlace", "seashell"]
-const color1 = "floralwhite";
-const color2 = "oldlace";
-const color3 = "seashell";
-//TODO: add clip art of piano - flip with popup box
+
+    // const color = ["floralwhite", "oldlace", "seashell"]
+    const color1 = "floralwhite";
+    const color2 = "oldlace";
+    const color3 = "seashell";
+    //TODO: add clip art of piano - flip with popup box
     return (
         <ThemeProvider theme={lightTheme}>
             <div>
@@ -74,7 +77,7 @@ const color3 = "seashell";
                                 startAccessor={(event) => { return new Date(event.start) }}
                                 endAccessor={(event) => { return new Date(event.end) }}
                                 allDayAccessor="allDay"
-                                titleAccessor={(event) => {return event.allDay ? event.title : `${event.title} ${format(new Date(event.start), "p")}`}}
+                                titleAccessor={(event) => { return event.allDay ? event.title : `${event.title} ${format(new Date(event.start), "p")}` }}
                                 defaultDate={new Date()}
                                 views={['month', "agenda"]}
                                 onSelectEvent={(event) => { navigate(`/calendar/${event.id}`); }}
@@ -82,8 +85,12 @@ const color3 = "seashell";
                             />
                         </div>
                     </Card>
-                    {id &&
+                    {id ?
                         <SingleDate color={color3} />
+                        :
+                        <Box sx={{mt: 8}}> {/* try icon instead */}
+                            {/* <img src={pianoPic} alt='piano' width={"100%"} /> */}
+                        </Box>
                     }
                 </Stack>
                 <NewDateButton />

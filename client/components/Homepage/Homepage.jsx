@@ -1,10 +1,11 @@
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
-import Stack from '@mui/material/Stack'
-import Grid from '@mui/material/Grid'
+import Stack from '@mui/material/Stack';
+import Grid from '@mui/material/Grid';
 
 import profilePic from "../../images/Profile/ProfileBlack.jpg"
 import MTACLogo from "./MTAC Logo.png"
+
 import { useGetBlurbQuery } from "../../redux/api";
 
 const Homepage = () => {
@@ -17,15 +18,13 @@ const Homepage = () => {
         return <div>Error:{error.message}</div>;
     }
     //TODO: add patch blurb mutation for admin
-    //dark mode for entire website?
+    //Logos
+        //Manually upload file - could reset site to seed
+        //Convert file to URL (ask) and submit via form
+        //Upload file properly via form (ask)
     console.log(data)
     return (
         <div className="homepage">
-            {/* <Card sx={{ m: 2, p: 2, borderRadius: 5, backgroundColor: "beige" }}>
-                <Typography variant="h3" textAlign="center">
-                    Welcome to my Website!
-                </Typography>
-            </Card> */}
             <Grid container>
                 <Grid item xs={1}></Grid>
                 <Grid item xs={6}>
@@ -52,11 +51,11 @@ const Homepage = () => {
                         <Typography variant="h4" textAlign="right">
                             -Gina Vandellos
                         </Typography>
-                    <Stack direction="row" sx={{justifyContent: "center"}}>
-                        {/* TODO: Replace with proper images, preferably urls */}
-                        <img src="https://www.nats.org/_Library/template/site_logo.svg" alt="NATS logo" width="100" />
-                        <img src={MTACLogo} alt="MTAC logo" width="100" />
-                    </Stack>
+                        <Stack direction="row" sx={{ justifyContent: "center" }}>
+                            {/* TODO: Replace with proper images, preferably urls */}
+                            <img src="https://www.nats.org/_Library/template/site_logo.svg" alt="NATS logo" width="100" />
+                            <img src={MTACLogo} alt="MTAC logo" width="100" />
+                        </Stack>
                     </Card>
                 </Grid>
                 <Grid item xs={1}></Grid>
