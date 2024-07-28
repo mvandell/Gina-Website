@@ -18,7 +18,6 @@ import Lessons from "./components/Lessons/Lessons";
 //Hobbies
 //Students Achievements
 //TODO: more non-profile pictures
-//TODO: play with borders in different colors
 //TODO: play with shades of black and white, without dark mode, at least not on Calendar page
 
 const App = () => {

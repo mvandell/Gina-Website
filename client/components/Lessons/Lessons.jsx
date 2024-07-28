@@ -36,7 +36,8 @@ const Lessons = () => {
     if (error) {
         return <div>Sorry! There's a problem loading the info.</div>
     }
-
+    const black1 = "#0A0A0A"
+    const black2 = "#141414" //TODO: get mom's input on shades of black
     console.log(data)
     return (
         <div>
@@ -44,7 +45,7 @@ const Lessons = () => {
                 <Grid item xs={1}>
                 </Grid>
                 <Grid item xs={5}>
-                    <Card sx={{ m: 5, p: 1, mx: 1, pb: 2, backgroundColor: "black", color: "white" }}>
+                    <Card sx={{ m: 5, p: 1, mx: 1, pb: 2, backgroundColor: black1, color: "white" }}>
                         <Typography variant="h3" sx={{ m: 2 }}>
                             Lessons
                         </Typography>
@@ -75,7 +76,7 @@ const Lessons = () => {
                                 </Box>
                         ))}
                     </Card>
-                    <Contact />
+                    <Contact color={black2}/>
                 </Grid>
                 <Grid item xs={5}>
                     <Card sx={{ p: 3, mx: 5, my: 5, backgroundColor: "black", mr: 3 }}>

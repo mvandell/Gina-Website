@@ -4,7 +4,7 @@ import Card from "@mui/material/Card";
 import { useGetUserQuery } from "../../redux/api"
 import profilePic from "../../images/Profile/ProfileSmile.jpg"
 
-const Contact = () => {
+const Contact = ({color}) => {
     const { data, error, isLoading } = useGetUserQuery();
 
     if (isLoading) {
