@@ -22,7 +22,6 @@ import pianoPic from "../../images/Piano/piano2.jpeg"
 
 //calendar of the year
 //light mode?
-//fix agenda
 
 const lightTheme = createTheme({
     palette: {
@@ -60,7 +59,7 @@ const TeachingCalendar = () => {
     const color1 = "floralwhite";
     const color2 = "oldlace";
     const color3 = "seashell";
-    //TODO: add clip art of piano - flip with popup box
+
     return (
         <ThemeProvider theme={lightTheme}>
             <div>
@@ -88,8 +87,11 @@ const TeachingCalendar = () => {
                     {id ?
                         <SingleDate color={color3} />
                         :
-                        <Box sx={{mt: 8}}> {/* try icon instead */}
-                            {/* <img src={pianoPic} alt='piano' width={"100%"} /> */}
+                        <Box sx={{ mt: 8 }}>
+                            <Typography sx={{ color: "white", mt: "7vh" }}>
+                                <PianoIcon sx={{ fontSize: 100 }} />
+                                <PianoIcon sx={{ fontSize: 100 }} />
+                            </Typography>
                         </Box>
                     }
                 </Stack>
