@@ -2,13 +2,18 @@ import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import Stack from '@mui/material/Stack';
 import Grid from '@mui/material/Grid';
+import Button from "@mui/material/Button";
 
 import profilePic from "../../images/Profile/ProfileBlack.jpg"
 import MTACLogo from "./MTAC Logo.png"
 
 import { useGetBlurbQuery } from "../../redux/api";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Homepage = () => {
+    const token = useSelector((state) => state.auth.token);
+
     const { data, error, isLoading } = useGetBlurbQuery();
 
     if (isLoading) {
@@ -17,11 +22,10 @@ const Homepage = () => {
     if (error) {
         return <div>Error:{error.message}</div>;
     }
-    //TODO: add edit blurb, like edit policy section
     //Logos
-        //Manually upload file - could reset site to seed
-        //Convert file to URL (ask) and submit via form
-        //Upload file properly via form (ask)
+    //Manually upload file - could reset site to seed
+    //Convert file to URL (ask) and submit via form
+    //Upload file properly via form (ask)
     console.log(data)
     return (
         <div className="homepage">
@@ -57,6 +61,13 @@ const Homepage = () => {
                             <img src={MTACLogo} alt="MTAC logo" width="100" />
                         </Stack>
                     </Card>
+                    {token &&
+                        <Link to="/blurb/edit">
+                            <Button variant="contained">
+                                Edit Blurb
+                            </Button>
+                        </Link>
+                    }
                 </Grid>
                 <Grid item xs={1}></Grid>
             </Grid>

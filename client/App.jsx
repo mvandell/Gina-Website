@@ -14,6 +14,7 @@ import EditDate from "./components/EditDate/EditDate";
 import EditBio from "./components/EditBio/EditBio";
 import EditPolicySection from "./components/EditPolicySection/EditPolicySection";
 import Lessons from "./components/Lessons/Lessons";
+import EditBlurb from "./components/Homepage/EditBlurbs";
 
 //Hobbies
 //Students Achievements
@@ -37,7 +38,8 @@ const App = () => {
                 <NavBar />
 
                 <Routes>
-                    <Route path="/" element={<Homepage />} />  
+                    <Route path="/" element={<Homepage />} /> 
+                    <Route path="/blurb/edit" element={<EditBlurb />} /> 
                     <Route path="/about" element={<About />} /> 
                     <Route path="/calendar" element={<TeachingCalendar />} />
                     <Route path="/calendar/:id" element={<TeachingCalendar />} />
