@@ -17,7 +17,7 @@ const Homepage = () => {
     if (error) {
         return <div>Error:{error.message}</div>;
     }
-    //TODO: add patch blurb mutation for admin
+    //TODO: add edit blurb, like edit policy section
     //Logos
         //Manually upload file - could reset site to seed
         //Convert file to URL (ask) and submit via form

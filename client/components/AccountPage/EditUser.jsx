@@ -50,7 +50,7 @@ const EditUser = () => {
 
     return data && (
         <div>
-            <Card sx={{ p: 3, m: 5, backgroundColor: "white" }}>
+            <Card sx={{ p: 3, m: 5 }}>
                 <Typography variant="h4" sx={{ textAlign: "center", p: 1 }}>
                     Update Your Account:
                 </Typography>
@@ -67,7 +67,7 @@ const EditUser = () => {
                             onChange={(event) => setUsername(event.target.value)}
                             size="small"
                             variant="filled"
-                            sx={{ m: 1, backgroundColor: "white"}}
+                            sx={{ m: 1}}
                         />
                         <TextField
                             label="Update Email"
@@ -76,7 +76,7 @@ const EditUser = () => {
                             type="email"
                             size="small"
                             variant="filled"
-                            sx={{ m: 1, backgroundColor: "white"}}
+                            sx={{ m: 1}}
                         />
                         <TextField
                             label="Update Phone"
@@ -85,7 +85,7 @@ const EditUser = () => {
                             type="tel"
                             size="small"
                             variant="filled"
-                            sx={{ m: 1, backgroundColor: "white"}}
+                            sx={{ m: 1}}
                         />
                         <TextField
                             label="Update Password"
@@ -94,7 +94,7 @@ const EditUser = () => {
                             type="password"
                             size="small"
                             variant="filled"
-                            sx={{ m: 1, backgroundColor: "white"}}
+                            sx={{ m: 1}}
                         />
                         <TextField
                             label="Re-enter Updated Password"
@@ -103,7 +103,7 @@ const EditUser = () => {
                             type="password"
                             size="small"
                             variant="filled"
-                            sx={{ m: 1, backgroundColor: "white"}}
+                            sx={{ m: 1}}
                             error={
                                 !!(password && secondPassword !== secondPassword)
                             }
