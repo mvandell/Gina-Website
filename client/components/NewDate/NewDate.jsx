@@ -57,7 +57,7 @@ const NewDate = () => {
                 <Grid item xs={3}>
                 </Grid>
                 <Grid item xs={6}>
-                    <Card sx={{ p: 3, backgroundColor: "white", maxWidth: 600, mt: 5 }}>
+                    <Card sx={{ p: 3, maxWidth: 600, mt: 5 }}>
                         <Typography variant="h3" sx={{ mb: 2 }}>
                             New Event
                         </Typography>
@@ -129,7 +129,7 @@ const NewDate = () => {
                                     </>
                                 }
                                 <TextField //Dropdown?
-                                    label="Event"
+                                    label="Event Name"
                                     value={title}
                                     onChange={(event) => setTitle(event.target.value)}
                                     size="small"
