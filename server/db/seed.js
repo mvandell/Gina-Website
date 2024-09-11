@@ -27,20 +27,17 @@ async function seed() {
         const bio = await prisma.about.createMany({
             data: [
                 {
-                    paragraph: "GINA VANDELLOS, teacher of voice and piano, began her musical training in piano at age 5 and her vocal training with her father, Donald Stenberg, noted professor of voice at the San Francisco Conservatory of Music.  Her vocal talent was recognized in High School when she was regional winner in the California Music Educator's state-wide vocal competition.  As a voice and piano major she attended the University of Oregon, the Aspen School of Music, and graduated from the University of Southern California with a major in performance.  Her teachers have included James Miller, Michael Sells, and Glenna Maurice."
+                    paragraph: "Growing up in Burlingame in a musical family, I began piano lessons at the age of five, nurtured by my mother's piano instruction and my father's voice coaching. This early exposure to music has instilled in me a profound passion for musical expression. Drawing from my extensive background in teaching, I endeavor to convey this passion to each student I encounter."
                 },
                 {
-                    paragraph: "As soprano soloist, Gina has performed in churches and recitals.  She has appeared with the San Francisco Lamplighters, as a soloist with the Early Music Guild Orchestra in Oregon, and as a soloist and member of the San Francisco Chamber Singers. She has done voice-over work for computer games and has performed for movie soundtracks.  Gina often solos with her husband, Dimitri Vandellos, nationally acclaimed jazz guitarist."
+                    paragraph: "I hold a degree in vocal performance from the esteemed University of California, Los Angeles (USC). With over three decades of experience as a music educator, I have had the privilege of teaching in San Carlos. My commitment to professional growth has led me to become a member of both the California Music Teachers Association (MTAC) and the National Teachers of Singing (NATS)."
                 },
                 {
-                    paragraph: "Her vocal students have performed principle and supportive roles in high school musicals throughout the San Mateo County, and in companies such as the Hillbarn Theater, the Bus Barn Stage Theater, Broadway by the Bay, and the San Francisco Lamplighters. Some have gone on to perform in musical theater on Broadway in New York City and in national musical theater touring companies."
+                    paragraph: "My students have consistently demonstrated remarkable achievements. They have been honored with awards at the prestigious MTAC State CM Honors Recitals, San Mateo County Honors Recitals and several have also secured accolades at the MTAC State Improvisation and Composer's Recitals."
                 },
                 {
-                    paragraph: "Gina has been teaching voice and piano for 20 years and maintains her studio at her home in San Carlos.  Gina Vandellos is a member of the Music Teachers' Association of California and the National Association of Teachers of Singing.  She is currently the chair person for Certificate of Merit in the San Mateo County Music Teacher's Association."
+                    paragraph: "In my lessons, my objective is to share the profound joy of creating music. I tailor each lesson to meet the unique needs of each student, incorporating creativity, humor, and inspiration to engage them effectively. My ultimate goal is to motivate and inspire students, empowering them to reach their musical aspirations. I firmly believe that sound technique, achieved through relaxation and ease, is essential for delivering music with clarity and expression."
                 },
-                {
-                    paragraph: "In her teaching, Gina Vandellos emphasizes a sound technique and musicianship while instilling in her students the joys of making music Participation in recitals and group class meetings is encouraged to help students gain confidence and poise performing before an audience.  Her students participate in the state Certificate of Merit program of the Music Teacher's Association of California.  Many of  her students have been honored to perform at the Music Teacher's Association's annual Conventions."
-                }
             ]
         })
 
